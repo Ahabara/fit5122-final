@@ -8,7 +8,12 @@ export default {
     extend: {
       spacing: {
         '128': '36rem',
-      }
+      },
+      colors: {
+        "myOrange": '#fab82c',
+        'myPurple': '#b686fe'
+
+      },
     },
   },
   plugins: [],
