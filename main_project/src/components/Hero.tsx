@@ -1,20 +1,19 @@
 import hero from "../assets/hero.png"
-import Stat from "./Stat.tsx";
 const Hero = () => {
     return (
         <section
-            className="relative bg-myYellow bg-cover bg-center bg-no-repeat ">
+            className="relative bg-myYellow bg-cover bg-center bg-no-repeat lg:pb-32 ">
             <div
-                className="absolute inset-0 bg-white/75 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l sm:bg-transparent sm:from-white/95 sm:to-white/25">
-
+                className="absolute inset-0 ">
             </div>
             <div className="relative mx-auto max-w-screen-xl px-4 sm:px-6 lg:h-128 lg:flex lg:items-center lg:justify-between lg:px-8">
                 <div className="max-w-xl ltr:sm:text-left rtl:sm:text-right">
-                    <h1 className="text-3xl font-extrabold sm:text-5xl">
+                    <img className="lg:hidden md:h-52 py-1" src={hero} alt="diverse teamwork hero picture"/>
+                    <h1 className="pt-8 lg:pt-0 font-extrabold text-5xl">
                         Make Australia
-                        <strong className="block font-extrabold text-myOrange "> Home. </strong>
+                        <strong className="block font-extrabold text-myOrange "> <span
+                            className="bg-myPurple border-myYellow border-4">Home.</span> </strong>
                     </h1>
-
                     <p className="mt-4 max-w-lg sm:text-xl/relaxed">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
                         numquam ea!
@@ -36,11 +35,8 @@ const Hero = () => {
                         </a>
                     </div>
                 </div>
-                <img className="h-2/3" src={hero} alt="diverse teamwork hero picture"/>
+                <img className="invisible lg:visible lg:my-4 lg:h-2/3" src={hero} alt="diverse teamwork hero picture"/>
             </div>
-            <div className="pt-8"></div>
-            <Stat/>
-            <div className="pb-32"></div>
         </section>
     );
 };

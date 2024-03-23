@@ -13,7 +13,6 @@ function App() {
             <NavBar/>
             <Hero/>
             <ExploreCultures/>
-            {/*<Cards/>*/}
             <Quiz/>
             <Stat/>
         </div>

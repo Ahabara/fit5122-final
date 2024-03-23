@@ -125,7 +125,7 @@ const Quiz = () => {
                 ) : (
                     <div>
                         <h2 className="text-2xl font-bold mb-4">{quizQuestions[currentQuestion].question}</h2>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-4 md:mx-44">
                             {quizQuestions[currentQuestion].options.map((option, index) => (
                                 <button
                                     key={index}
