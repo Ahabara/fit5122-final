@@ -11,7 +11,9 @@ export default {
       },
       colors: {
         "myOrange": '#fab82c',
-        'myPurple': '#b686fe'
+        'myPurple': '#b686fe',
+        'myBlack': '#141414',
+        'myYellow': '#FFF2DC'
 
       },
     },
