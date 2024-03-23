@@ -1,8 +1,9 @@
 import './App.css'
 import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
-import Cards from "./components/Cards";
 import Stat from "./components/Stat.tsx";
+import ExploreCultures from "./components/ExploreCultures.tsx";
+import Quiz from "./components/Quiz.tsx";
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
 
             <NavBar/>
             <Hero/>
-            <Cards/>
+            <ExploreCultures/>
+            {/*<Cards/>*/}
+            <Quiz/>
             <Stat/>
         </div>
     </>
