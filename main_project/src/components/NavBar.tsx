@@ -1,11 +1,11 @@
-import logo from "../assets/Logo.png"
+import logo from "../assets/diversity.png"
 
 const NavBar = () => {
     return (
-            <nav className="bg-red-100  dark:bg-gray-900 py-8 px-12">
+            <nav className="bg-red-100  dark:bg-gray-900 py-8 px-12 border border-black">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto border border-black pl-2 bg-[#fab82c]">
                     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src={logo} className="h-12" alt="ForReal Logo"/>
+                        <img src={logo} className="h-16" alt="ForReal Logo"/>
                         <span
                             className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">ForReal</span>
                     </a>
