@@ -3,12 +3,11 @@ import Stat from "./Stat.tsx";
 const Hero = () => {
     return (
         <section
-            className="relative bg-red-100 bg-cover bg-center bg-no-repeat ">
+            className="relative bg-myYellow bg-cover bg-center bg-no-repeat ">
             <div
                 className="absolute inset-0 bg-white/75 ltr:sm:bg-gradient-to-r rtl:sm:bg-gradient-to-l sm:bg-transparent sm:from-white/95 sm:to-white/25">
 
             </div>
-
             <div className="relative mx-auto max-w-screen-xl px-4 sm:px-6 lg:h-128 lg:flex lg:items-center lg:justify-between lg:px-8">
                 <div className="max-w-xl ltr:sm:text-left rtl:sm:text-right">
                     <h1 className="text-3xl font-extrabold sm:text-5xl">
@@ -37,11 +36,11 @@ const Hero = () => {
                         </a>
                     </div>
                 </div>
-                <img className="h-2/3 hover:drop-shadow-2xl transition duration-150 ease-out hover:ease-in" src={hero} alt="diverse teamwork hero picture"/>
+                <img className="h-2/3" src={hero} alt="diverse teamwork hero picture"/>
             </div>
-            <div className="pt-24"></div>
+            <div className="pt-8"></div>
             <Stat/>
-            <div className="pb-96"></div>
+            <div className="pb-32"></div>
         </section>
     );
 };
