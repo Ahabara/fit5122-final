@@ -2,17 +2,18 @@ import hero from "../assets/hero.png"
 const Hero = () => {
     return (
         <section
-            className="relative bg-myYellow bg-cover bg-center bg-no-repeat lg:pb-32 ">
+            className="relative bg-gradient-to-r from-violet-200 to-pink-200 bg-cover bg-center bg-no-repeat lg:pb-32 ">
             <div
                 className="absolute inset-0 ">
             </div>
             <div className="relative mx-auto max-w-screen-xl px-4 sm:px-6 lg:h-128 lg:flex lg:items-center lg:justify-between lg:px-8">
                 <div className="max-w-xl ltr:sm:text-left rtl:sm:text-right">
                     <img className="lg:hidden md:h-52 py-1" src={hero} alt="diverse teamwork hero picture"/>
+
                     <h1 className="pt-8 lg:pt-0 font-extrabold text-5xl">
                         Make Australia
                         <strong className="block font-extrabold text-myOrange "> <span
-                            className="bg-myPurple border-myYellow border-4">Home.</span> </strong>
+                            className="bg-myPurple border-violet-200 border-4">Home.</span> </strong>
                     </h1>
                     <p className="mt-4 max-w-lg sm:text-xl/relaxed">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
