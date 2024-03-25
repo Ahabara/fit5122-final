@@ -2,8 +2,8 @@ import logo from "../assets/diversity.png"
 
 const NavBar = () => {
     return (
-            <nav className="bg-red-100 lg:py-8 lg:px-12 lg:border border-black">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto border border-black pl-2 bg-[#fab82c]">
+            <nav className="bg-gradient-to-r from-violet-200 to-pink-200 lg:py-8 lg:px-12 ">
+                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto border border-black pl-2 bg-[#F1D6FE]">
                     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src={logo} className="h-16" alt="Wominjeka Logo"/>
                         <span
