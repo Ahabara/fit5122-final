@@ -5,9 +5,9 @@ const NavBar = () => {
             <nav className="bg-red-100 lg:py-8 lg:px-12 lg:border border-black">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto border border-black pl-2 bg-[#fab82c]">
                     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src={logo} className="h-16" alt="ForReal Logo"/>
+                        <img src={logo} className="h-16" alt="Wominjeka Logo"/>
                         <span
-                            className="self-center text-2xl font-semibold whitespace-nowrap ">ForReal</span>
+                            className="self-center text-2xl font-semibold whitespace-nowrap ">Wominjeka</span>
                     </a>
                     <div className="flex md:order-2 lg:bg-[#b686fe] p-4 lg:border-l border-black">
                         <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search"
