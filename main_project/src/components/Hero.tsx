@@ -19,19 +19,28 @@ const Hero = () => {
                         numquam ea!
                     </p>
 
-                    <div className="mt-8 flex flex-wrap gap-4 text-center">
-                        <a
-                            href="#"
-                            className="block w-full border border-black  bg-myPurple px-12  drop-shadow-sm py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"
-                        >
-                            Get Started
-                        </a>
 
-                        <a
-                            href="#"
-                            className="block w-full border  drop-shadow-2xl border-black hover:bg-black hover:border-white hover:text-amber-50 bg-white px-12 py-3 text-sm font-medium text-black shadow  focus:outline-none focus:ring active:text-rose-500 sm:w-auto"
-                        >
-                            Learn More
+                    <div className="mt-8 flex flex-wrap gap-4 text-center">
+                        {/*<a*/}
+                        {/*    href="#"*/}
+                        {/*    className="block w-full border border-black  bg-myPurple px-12  drop-shadow-sm py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto"*/}
+                        {/*>*/}
+                        {/*    Get Started*/}
+                        {/*</a>*/}
+
+
+                        <a href="#_" className="relative px-6 py-3 font-bold text-black group">
+                            <span
+                    className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-myPurple group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                            <span className="absolute inset-0 w-full h-full border-4 border-black"></span>
+                            <span className="relative">Learn More</span>
+                        </a>
+                        <a href="#_" className="relative inline-block px-4 py-2 font-medium group">
+                            <span
+                                className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-myPurple group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+                            <span
+                                className="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-myPurple"></span>
+                            <span className="relative text-black group-hover:text-black">Get Started</span>
                         </a>
                     </div>
                 </div>
