@@ -12,7 +12,7 @@ const Hero = () => {
 
                     <h1 className="pt-8 lg:pt-0 font-extrabold text-5xl">
                         Make Australia
-                        <strong className="block font-extrabold text-myOrange "> <span
+                        <strong className="block font-extrabold text-myYellow "> <span
                             className="bg-myPurple border-violet-200 border-4">Home.</span> </strong>
                     </h1>
                     <p className="mt-4 max-w-lg sm:text-xl/relaxed">
@@ -45,7 +45,7 @@ const Hero = () => {
                         </a>
                     </div>
                 </div>
-                <img className="invisible lg:visible lg:my-4 lg:h-2/3" src={hero} alt="diverse teamwork hero picture"/>
+                <img className="invisible lg:visible lg:my-4 lg:h-2/3 transition duration-300 ease-in-out hover:-translate-x-8" src={hero} alt="diverse teamwork hero picture"/>
             </div>
         </section>
     );
