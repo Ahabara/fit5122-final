@@ -1,33 +1,8 @@
-import React, {SetStateAction, useState} from "react";
+import {SetStateAction, useState} from "react";
+import Game from "./Game.tsx";
+import GameQuiz from "./GameQuiz.tsx";
 
-interface QuizCardProps{
-    i: number
-    question: string
-    answer: string
-    moreInfo:string
-}
-const Card:React.FC<QuizCardProps> = ({i, question, answer, moreInfo}) => {
-    return <div className="p-4 max-w-sm">
-        <div className="flex  h-full dark:bg-gray-800 bg-myPurple p-4 flex-col">
-            <div className="flex items-center mb-3">
-                {/*<div*/}
-                {/*    className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full dark:bg-indigo-500 bg-indigo-500 text-white flex-shrink-0">*/}
-                {/*    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"*/}
-                {/*         strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">*/}
-                {/*        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>*/}
-                {/*    </svg>*/}
-                {/*</div>*/}
-                <h2 className="text-white dark:text-white text-lg font-medium">{i +1}. {question}</h2>
-            </div>
-            <div className="flex flex-col justify-stretch flex-grow">
-                <p className="text-gray-700">{answer}</p>
-                <p className="leading-relaxed text-base text-white dark:text-gray-300">
-                    {moreInfo}
-                </p>
-            </div>
-        </div>
-    </div>
-}
+
 
 const Quiz = () => {
     const quizQuestions = [
@@ -107,46 +82,49 @@ const Quiz = () => {
     };
 
     return (
-        <section className="bg-myBlack text-amber-50 mx-auto px-12 py-8">
-            <p className="text-6xl text-amber-50 max-w-lg py-8">Ready To <span
+        <section className="bg-gradient-to-b from-myBlack to-purple-900 text-amber-50 mx-auto px-12 py-8">
+            <p className="text-6xl text-amber-50 max-w-lg pt-8">Ready To <span
                 className="bg-myPurple px-2">Test</span> Your Knowledge?</p>
-                {showScore ? (
-                    <div className="text-left text-amber-50">
-                        <h2 className="text-2xl font-bold">Quiz Completed!</h2>
-                        <p className="text-xl mt-4">Your Score: {score}/{quizQuestions.length}</p>
-                        <p>{scoreMetric(score/quizQuestions.length)}</p>
-                        <div className="flex flex-wrap justify-center mt-4">
-                        {quizQuestions.map((i, k)=> (
-                                <Card i={k} moreInfo={i.moreInfo} answer={i.answer} question={i.question} key={k}/>
+            <h1 className="text-2xl mb-8">Drag and Drop Game</h1>
+
+            <Game/>
+            {showScore ? (
+                <div className="text-left text-amber-50">
+                    <h2 className="text-2xl font-bold">Quiz Completed!</h2>
+                    <p className="text-xl mt-4">Your Score: {score}/{quizQuestions.length}</p>
+                    <p>{scoreMetric(score / quizQuestions.length)}</p>
+                    <div className="flex flex-wrap justify-center mt-4">
+                        {quizQuestions.map((i, k) => (
+                            <GameQuiz i={k} moreInfo={i.moreInfo} answer={i.answer} question={i.question} key={k}/>
 
                         ))}
-                        </div>
                     </div>
-                ) : (
-                    <div>
-                        <h2 className="text-2xl font-bold mb-4">{quizQuestions[currentQuestion].question}</h2>
-                        <div className="grid grid-cols-2 gap-4 md:mx-44">
-                            {quizQuestions[currentQuestion].options.map((option, index) => (
-                                <button
-                                    key={index}
-                                    className={`p-2  border border-white hover:bg-purple-300 ${
-                                        selectedOption === option ? 'bg-myPurple text-white' : 'bg-gray-950'
-                                    }`}
-                                    onClick={() => handleOptionSelect(option)}
-                                >
-                                    {option}
-                                </button>
-                            ))}
-                        </div>
-                        <button
-                            className="mt-4 p-2 bg-myPurple text-white border border-white"
-                            onClick={handleNextQuestion}
-                            disabled={!selectedOption}
-                        >
-                            Next
-                        </button>
+                </div>
+            ) : (
+                <div>
+                    <h2 className="text-2xl font-bold mb-4">{quizQuestions[currentQuestion].question}</h2>
+                    <div className="grid grid-cols-2 gap-4 md:mx-44">
+                        {quizQuestions[currentQuestion].options.map((option, index) => (
+                            <button
+                                key={index}
+                                className={`p-2  border border-white hover:bg-purple-300 ${
+                                    selectedOption === option ? 'bg-myPurple text-white' : 'bg-gray-950'
+                                }`}
+                                onClick={() => handleOptionSelect(option)}
+                            >
+                                {option}
+                            </button>
+                        ))}
                     </div>
-                )}
+                    <button
+                        className="mt-4 p-2 bg-myPurple text-white border border-white"
+                        onClick={handleNextQuestion}
+                        disabled={!selectedOption}
+                    >
+                        Next
+                    </button>
+                </div>
+            )}
         </section>
     );
 };
