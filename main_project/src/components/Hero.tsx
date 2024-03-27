@@ -2,7 +2,7 @@ import hero from "../assets/hero.png"
 const Hero = () => {
     return (
         <section
-            className="relative bg-gradient-to-r from-violet-200 to-pink-200 bg-cover bg-center bg-no-repeat lg:pb-32 ">
+            className="relative bg-gradient-to-r from-violet-200 to-pink-200 bg-cover bg-center bg-no-repeat lg:pb-32 2xl:h-screen">
             <div
                 className="absolute inset-0 ">
             </div>
