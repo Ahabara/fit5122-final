@@ -1,7 +1,7 @@
 import {SetStateAction, useState} from "react";
 import Game from "./Game.tsx";
 import GameQuiz from "./GameQuiz.tsx";
-
+import StartGame from "./StartGame.tsx";
 
 
 const Quiz = () => {
@@ -81,12 +81,13 @@ const Quiz = () => {
         }
     };
 
+
     return (
         <section className="bg-gradient-to-b from-myBlack to-purple-900 text-amber-50 mx-auto px-12 py-8">
             <p className="text-6xl text-amber-50 max-w-lg pt-8">Ready To <span
                 className="bg-myPurple px-2">Test</span> Your Knowledge?</p>
             <h1 className="text-2xl mb-8">Drag and Drop Game</h1>
-
+            <StartGame/>
             <Game/>
             {showScore ? (
                 <div className="text-left text-amber-50">

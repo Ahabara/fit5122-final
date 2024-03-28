@@ -76,7 +76,7 @@ const Game: React.FC = () => {
 
     return (
         // justify-center removed
-        <div className=" min-h-screen text-myYellow flex flex-col items-center">
+        <div className=" min-h-screen text-myYellow flex flex-col items-center ">
             {currentQuestion < questions.length ? (
                 <>
                     <h1>{questions[currentQuestion].question.toString()}</h1>

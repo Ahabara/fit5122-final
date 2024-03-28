@@ -13,7 +13,7 @@ const GameCard:React.FC<GameCardProps> = ({text, styling}) => {
         "bg-myRed",
     ]
 
-    const className = twMerge("flex-shrink-0 m-6 relative overflow-hidden max-w-xs", stylingOptions[styling-1] )
+    const className = twMerge("flex-shrink-0 m-6 relative overflow-hidden max-w-xs ", stylingOptions[styling-1] )
     return (
         <div>
             <div className={className}>
