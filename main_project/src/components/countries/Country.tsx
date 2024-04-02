@@ -1,5 +1,5 @@
-import Layout from "../Layout.tsx";
-import {useParams} from "react-router-dom";
+import Layout from "../landing/Layout.tsx";
+import {Link, useParams} from "react-router-dom";
 import {DoAndDont} from "./DoAndDont.tsx";
 import {MostSpokenLanguages} from "./MostSpokenLanguages.tsx";
 import {Greetings} from "./Greetings.tsx";
@@ -80,7 +80,7 @@ const Country = () => {
     const {countryName} = useParams();
     return (
         <Layout>
-            <section className="text-gray-600 body-font">
+            <section className="text-gray-600 body-font" id="pageTop">
                 <div className="container px-5 py-24 mx-auto">
                     <CountryHero about={china["China"]["About"]} countryName={countryName}/>
                     <SignificantEvents events={china.China["Significant Festivals"]}/>
@@ -92,6 +92,16 @@ const Country = () => {
                     <TraditionalClothing description={china.China["Traditional Clothing"]}/>
                     <DoAndDont DosAndDonts={china.China["DosAndDonts"]}/>
                     <SourcesList sources={china.China["Sources of Information"]}/>
+
+                    <div className="my-4 py-8 pl-4" >
+                        <Link to="/" className="relative px-6 py-3 font-bold text-black group">
+                            <span
+                                className="absolute inset-0 w-full h-full transition duration-300 ease-out transform -translate-x-2 -translate-y-2 bg-myPurple group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                            <span className="absolute inset-0 w-full h-full border-4 border-black"></span>
+                            <span className="relative">
+                                Go Back</span>
+                        </Link>
+                    </div>
                 </div>
             </section>
         </Layout>

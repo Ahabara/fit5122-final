@@ -1,10 +1,11 @@
 import './App.css'
 import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
-import Stat from "./components/Stat.tsx";
-import ExploreCultures from "./components/ExploreCultures.tsx";
-import Quiz from "./components/Quiz.tsx";
+// import Stat from "./components/Stat.tsx";
+import ExploreCultures from "./components/landing/ExploreCultures.tsx";
+// import Quiz from "./components/landing/Quiz.tsx";
 import Footer from "./components/Footer.tsx";
+import {GamePage} from "./components/landing/GamePage.tsx";
 
 function App() {
   return (
@@ -14,8 +15,7 @@ function App() {
             <NavBar/>
             <Hero/>
             <ExploreCultures/>
-            <Quiz/>
-            <Stat/>
+            <GamePage/>
             <Footer/>
         </div>
     </>
