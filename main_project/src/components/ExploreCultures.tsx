@@ -1,9 +1,9 @@
-import China from "../assets/countries/china.jpg"
-import India from "../assets/countries/india.jpg"
-import England from "../assets/countries/england.jpg"
+import China from "../assets/countries/china.webp"
+import India from "../assets/countries/india.webp"
+import England from "../assets/countries/england.webp"
 import NewZealand from "../assets/countries/new_zealand.webp"
-import Philippines from "../assets/countries/philippines.jpg"
-import Vietnam from "../assets/countries/Vietnam.jpg"
+import Philippines from "../assets/countries/philippines.webp"
+import Vietnam from "../assets/countries/Vietnam.webp"
 import Modal from "./Modal.tsx";
 const ExploreCultures = () => {
     return (
