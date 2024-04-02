@@ -1,5 +1,5 @@
 import CountryCard from "./CountryCard.tsx";
-import React from "react";
+import React, {useState} from "react";
 
 
 interface CountryCardModal {
@@ -7,13 +7,17 @@ interface CountryCardModal {
     name: string
 }
 const Modal:React.FC<CountryCardModal> = ({image, name}) => {
+
+    const [text, setText] = useState("")
+    const [viewText, setViewText] = useState("")
     return (
         <>
             <div className="" onClick={() => (document.getElementById(name) as HTMLFormElement).showModal()}>
                 <CountryCard name={name} image={image}/>
             </div>
             <dialog id={name} className="modal w-auto">
-                <div className="modal-box p-0 bg-transparent w-auto max-h-full">
+                {/*col-auto*/}
+                <div className="modal-box p-0 bg-transparent w-auto max-h-full ">
                     <div
                         className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
                         <span className="hidden sm:inline-block sm:align-middle sm:h-screen"
@@ -33,14 +37,16 @@ const Modal:React.FC<CountryCardModal> = ({image, name}) => {
                                 </h3>
 
                                 <p className="mt-2 text-gray-500 dark:text-gray-400">
-                                    {name} has a rich and vibrant culture. It also has things and cool things and sometimes fun things.
+                                    {name} has a rich and vibrant culture. It also has things and cool things and
+                                    sometimes fun things.
                                 </p>
                             </div>
 
                             <div className="flex items-center justify-between w-full mt-5 gap-x-2">
-                                <input type="text" value="من النهر إلى البحر"
+                                <input type="text" value={text}
+                                       onChange={e => setText(e.target.value)}
+                                       onBlur={() => setViewText(text)}
                                        className="flex-1 block h-10 px-4 text-sm text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"/>
-
                                 <button
                                     className="rounded-md hidden sm:block p-1.5 text-gray-700 bg-white border border-gray-200 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none"
@@ -51,6 +57,8 @@ const Modal:React.FC<CountryCardModal> = ({image, name}) => {
                                     </svg>
                                 </button>
                             </div>
+                            <p>On Change is: {text}</p>
+                            <p>On Blur is: {viewText}</p>
 
                             <div className="mt-4 sm:flex sm:items-center sm:justify-between sm:mt-6 sm:-mx-2">
                                 <button
