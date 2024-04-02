@@ -1,5 +1,5 @@
-import NavBar from "./NavBar.tsx";
-import Footer from "./Footer.tsx";
+import NavBar from "../NavBar.tsx";
+import Footer from "../Footer.tsx";
 import React from "react";
 
 interface LayoutProps {

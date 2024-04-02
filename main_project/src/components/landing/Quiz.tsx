@@ -1,7 +1,6 @@
 import {SetStateAction, useState} from "react";
-import Game from "./Game.tsx";
 import GameQuiz from "./GameQuiz.tsx";
-import StartGame from "./StartGame.tsx";
+// import StartGame from "../StartGame.tsx";
 
 
 const Quiz = () => {
@@ -83,12 +82,8 @@ const Quiz = () => {
 
 
     return (
-        <section className="bg-gradient-to-b from-myBlack to-purple-900 text-amber-50 mx-auto px-12 py-8">
-            <p className="text-6xl text-amber-50 max-w-lg pt-8">Ready To <span
-                className="bg-myPurple px-2">Test</span> Your Knowledge?</p>
-            <h1 className="text-2xl mb-8">Drag and Drop Game</h1>
-            <StartGame/>
-            <Game/>
+        // TODO make dynamic and connect to SuburbMap
+        <div>
             {showScore ? (
                 <div className="text-left text-amber-50">
                     <h2 className="text-2xl font-bold">Quiz Completed!</h2>
@@ -126,7 +121,7 @@ const Quiz = () => {
                     </button>
                 </div>
             )}
-        </section>
+        </div>
     );
 };
 
