@@ -1,9 +1,46 @@
 import logo from "../assets/diversity.png"
 import {Link} from "react-router-dom";
+import React, {useState} from "react";
 
+
+interface searchProps {
+    search:string
+}
+
+
+const SearchList:React.FC<searchProps> = ({search}) => {
+
+    const dropdown = [
+        { id: 1, name: "Home", link: "/" },
+        { id: 2, name: "Learn Culture", link: "/#Countries" },
+        { id: 3, name: "Play Game", link: "/#game" },
+        { id: 4, name: "England", link: "/country/England" },
+        { id: 5, name: "China", link: "/country/China" },
+        { id: 6, name: "India", link: "/country/India" },
+        { id: 7, name: "Vietnam", link: "/country/Vietnam" },
+        { id: 8, name: "New Zealand", link: "/country/NewZealand" },
+        { id: 9, name: "Italy", link: "/country/Italy" },
+        { id: 10, name: "Explore a Suburb", link: "/explore/" },
+    ]
+    const filteredOptions = dropdown.filter((option) =>
+        option.name.toLowerCase().includes(search.toLowerCase())
+    );
+
+  return <>
+      <ul>
+          {filteredOptions.map((i)=> (
+              <Link to={i.link}
+                 className="block px-4 py-2 text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer rounded-md">{i.name}</Link>
+          ))}
+
+      </ul>
+  </>
+}
 const NavBar = () => {
+
+    const [search, setSearch] = useState("")
     return (
-            <nav className="bg-gradient-to-r from-violet-200 to-pink-200 lg:py-8 lg:px-12 ">
+        <nav className="bg-gradient-to-r from-violet-200 to-pink-200 lg:py-8 lg:px-12 ">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto border border-black pl-2 bg-[#F1D6FE]">
                     <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <img src={logo} className="h-16" alt="Wominjeka Logo"/>
@@ -31,8 +68,15 @@ const NavBar = () => {
                                 <span className="sr-only">Search icon</span>
                             </div>
                             <input type="text" id="search-navbar"
+                                   value={search}
+                                   onChange={e => setSearch(e.target.value)}
+                                   autoComplete={"off"}
                                    className="block w-full p-2 ps-10  border border-black text-sm text-gray-900    bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                    placeholder="Search..."/>
+                            {search && <div id="dropdown-menu w-64 "
+                                            className="z-10 pr-10 absolute right-0 shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-1 space-y-1">
+                                <SearchList search={search}/>
+                            </div>}
                         </div>
                         <button data-collapse-toggle="navbar-search" type="button"
                                 className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
