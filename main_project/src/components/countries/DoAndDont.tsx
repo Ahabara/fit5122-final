@@ -2,69 +2,71 @@ import React from "react";
 import yesAndNo from "./assets/customer-satisfaction.png";
 import yes from "./assets/yes.png";
 import no from "./assets/no.png";
+
+interface CulturalEtiquette {
+  can: string;
+  cannot: string;
+}
 interface DoAndDontProps {
-    "DosAndDonts" : { Dos: string[]; Donts: string[]; }
-}
-function mergeDosAndDonts(Dos:string[], Donts:string[]) {
-    const mergedArray: string[] = [];
-    let dosIndex = 0;
-    let dontsIndex = 0;
-
-    while (dosIndex < Dos.length && dontsIndex < Donts.length) {
-        mergedArray.push(Dos[dosIndex]);
-        mergedArray.push(Donts[dontsIndex]);
-        dosIndex++;
-        dontsIndex++;
-    }
-
-    while (dosIndex < Dos.length) {
-        mergedArray.push(Dos[dosIndex]);
-        dosIndex++;
-    }
-
-    while (dontsIndex < Donts.length) {
-        mergedArray.push(Donts[dontsIndex]);
-        dontsIndex++;
-    }
-
-    return mergedArray;
+  etiquette: CulturalEtiquette[];
 }
 
-export const DoAndDont: React.FC<DoAndDontProps> = ({DosAndDonts}) => {
+export const DoAndDont: React.FC<DoAndDontProps> = ({ etiquette }) => {
+  console.log("etiqiei: ", etiquette);
+  const flattenedArray: string[] = [];
 
-    const merged = mergeDosAndDonts(DosAndDonts.Dos, DosAndDonts.Donts)
+  for (let i = 0; i < etiquette.length; i++) {
+    flattenedArray.push(etiquette[i].can, etiquette[i].cannot);
+  }
 
-    return <>
-        <section className="text-gray-600 body-font">
-            <div className="container py-8 mx-auto">
-                <div className="flex items-center py-8">
-                    <img src={yesAndNo} alt="Description of image" className=" h-12 mr-2"/>
-                    <p className="sm:text-3xl text-2xl font-medium title-font text-gray-900">Do's And Dont's</p>
+  function viewLog() {
+    alert(flattenedArray);
+  }
+
+  return (
+    <>
+      <section onClick={viewLog} className="body-font text-gray-600">
+        <div className="container mx-auto py-8">
+          <div className="flex items-center py-8">
+            <img
+              src={yesAndNo}
+              alt="Description of image"
+              className=" mr-2 h-12"
+            />
+            <p className="title-font text-2xl font-medium text-gray-900 sm:text-3xl">
+              Do's And Dont's
+            </p>
+          </div>
+
+          <p className="mb-4 text-base leading-relaxed lg:w-3/4 xl:w-2/4 ">
+            In every culture, there are intricacies to behavior that can greatly
+            impact interactions. Understanding the dos and don'ts of a culture
+            is essential for respectful engagement.
+          </p>
+          <div className="-mx-2 flex flex-wrap sm:mb-2 lg:w-4/5">
+            {flattenedArray.map((i, k) => (
+              <div className="w-full p-2 sm:w-1/2">
+                <div className="flex h-full items-center rounded bg-gray-100 p-4">
+                  {k % 2 == 0 ? (
+                    <img
+                      src={yes}
+                      className="mr-4 h-6 w-6 flex-shrink-0 text-indigo-500"
+                      alt="yes tick"
+                    />
+                  ) : (
+                    <img
+                      src={no}
+                      className="mr-4 h-6 w-6 flex-shrink-0 text-indigo-500"
+                      alt="no icon"
+                    />
+                  )}
+                  <span className="title-font font-medium">{i.toString()}</span>
                 </div>
-
-                <p className="text-base mb-4 leading-relaxed xl:w-2/4 lg:w-3/4 ">
-                    In every culture, there are intricacies to behavior that can greatly impact interactions.
-                    Understanding the dos and don'ts of a culture is essential for respectful engagement.</p>
-
-                <div className="flex flex-wrap lg:w-4/5 sm:mb-2 -mx-2">
-                    {merged.map((i, k) => (
-                        <div className="p-2 sm:w-1/2 w-full">
-                            <div className="bg-gray-100 rounded flex p-4 h-full items-center">
-                                {k % 2 == 0 ?
-                                    <img
-                                        src={yes}
-                                        className="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4"
-                                    /> : <img
-                                        src={no}
-                                        className="text-indigo-500 w-6 h-6 flex-shrink-0 mr-4"
-                                    />}
-                                <span className="title-font font-medium">{i}</span>
-                            </div>
-                        </div>
-                    ))}
-
-                </div>
-            </div>
-        </section>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
-}
+  );
+};
