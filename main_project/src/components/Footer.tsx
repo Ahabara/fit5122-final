@@ -93,6 +93,13 @@ const Footer: React.FC<FooterProps> = ({ styling }) => {
           </a>
         </span>
       </div>
+      <p className="container mx-auto py-2 text-center text-xs font-light">
+        In the spirit of reconciliation we acknowledge the Traditional
+        Custodians of country throughout Australia and their connections to
+        land, sea and community. We pay our respect to their elders past and
+        present and extend that respect to all Aboriginal and Torres Strait
+        Islander peoples today.
+      </p>
     </footer>
   );
 };
