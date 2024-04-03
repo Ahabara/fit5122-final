@@ -20,9 +20,17 @@ const Hero = () => {
               </span>{" "}
             </strong>
           </h1>
-          <p className="mt-4 max-w-lg sm:text-xl/relaxed">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-            illo tenetur fuga ducimus numquam ea!
+          <p className="mt-4 max-w-lg pl-2 sm:text-xl/relaxed">Womindjeka</p>
+          <div className="pl-4 text-sm">
+            <p>/wɒmɪnˈd͡ʒɛkə/</p>{" "}
+            <span className="flex">
+              <p className="mr-4 bg-gray-300">FORMAL</p>
+              <p className="italic">verb</p>
+            </span>
+          </div>
+          <p className="mt-2 max-w-lg sm:text-xl/relaxed">
+            Womindjeka means ‘welcome’ in the Woi-wurrung language of the
+            Wurundjeri people of the Eastern Kulin. Make your stay memorable!
           </p>
           <div className="mt-8 flex flex-wrap gap-4 text-center">
             <a
