@@ -3,14 +3,18 @@ import SuburbMap from "./SuburbMap.tsx";
 import ExploreHero from "./ExploreHero.tsx";
 import Quiz from "../landing/Quiz.tsx";
 import { Link } from "react-router-dom";
+import SuburbExplorerSecondHero from "./SuburbExplorerSecondHero.tsx";
 
 const Explore = () => {
   // TODO credit, freepik and unsplash
+
   return (
     <Layout>
       <ExploreHero />
+      <SuburbExplorerSecondHero />
       <div className=" container mx-auto px-5">
         <Quiz />
+        {/*  TODO workflow Quiz returns results then loads suburbMap on return*/}
         <SuburbMap city={"clayton"} />
         <div className=" py-8 pl-4">
           <Link
