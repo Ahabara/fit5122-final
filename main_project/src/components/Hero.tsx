@@ -20,12 +20,14 @@ const Hero = () => {
               </span>{" "}
             </strong>
           </h1>
-          <p className="mt-4 max-w-lg pl-2 sm:text-xl/relaxed">Womindjeka</p>
-          <div className="pl-4 text-sm">
-            <p>/wɒmɪnˈd͡ʒɛkə/</p>{" "}
+          <p className="mt-2 max-w-lg pl-2 font-mono sm:text-xl/relaxed">
+            Womindjeka
+          </p>
+          <div className="pl-2 text-sm">
             <span className="flex">
-              <p className="mr-4 bg-gray-300">FORMAL</p>
-              <p className="italic">verb</p>
+              <p>/wɒmɪnˈd͡ʒɛkə/</p>
+              <p className="mx-2 font-mono italic">verb</p>
+              <p className="mx-2 bg-gray-300 font-mono">FORMAL</p>
             </span>
           </div>
           <p className="mt-2 max-w-lg sm:text-xl/relaxed">
