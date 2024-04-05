@@ -26,12 +26,13 @@ export const SignificantEvents: React.FC<{ events: FestivalInfo[] }> = ({
         </p>
       </div>
       <div className="-m-4 flex flex-wrap">
-        {events.map((i) => (
+        {events.map((i, k) => (
           <SignificantEvent
             name={i.festival}
             image={i.imageUrl}
             description={i.significance}
             date={i.date}
+            key={k}
           />
         ))}
       </div>
