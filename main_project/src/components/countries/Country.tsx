@@ -4,25 +4,15 @@ import { DoAndDont } from "./DoAndDont.tsx";
 import { MostSpokenLanguages } from "./MostSpokenLanguages.tsx";
 import { Greetings } from "./Greetings.tsx";
 import { Cuisine } from "./Cuisine.tsx";
-import { SourcesList } from "./SourcesList.tsx";
+import SourcesList from "./SourcesList.tsx";
 import { TraditionalClothing } from "./TraditionalClothing.tsx";
 import { CountryHero } from "./CountryHero.tsx";
 import { SignificantEvents } from "./SignificantEvents.tsx";
 import { useEffect, useState } from "react";
 import Loading from "../Loading.tsx";
+import CountryStats from "./CountryStats.tsx";
 
 const Country = () => {
-  const china = {
-    China: {
-      "Sources of Information": [
-        "Community Information Summary Historical Background 2016 Census China-born. (n.d.). Available at: https://www.homeaffairs.gov.au/mca/files/2016-cis-china.PDF.",
-        "Wikipedia Contributors (2018). China. [online] Wikipedia. Available at: https://en.wikipedia.org/wiki/China.",
-        "Wikipedia Contributors (2019). Chinese cuisine. [online] Wikipedia. Available at: https://en.wikipedia.org/wiki/Chinese_cuisine.",
-        "www.abs.gov.au. (n.d.). 2021 People in Victoria who were born in China (excludes SARs and Taiwan), Census Country of birth QuickStats | Australian Bureau of Statistics. [online] Available at: https://www.abs.gov.au/census/find-census-data/quickstats/2021/6101_2.",
-        "www.vic.gov.au. (2024). Chinese community profile. [online] Available at: https://www.vic.gov.au/chinese-community-profile.",
-      ],
-    },
-  };
   const { countryName } = useParams();
   const url = `https://fourtitude.xyz/resource?country=${countryName}`;
 
@@ -64,6 +54,12 @@ const Country = () => {
     culturalEtiquettes: CulturalEtiquette[];
     festivalInfos: FestivalInfo[];
     languageInfos: string[];
+    referenceInfos: {
+      author: string;
+      date: string;
+      link: string;
+      title: string;
+    }[];
   }
 
   useEffect(() => {
@@ -94,6 +90,8 @@ const Country = () => {
     return <Loading />;
   }
 
+  console.log("data ", data);
+
   return (
     <Layout>
       <section className="body-font text-gray-600" id="pageTop">
@@ -106,6 +104,7 @@ const Country = () => {
           </p>
           {/*TODO array == 1, change text of languages */}
           <MostSpokenLanguages languages={data.languageInfos} />
+          <CountryStats data={data.demographicInfos} />
           <Greetings greeting={data.greetings} />
           <Cuisine
             description={data.cuisinesInfo}
@@ -113,7 +112,7 @@ const Country = () => {
           />
           <TraditionalClothing description={data.traditionalClothing} />
           <DoAndDont etiquette={data.culturalEtiquettes} />
-          <SourcesList sources={china.China["Sources of Information"]} />
+          <SourcesList sources={data.referenceInfos} />
           <div className="my-4 py-8 pl-4">
             <Link
               to="/"
