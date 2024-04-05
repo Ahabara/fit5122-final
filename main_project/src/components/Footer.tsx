@@ -1,6 +1,7 @@
 import Logo from "../assets/diversity.png";
 import React from "react";
 import { twMerge } from "tailwind-merge";
+import AboriginalFlag from "../assets/Australian_Aboriginal_Flag.svg";
 
 interface FooterProps {
   styling?: string;
@@ -93,13 +94,20 @@ const Footer: React.FC<FooterProps> = ({ styling }) => {
           </a>
         </span>
       </div>
-      <p className="container mx-auto py-2 text-center text-xs font-light">
-        In the spirit of reconciliation we acknowledge the Traditional
-        Custodians of country throughout Australia and their connections to
-        land, sea and community. We pay our respect to their elders past and
-        present and extend that respect to all Aboriginal and Torres Strait
-        Islander peoples today.
-      </p>
+      <div className="container mx-auto flex align-middle">
+        <img
+          src={AboriginalFlag}
+          alt="Aboriginal Flag"
+          className="w-12 rounded-2xl"
+        />
+        <p className=" py-2 pl-2 text-xs font-light">
+          In the spirit of reconciliation we acknowledge the Traditional
+          Custodians of country throughout Australia and their connections to
+          land, sea and community. We pay our respect to their elders past and
+          present and extend that respect to all Aboriginal and Torres Strait
+          Islander peoples today.
+        </p>
+      </div>
     </footer>
   );
 };
