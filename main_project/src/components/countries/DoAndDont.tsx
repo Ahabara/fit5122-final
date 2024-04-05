@@ -12,7 +12,6 @@ interface DoAndDontProps {
 }
 
 export const DoAndDont: React.FC<DoAndDontProps> = ({ etiquette }) => {
-  console.log("etiqiei: ", etiquette);
   const flattenedArray: string[] = [];
 
   for (let i = 0; i < etiquette.length; i++) {
@@ -45,7 +44,7 @@ export const DoAndDont: React.FC<DoAndDontProps> = ({ etiquette }) => {
           </p>
           <div className="-mx-2 flex flex-wrap sm:mb-2 lg:w-4/5">
             {flattenedArray.map((i, k) => (
-              <div className="w-full p-2 sm:w-1/2">
+              <div className="w-full p-2 sm:w-1/2" key={k}>
                 <div className="flex h-full items-center rounded bg-gray-100 p-4">
                   {k % 2 == 0 ? (
                     <img
