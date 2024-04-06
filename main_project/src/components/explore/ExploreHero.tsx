@@ -7,7 +7,8 @@ const ExploreHero = () => {
         <div className="container mx-auto flex flex-col items-center px-5 py-24 md:flex-row">
           <div className="mb-16 flex  flex-col items-center text-center md:mb-0 md:w-1/2 md:items-start md:pr-4 md:text-left lg:flex-grow">
             <h1 className="title-font mb-4 text-3xl font-medium text-gray-900 sm:text-6xl">
-              Explore Melbourne's Diversity:
+              Explore <span className="text-myPurple">Melbourne's</span>{" "}
+              Diversity:
               <br className="hidden lg:inline-block" />
               Find Your Ideal Suburb
             </h1>
