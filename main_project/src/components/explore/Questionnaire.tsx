@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SuburbMap from "./SuburbMap.tsx";
+import Skeleton from "../../Skeleton.tsx";
 
 interface Question {
   questionContent: string;
@@ -42,6 +43,7 @@ const Questionnaire: React.FC<{ questions: Question[] }> = ({ questions }) => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [locationData, setLocationData] = useState<LocationData | null>(null);
+  const [loading, setLoading] = useState(false);
   const handleOptionSelect = (questionIndex: number, answer: string) => {
     setAnswers((prevAnswers) => {
       const newAnswers = [...prevAnswers];
@@ -63,6 +65,7 @@ const Questionnaire: React.FC<{ questions: Question[] }> = ({ questions }) => {
       }
     }
     setError(false);
+    setLoading(true);
     try {
       const response = await fetch("https://fourtitude.xyz/quiz", {
         method: "POST",
@@ -72,6 +75,7 @@ const Questionnaire: React.FC<{ questions: Question[] }> = ({ questions }) => {
         body: JSON.stringify(answers),
       });
       const responseData = await response.json();
+      setLoading(false);
       setLocationData(responseData.data);
     } catch (error) {
       console.error("Error submitting answers:", error);
@@ -79,21 +83,23 @@ const Questionnaire: React.FC<{ questions: Question[] }> = ({ questions }) => {
   };
 
   return (
-    <>
-      <div className="mx-auto max-w-lg">
-        <h1 className="mb-4 text-3xl font-semibold">Questionnaire</h1>
+    <div className="container mx-auto pb-24" id="quiz">
+      <div className="px-8 pb-12 md:px-0 lg:w-128">
+        <h1 className="mb-4 inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-4xl font-extrabold leading-none tracking-tight text-transparent md:text-5xl lg:text-6xl">
+          Questionnaire
+        </h1>
         {questions.map((question, questionIndex) => (
           <div key={questionIndex} className="mb-6">
             <h2 className="mb-2 text-xl font-semibold">
               {question.questionContent}
             </h2>
-            <ul>
+            <ul className="border-2 border-myDarkPurple">
               {splitOptions(question.options).map((option, optionIndex) => (
                 <li
                   key={optionIndex}
-                  className={`cursor-pointer rounded-md px-4 py-2 ${
+                  className={`cursor-pointer  px-4 py-2 ${
                     answers[questionIndex] === option
-                      ? "bg-blue-500 text-white"
+                      ? "bg-myPurple text-white"
                       : "bg-gray-200"
                   }`}
                   onClick={() => handleOptionSelect(questionIndex, option)}
@@ -104,18 +110,23 @@ const Questionnaire: React.FC<{ questions: Question[] }> = ({ questions }) => {
             </ul>
           </div>
         ))}
-        <button
-          className="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none"
+        <div
           onClick={handleSubmit}
+          className="group relative inline-block px-4 py-2 font-medium"
         >
-          Submit
-        </button>
+          <span className="absolute inset-0 h-full w-full translate-x-1 translate-y-1 transform bg-myPurple transition duration-200 ease-out group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+          <span className="absolute inset-0 h-full w-full border-2 border-black bg-white group-hover:bg-myPurple"></span>
+          <span className="relative text-black group-hover:text-black">
+            Submit
+          </span>
+        </div>
         {error && <p>{errorMessage}</p>}
       </div>
       <div className="container mx-auto">
+        {loading && <Skeleton />}
         {locationData && <SuburbMap locationData={locationData} />}
       </div>
-    </>
+    </div>
   );
 };
 
