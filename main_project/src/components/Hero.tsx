@@ -1,4 +1,5 @@
 import hero from "../assets/hero.png";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -36,15 +37,15 @@ const Hero = () => {
           </p>
           <div className="mt-8 flex flex-wrap gap-4 text-center">
             <a
-              href="#_"
+              href="/#Countries"
               className="group relative px-6 py-3 font-bold text-black"
             >
               <span className="absolute inset-0 h-full w-full -translate-x-2 -translate-y-2 transform bg-myPurple transition duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0"></span>
               <span className="absolute inset-0 h-full w-full border-4 border-black"></span>
               <span className="relative">Learn More</span>
             </a>
-            <a
-              href="#_"
+            <Link
+              to="/explore"
               className="group relative inline-block px-4 py-2 font-medium"
             >
               <span className="absolute inset-0 h-full w-full translate-x-1 translate-y-1 transform bg-myPurple transition duration-200 ease-out group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
@@ -52,7 +53,7 @@ const Hero = () => {
               <span className="relative text-black group-hover:text-black">
                 Get Started
               </span>
-            </a>
+            </Link>
           </div>
         </div>
         <img
