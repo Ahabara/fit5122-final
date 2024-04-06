@@ -12,8 +12,12 @@ const MapItem: React.FC<MapItemProps> = ({ title, description }) => (
         {title}
       </h2>
       <p className="text-base leading-relaxed">{description}</p>
-      <a className="mt-3 inline-flex items-center text-indigo-500">
-        Learn More
+      <a
+        target="_blank"
+        className="mt-3 inline-flex items-center text-indigo-500"
+        href={`https://www.google.com/maps/dir/${description}`}
+      >
+        Get Directions
         <svg
           fill="none"
           stroke="currentColor"
@@ -81,22 +85,22 @@ const SuburbMap: React.FC<SuburbMapProps> = ({ locationData }) => {
   const [style, setStyle] = useState("grayscale(1) contrast(1.2) opacity(0.4)");
   console.log(locationData);
   return (
-    <section>
+    <section className="px-12 md:px-0">
       <div className="mb-10 flex flex-col flex-wrap lg:py-12 lg:text-left">
         <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl ">
           Explore The Suburb Of{" "}
-          <span className="text-blue-600 ">
+          <span className="text-myMagenta">
             {toTitleCase(locationData.census.suburb)}.
           </span>{" "}
         </h1>
         <p className="py-4 text-lg font-normal text-gray-500 lg:text-xl">
           Looks like you have an interest in exploring more{" "}
           {toTitleCase(locationData.census.ethnic)} culture and cuisine.{" "}
-          {toTitleCase(locationData.census.suburb)} is perfect for that. With a
-          population of {formatPopulation(locationData.census.population)}, of
-          whom {locationData.census.percentage.toFixed(2)}% are{" "}
-          {toTitleCase(locationData.census.ethnic)}, we're sure you'll it
-          amazing!
+          {toTitleCase(locationData.census.suburb)} is perfect for that. With
+          over {formatPopulation(locationData.census.population)} people of{" "}
+          {toTitleCase(locationData.census.ethnic)} descent (that's{" "}
+          {locationData.census.percentage.toFixed(2)}%!), we're sure you'll find
+          it amazing!
         </p>
 
         <h2 className="text-3xl font-bold">Top Places To Visit</h2>
@@ -148,7 +152,7 @@ const SuburbMap: React.FC<SuburbMapProps> = ({ locationData }) => {
                 className="rounded border-0 bg-indigo-500 px-6 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none"
                 onClick={() => setStyle("")}
               >
-                Button
+                View Map
               </button>
               <p className="mt-3 text-xs text-gray-500">.</p>
             </div>
