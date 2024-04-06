@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Questionnaire from "./Questionnaire.tsx";
+import Skeleton from "../../Skeleton.tsx";
 
 interface Question {
   questionContent: string;
@@ -8,17 +9,20 @@ interface Question {
 const ExplorerQuiz = () => {
   const [showError, setShowError] = useState(false);
   const [data, setData] = useState<Question[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchItems = async () => {
+      setLoading(true);
       try {
         const response = await fetch("https://fourtitude.xyz/quiz");
         if (!response.ok) {
           console.log("Failed to fetch data");
+          setLoading(false);
           setShowError(true);
         }
         const data = await response.json();
-        // console.log(data.data);
+        setLoading(false);
         setData(data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -35,6 +39,7 @@ const ExplorerQuiz = () => {
 
   return (
     <div>
+      {loading && <Skeleton />}
       <Questionnaire questions={data} />
     </div>
   );
