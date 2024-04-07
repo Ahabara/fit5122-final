@@ -19,8 +19,20 @@ const SuburbExplorerSecondHero = () => {
               <h2 className="lg:text-2xl">Let Us Help you!</h2>
             </h1>
             <p className="mb-8 leading-relaxed">
-              Select the answer that bests represents you as a person and let us
-              do the rest!
+              By taking our quiz, we'll guide you through Melbourne's diverse
+              communities and help you discover the perfect suburb to call
+              home—an area not just to live in, but to engage with and
+              contribute to the flourishing multicultural landscape of
+              Australia's melting pot. Experience the world within our streets
+              as you find a place not just to live, but to connect and grow.
+              Find your place, find your people, and grow with Melbourne. Take
+              our quiz and start your journey today!
+              <br />
+              <br />
+              With flavours, festivities, and tales from over 137 countries,
+              every corner of Melbourne offers an exotic escape! Select the
+              answer that bests represents you as a person and let us do the
+              rest!
             </p>
           </div>
         </div>
