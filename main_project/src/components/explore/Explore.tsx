@@ -6,14 +6,12 @@ import ExplorerQuiz from "./ExplorerQuiz.tsx";
 
 const Explore = () => {
   // TODO credit, freepik and unsplash
-
   return (
     <Layout>
       <ExploreHero />
       <SuburbExplorerSecondHero />
       <ExplorerQuiz />
       <div className=" container mx-auto px-5">
-        {/*  TODO workflow Quiz returns results then loads suburbMap on return*/}
         <div className=" py-8 pl-4">
           <Link
             to="/"
