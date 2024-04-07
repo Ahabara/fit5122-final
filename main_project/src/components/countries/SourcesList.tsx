@@ -13,7 +13,7 @@ interface SourcesListProps {
 
 const SourcesList: React.FC<SourcesListProps> = ({ sources }) => {
   return (
-    <div className="max-w-lg overflow-hidden rounded-xl bg-white p-6 shadow-lg">
+    <div className="max-w-lg  rounded-xl bg-white p-6 shadow-lg">
       <h2 className="mb-4 text-2xl font-bold">Sources of Information</h2>
       <ul>
         {sources.map((source, index) => (
@@ -31,7 +31,6 @@ const SourcesList: React.FC<SourcesListProps> = ({ sources }) => {
           </li>
         ))}
       </ul>
-      <p className="font-bold">List may be incomplete due to parsing issues</p>
     </div>
   );
 };
