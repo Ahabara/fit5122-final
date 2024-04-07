@@ -16,7 +16,7 @@ const Footer: React.FC<FooterProps> = ({ styling }) => {
 
   return (
     <footer className={styles}>
-      <div className="container mx-auto flex flex-col items-center px-5 py-8 sm:flex-row">
+      <div className="container mx-auto flex flex-col items-center px-5 py-2 sm:flex-row">
         <a className="title-font flex items-center justify-center font-medium  md:justify-start">
           <img
             src={Logo}
@@ -25,17 +25,27 @@ const Footer: React.FC<FooterProps> = ({ styling }) => {
           />
           <span className="ml-3 text-xl">Wominjeka</span>
         </a>
-        <p className="mt-4  text-sm sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
-          © 2024 Team FourReal —
-          <a
-            href="/"
-            className="ml-1 "
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            @abdelhabara
-          </a>
-        </p>
+        <div className="mt-4  text-sm sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
+          <p>© 2024 Team FourReal —</p>
+          <div className="ml-1 text-xs" rel="noopener noreferrer">
+            <div className="flex justify-between gap-4">
+              <p>
+                <strong>Front End:</strong> Abdel Habara
+              </p>
+              <p>
+                <strong>Back End:</strong> Mingzhi
+              </p>
+            </div>
+            <div className="flex justify-between">
+              <p>
+                <strong>Data Wrangler:</strong> Erman Gao
+              </p>
+              <p>
+                <strong>BA:</strong> Aneri Patel
+              </p>
+            </div>
+          </div>
+        </div>
         <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
           <a className="text-gray-500">
             <svg
