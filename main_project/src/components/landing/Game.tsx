@@ -47,6 +47,13 @@ const Game: React.FC<GameProps> = ({ questions }) => {
     setModalIsOpen(true);
     setCurrentQuestion(currentQuestion + 1);
   };
+
+  const startOver = () => {
+    setScore(0);
+    setRight([]);
+    setCurrentQuestion(0);
+  };
+
   return (
     <>
       {currentQuestion < questions.length && (
@@ -113,7 +120,16 @@ const Game: React.FC<GameProps> = ({ questions }) => {
                 />
               ))}
             </div>
-            <div className="flex justify-center"> Play Again</div>
+            <div
+              className="flex justify-center py-5 hover:cursor-pointer"
+              onClick={startOver}
+            >
+              <a className="group relative px-6 py-3 font-bold text-black">
+                <span className="absolute inset-0 h-full w-full -translate-x-2 -translate-y-2 transform bg-myBlue transition duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                <span className="absolute inset-0 h-full w-full border-4 border-black"></span>
+                <span className="relative">Play Again</span>
+              </a>
+            </div>
           </div>
         )}
         {modalIsOpen && <p></p>}

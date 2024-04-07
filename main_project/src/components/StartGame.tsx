@@ -3,11 +3,11 @@ const StartGame = (props: { onClick: () => void }) => (
     <div className="w-full rounded-lg bg-white shadow md:max-w-4xl">
       <div className="m-4 flex h-12 items-center justify-between border-b border-gray-200">
         <div>
-          <div className="text-xl font-bold text-gray-700">
-            Game Initialised
+          <div className="font-mono text-xl font-bold text-gray-700">
+            Game Ready
           </div>
           <div className="font-base text-sm text-gray-500">
-            Waiting for more players...
+            Here's How To Play
           </div>
         </div>
         <div>
@@ -40,6 +40,29 @@ const StartGame = (props: { onClick: () => void }) => (
           </div>
         </div>
       </div>
+
+      <div className="px-6 font-mono text-myBlack">
+        <p className="py-1">
+          <strong>Drag and drop:</strong> Grab those objects or pictures and
+          slide them over to one of the four options. Easy peasy!
+        </p>
+        <p className="py-1">
+          <strong>Selecting an option:</strong> Drop them right where you think
+          they belong.
+        </p>
+        <p className="py-1">
+          <strong>Score:</strong> Keep an eye on that scorecard – it's gonna
+          show off your cultural genius!
+        </p>
+        <p className="py-1">
+          <strong>Learning:</strong> After the game, we'll spill the beans on
+          each image, so you can learn and laugh along the way!
+        </p>
+        <p className="py-1">
+          <strong>And the best part?</strong> You can replay again and again to
+          sharpen your skills and maybe even discover something new each time!
+        </p>
+      </div>
       <div className="px-6">
         <div className="my-6 flex h-16 items-center justify-between rounded-lg  border border-gray-100 p-4 shadow-md">
           <div className="flex items-center">
@@ -56,7 +79,7 @@ const StartGame = (props: { onClick: () => void }) => (
             </div>
           </div>
           <div>
-            <button className="flex items-center justify-center rounded-full bg-green-300 p-2 shadow-md hover:bg-red-500">
+            <button className="flex items-center justify-center rounded-full bg-green-300 p-2 shadow-md hover:bg-green-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"

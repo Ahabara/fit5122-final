@@ -48,7 +48,8 @@ export function GamePage() {
       </p>
       <h1 className="text-2xl">Drag and Drop Game</h1>
       <p className="mb-8">
-        Drag and drop the image to the box that you think is correct!
+        Welcome to our super exciting drag and drop game! Ready to have some fun
+        while boosting your cultural savvy?
       </p>
       {!startGame && <StartGame onClick={handleGame} />}
       {startGame && <Game questions={questions} />}
