@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-r from-violet-200 to-pink-200 bg-cover bg-center bg-no-repeat lg:pb-32 2xl:h-screen">
+    <section className="relative bg-gradient-to-r from-violet-200 to-pink-200 bg-cover bg-center bg-no-repeat lg:pb-16 2xl:h-screen">
       <div className="absolute inset-0 "></div>
       <div className="relative mx-auto max-w-screen-xl px-4 sm:px-6 lg:flex lg:h-128 lg:items-center lg:justify-between lg:px-8">
         <div className="max-w-xl ltr:sm:text-left rtl:sm:text-right">
@@ -22,7 +22,7 @@ const Hero = () => {
             </strong>
           </h1>
           <p className="mt-2 max-w-lg pl-2 font-mono sm:text-xl/relaxed">
-            Womindjeka
+            Wominjeka
           </p>
           <div className="pl-2 text-sm">
             <span className="flex">
@@ -31,9 +31,19 @@ const Hero = () => {
               <p className="mx-2 bg-gray-300 font-mono">FORMAL</p>
             </span>
           </div>
-          <p className="mt-2 max-w-lg sm:text-xl/relaxed">
-            Womindjeka means ‘welcome’ in the Woi-wurrung language of the
-            Wurundjeri people of the Eastern Kulin. Make your stay memorable!
+          <p className="sm:text-l/relaxed mt-2 max-w-lg">
+            Wominjeka means ‘welcome’ in the Woi-wurrung language of the
+            Wurundjeri people of the Eastern Kulin Nation.
+            <br />
+          </p>
+          <p className="sm:text-l/relaxed mt-2 max-w-lg">
+            Welcome to Wominjeka, your gateway to cultural immersion and
+            community integration in Victoria! Explore the cultures of the
+            region, from traditions to cuisine, and embark on a suburb
+            exploration quiz to uncover hidden gems in diverse neighbourhoods.
+            Wominjeka is your companion in navigating the journey of settling
+            into a new country with confidence and connection. Start your
+            adventure today!
           </p>
           <div className="mt-8 flex flex-wrap gap-4 text-center">
             <a
