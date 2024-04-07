@@ -11,6 +11,7 @@ import { SignificantEvents } from "./SignificantEvents.tsx";
 import { useEffect, useState } from "react";
 import Loading from "../Loading.tsx";
 import CountryStats from "./CountryStats.tsx";
+import PageNotFound from "../../PageNotFound.tsx";
 
 const Country = () => {
   const { countryName } = useParams();
@@ -66,24 +67,24 @@ const Country = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(url);
+        console.log("response ", response);
         if (!response.ok) {
           setError(true);
-          return;
         }
         const result = await response.json();
-        console.log(result.data);
+        if (!result.success) setError(true);
         setData(result.data);
       } catch (error) {
         console.error("Error fetching data:", error);
+        setError(true);
       }
     };
 
-    fetchData();
+    fetchData().catch(() => setError(true));
   }, [url]);
 
   if (error) {
-    // todo error page
-    return <p>Error</p>;
+    return <PageNotFound />;
   }
 
   if (!data) {
@@ -102,7 +103,6 @@ const Country = () => {
             In Victoria, people from {countryName} speak a number of languages.
             The most common ones are:{" "}
           </p>
-          {/*TODO array == 1, change text of languages */}
           <MostSpokenLanguages languages={data.languageInfos} />
           <CountryStats data={data.demographicInfos} />
           <Greetings greeting={data.greetings} />
