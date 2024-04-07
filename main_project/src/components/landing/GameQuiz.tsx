@@ -10,7 +10,6 @@ interface QuizCardProps {
   isRight?: boolean;
 }
 
-// todo tick or no tick if right
 const GameQuiz: React.FC<QuizCardProps> = ({
   i,
   question,
