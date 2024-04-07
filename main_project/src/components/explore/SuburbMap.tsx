@@ -79,7 +79,6 @@ function formatPopulation(population: number): string {
   return population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 const SuburbMap: React.FC<SuburbMapProps> = ({ locationData }) => {
-  // TODO make dynamic once endpoint received
   const cityURL: string = `https://maps.google.com/maps?width=100%&height=600&hl=en&q=${locationData.census.suburb},melbourne+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed`;
 
   const [style, setStyle] = useState("grayscale(1) contrast(1.2) opacity(0.4)");
