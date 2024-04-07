@@ -1,26 +1,43 @@
 import React from "react";
+import yes from "../countries/assets/yes.png";
+import no from "../countries/assets/no.png";
 
-interface QuizCardProps{
-    i: number
-    question: string
-    answer: string
-    moreInfo:string
+interface QuizCardProps {
+  i: number;
+  question: string;
+  answer: string;
+  moreInfo: string;
+  isRight?: boolean;
 }
 
-const GameQuiz:React.FC<QuizCardProps> = ({i, question, answer, moreInfo}) => {
-    return <div className="p-4 max-w-sm">
-        <div className="flex  h-full dark:bg-gray-800 bg-myPurple p-4 flex-col">
-            <div className="flex items-center mb-3">
-                <h2 className="text-white dark:text-white text-lg font-medium">{i +1}. {question}</h2>
-            </div>
-            <div className="flex flex-col justify-stretch flex-grow">
-                <p className="text-gray-700">{answer}</p>
-                <p className="leading-relaxed text-base text-white dark:text-gray-300">
-                    {moreInfo}
-                </p>
-            </div>
+// todo tick or no tick if right
+const GameQuiz: React.FC<QuizCardProps> = ({
+  i,
+  question,
+  answer,
+  moreInfo,
+  isRight,
+}) => {
+  return (
+    <div className="m-4 max-w-sm rounded-lg border-2 border-myDarkPurple">
+      <div className="flex  h-full flex-col bg-myPurple p-4 dark:bg-gray-800">
+        <div className="mb-3 flex ">
+          <h2 className="text-lg font-medium text-white dark:text-white">
+            {i + 1}. {question}
+            <img src={isRight ? yes : no} alt="yesorno" className="h-5" />
+          </h2>
         </div>
+        <div className="flex flex-grow flex-col justify-stretch">
+          <p className="text-gray-700">
+            <span className="font-bold">Correct Answer:</span> {answer}
+          </p>
+          <p className="text-base leading-relaxed text-white dark:text-gray-300">
+            {moreInfo}
+          </p>
+        </div>
+      </div>
     </div>
-}
+  );
+};
 
 export default GameQuiz;

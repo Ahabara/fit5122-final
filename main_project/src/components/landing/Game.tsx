@@ -21,6 +21,7 @@ const Game: React.FC<GameProps> = ({ questions }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [score, setScore] = useState<number>(0);
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [right, setRight] = useState<boolean[]>([]);
 
   const scoreMetric = (score: number): string => {
     if (score < 0.5) return "You could do better than this! Give it another go";
@@ -41,7 +42,8 @@ const Game: React.FC<GameProps> = ({ questions }) => {
     if (draggedItem?.correctOption === targetOption) {
       console.log(score + 1);
       setScore(score + 1);
-    }
+      setRight([...right, true]);
+    } else setRight([...right, false]);
     setModalIsOpen(true);
     setCurrentQuestion(currentQuestion + 1);
   };
@@ -102,6 +104,7 @@ const Game: React.FC<GameProps> = ({ questions }) => {
             <div className="mt-4 flex flex-wrap justify-center">
               {questions.map((i, k) => (
                 <GameQuiz
+                  isRight={right[k]}
                   i={k}
                   answer={i.correctOption}
                   question={i.questionContent}
@@ -110,6 +113,7 @@ const Game: React.FC<GameProps> = ({ questions }) => {
                 />
               ))}
             </div>
+            <div className="flex justify-center"> Play Again</div>
           </div>
         )}
         {modalIsOpen && <p></p>}
