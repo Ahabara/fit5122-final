@@ -169,7 +169,9 @@ const NavBar = () => {
             <li>
               <Link
                 to="/"
-                className="block rounded bg-blue-700 px-3 py-2 text-white md:bg-transparent md:p-0 md:text-blue-700 md:dark:text-blue-500"
+                className={`block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500 ${
+                  location.pathname === "/" ? "text-blue-700" : ""
+                }`}
                 aria-current="page"
               >
                 Home
@@ -178,7 +180,9 @@ const NavBar = () => {
             <li>
               <a
                 href="/#Countries"
-                className="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:hover:bg-gray-700  dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500 "
+                className={`block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500 ${
+                  location.pathname.includes("/country") ? "text-blue-700" : ""
+                }`}
               >
                 Explore Countries
               </a>
@@ -186,7 +190,9 @@ const NavBar = () => {
             <li>
               <Link
                 to="/explore/"
-                className="block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500 "
+                className={`block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500 ${
+                  location.pathname === "/explore/" ? "text-blue-700" : ""
+                }`}
               >
                 Explore A Suburb
               </Link>
