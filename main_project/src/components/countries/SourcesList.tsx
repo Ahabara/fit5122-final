@@ -24,7 +24,7 @@ const SourcesList: React.FC<SourcesListProps> = ({ sources }) => {
               href={source.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="break-words text-blue-600 hover:underline"
             >
               {source.link}
             </a>
