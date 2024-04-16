@@ -23,7 +23,6 @@ export function GamePage() {
         }
         const data = await response.json();
         setQuestions(data.data);
-        console.log(data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
