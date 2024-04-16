@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Country from "./components/countries/Country.tsx";
 import Explore from "./components/explore/Explore.tsx";
 import PageNotFound from "./PageNotFound.tsx";
+import Super from "./components/Finance/Super/Super.tsx";
+import BankPage from "./components/Finance/BankPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,16 @@ const router = createBrowserRouter([
   {
     path: "/explore/",
     element: <Explore />,
+    errorElement: <App />,
+  },
+  {
+    path: "/finance/super",
+    element: <Super />,
+    errorElement: <App />,
+  },
+  {
+    path: "/finance/rates",
+    element: <BankPage />,
     errorElement: <App />,
   },
 ]);
