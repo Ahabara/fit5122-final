@@ -1,4 +1,271 @@
+import { RiListSettingsLine } from "react-icons/ri";
+import React, { useEffect, useState } from "react";
+import errorImage from "../Finance/assets/error message.png";
+import {
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import { FaCoins } from "react-icons/fa";
+
+interface BankCardProps {
+  image: string;
+  interestRate: string;
+  name: string;
+  price: string;
+  maxBalance?: string;
+}
+
+interface BankInterest {
+  image: string;
+  savingsAccounts: string;
+  validFrom: string;
+  base: string;
+  maxBonus: string;
+  maxTotal: string;
+  maxBalance: string;
+  effectiveAsOf: string;
+  lastCheckedOrEdited: string;
+  minimumAge: string | null;
+  maximumAge: string | null;
+  minimumDepositAmount: string;
+  depositFrequency: string | null;
+  bonus: string;
+}
+const BankCard: React.FC<BankCardProps> = ({
+  image,
+  interestRate,
+  name,
+  price,
+}) => {
+  const convertToPercentage = (percentageString: string): string => {
+    const percentage = parseFloat(percentageString);
+
+    if (isNaN(percentage)) {
+      return "%";
+    }
+    const percentageFormatted = (percentage * 100).toFixed(2);
+    return `${percentageFormatted}%`;
+  };
+  const [savings, setSavings] = useState("");
+  const [interestEarned, setInterestEarned] = useState(0);
+  const [interestsPerYear, setInterestsPerYear] = useState<number[]>([]);
+  const [inflation, setInflation] = useState<number[]>([]);
+
+  const handleSavingsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSavings(e.target.value);
+  };
+
+  const calculateInterest = () => {
+    if (isNaN(parseFloat(savings)) || savings === "") {
+      alert("Please enter a valid number for savings.");
+      return;
+    }
+    setInflation(calculateInflation(parseFloat(savings)));
+    const annualInterestRate = parseFloat(interestRate) * 100; // Convert maxTotal to annual interest rate
+    const annualInterest = (parseFloat(savings) * annualInterestRate) / 100;
+    const totalInterest = annualInterest * 10; // Assuming 10 years
+    setInterestEarned(totalInterest);
+    const interestPerYear = Array.from({ length: 10 }, (_, index) => {
+      return parseFloat((annualInterest * (index + 1)).toFixed(2));
+    });
+
+    setInterestsPerYear(interestPerYear);
+  };
+
+  const calculateInflation = (startingAmount: number): number[] => {
+    const inflationRate = 0.025; // 2.5% inflation rate
+    const result: number[] = [];
+
+    let currentAmount = startingAmount;
+    for (let i = 0; i < 10; i++) {
+      currentAmount *= 1 + inflationRate; // Apply inflation rate
+      result.push(Number(currentAmount.toFixed(2))); // Round to 2 decimal places and push to result array
+    }
+
+    return result;
+  };
+
+  const arrayOfObjects: {
+    Interest: number;
+    index: string;
+    Inflation: number;
+  }[] = interestsPerYear.map((value: number, index) => ({
+    Interest: value,
+    index: index.toString(),
+    Inflation: inflation[index],
+  }));
+  console.log(arrayOfObjects);
+  return (
+    <>
+      <div className="w-full p-4 md:w-1/2 lg:w-1/4">
+        <a className="relative block h-48 overflow-hidden rounded-xl">
+          <img
+            alt="ecommerce"
+            className="block h-full w-full object-contain object-center"
+            src={image}
+          />
+        </a>
+        <div className="mt-4 md:h-20">
+          {/*todo remove the h-20 if name can be standardised*/}
+          <div
+            className=""
+            onClick={() =>
+              (
+                document.getElementById(`${name}`) as HTMLFormElement
+              ).showModal()
+            }
+          >
+            <h2 className="title-font text-lg font-medium text-gray-900 hover:text-blue-500">
+              {name}
+            </h2>
+          </div>
+          <dialog id={`${name}`} className="modal w-full">
+            <div className="modal-box">
+              <div className="flex items-center gap-2 py-3">
+                <FaCoins size={"2.25rem"} />
+                <p className="text-3xl">Interest</p>
+              </div>
+              <p className="pb-6">
+                Calculate how much savings you could have in 10 years.{" "}
+              </p>
+
+              <div className="mb-4 flex items-center gap-2">
+                <label
+                  htmlFor="savings"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Enter your savings amount:
+                </label>
+                <input
+                  type="number"
+                  id="savings"
+                  name="savings"
+                  className="mt-1  rounded-md border p-2"
+                  value={savings}
+                  onChange={handleSavingsChange}
+                  placeholder="Enter amount"
+                />
+                <button
+                  className="rounded-md bg-blue-500 px-4 py-2 text-white transition-colors hover:bg-blue-600"
+                  onClick={calculateInterest}
+                >
+                  Calculate
+                </button>
+              </div>
+              {interestEarned !== 0 && (
+                <p className="mt-4">
+                  Potential interest earned over 10 years:{" "}
+                  <strong>{interestEarned}</strong>
+                </p>
+              )}
+              {interestsPerYear.length > 0 && (
+                <div className="mt-4">
+                  <p>
+                    {" "}
+                    You could have{" "}
+                    <strong>
+                      $
+                      {parseFloat(savings) +
+                        interestsPerYear[interestsPerYear.length - 1]}
+                    </strong>{" "}
+                    in 10 years!
+                  </p>
+                  <h3 className="mb-2 text-lg font-semibold">
+                    Interest Earned Per Year
+                  </h3>
+                  <LineChart
+                    width={500}
+                    height={250}
+                    data={arrayOfObjects}
+                    margin={{ top: 5, right: 2, left: 2, bottom: 5 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="index" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Line type="monotone" dataKey="Interest" stroke="#8884d8" />
+                    <Line
+                      type="monotone"
+                      dataKey="Inflation"
+                      stroke="#82ca9d"
+                    />
+                  </LineChart>
+
+                  <table className="w-full border-collapse">
+                    <thead className="text-left">
+                      <tr>
+                        <th className="border p-2">Year</th>
+                        <th className="border p-2">Interest Earned</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {interestsPerYear.map((interest, index) => (
+                        <tr key={index}>
+                          <td className="border p-2">{index + 1}</td>
+                          <td className="border p-2">${interest}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              <div className="modal-action">
+                <form method="dialog">
+                  <button className="btn">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+        </div>
+        <p className="mt-1 text-sm">
+          <strong>Total Interest: </strong>
+          {convertToPercentage(interestRate)}
+        </p>
+        <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500">
+          <strong>Base:</strong> {convertToPercentage(price)}
+        </h3>
+      </div>
+    </>
+  );
+};
+
 const BankRates = () => {
+  const [bankInterest, setBankInterest] = useState<BankInterest[]>([]);
+  const [error, setError] = useState("");
+  // const [highToLowView, setHighToLowView] = useState(true);
+
+  const sortedBankInterestHighToLow = [...bankInterest].sort((a, b) =>
+    b.maxTotal.localeCompare(a.maxTotal),
+  );
+  //
+  // const sortedBankInterestLowToHigh = [...bankInterest].sort((a, b) =>
+  //   a.maxTotal.localeCompare(b.maxTotal),
+  // );
+
+  useEffect(() => {
+    const fetchBankInterest = async () => {
+      try {
+        const response = await fetch("https://fourtitude.xyz/bank/interest");
+        if (!response.ok) {
+          setError("Failed to fetch bank interest data");
+        }
+        const data = await response.json();
+        setBankInterest(data.data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching bank interest data:", error);
+      }
+    };
+
+    fetchBankInterest().then(() => console.warn("Fetched Safely"));
+  }, []);
   return (
     <>
       <section className="relative rounded-2xl p-16 ">
@@ -27,55 +294,6 @@ const BankRates = () => {
                   8
                 </button>
               </li>
-
-              <li className="group flex cursor-pointer items-center outline-none">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    className="stroke-black transition-all duration-500 group-hover:stroke-indigo-600"
-                    d="M10 14.2449C9.55209 14.2449 7.76925 14.2449 6 14.2449C4.11438 14.2449 3.17157 14.2449 2.58579 13.6591C2 13.0733 2 12.1305 2 10.2449V10.0816C2 8.19601 2 7.25321 2.58579 6.66742C3.17157 6.08163 4.11275 6.08163 5.99512 6.08163C9.46482 6.08163 14.4728 6.08163 18 6.08163C19.8856 6.08163 20.8284 6.08163 21.4142 6.66742C22 7.25321 22 8.19599 22 10.0816C22 10.136 22 10.1905 22 10.245C22 12.1306 22 13.0733 21.4142 13.6591C20.8284 14.2449 19.8856 14.2449 18 14.2449C16.2308 14.2449 14.4479 14.2449 14 14.2449M20.6667 17.2381C20.6667 17.3697 20.6667 17.6444 20.6667 17.9986C20.6667 19.8851 20.6667 20.8284 20.0809 21.4142C19.4951 22 18.5523 22 16.6667 22H7.33333C5.44772 22 4.50491 22 3.91912 21.4142C3.33333 20.8284 3.33333 19.8856 3.33333 18V17.2381M15.3333 6.08163V5.33333C15.3333 4.08718 15.3333 3.4641 15.0654 3C14.8898 2.69596 14.6374 2.44349 14.3333 2.26795C13.8692 2 13.2462 2 12 2V2C10.7538 2 10.1308 2 9.66667 2.26795C9.36263 2.44349 9.11015 2.69596 8.93462 3C8.66667 3.4641 8.66667 4.08718 8.66667 5.33333V6.08163M11.3333 16.966H12.6667C13.403 16.966 14 16.3569 14 15.6054V12.8844C14 12.1329 13.403 11.5238 12.6667 11.5238H11.3333C10.597 11.5238 10 12.1329 10 12.8844V15.6054C10 16.3569 10.597 16.966 11.3333 16.966Z"
-                    stroke="black"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span className="pl-2 pr-3 text-lg font-normal leading-8 text-black transition-all duration-500 group-hover:text-indigo-600">
-                  Management
-                </span>
-                <span className="font-manrope flex h-6 w-6 items-center justify-center rounded-full border border-gray-900 text-base font-medium text-gray-900 transition-all duration-500 group-hover:border-indigo-600 group-hover:text-indigo-600">
-                  3
-                </span>
-              </li>
-
-              <li className="group flex cursor-pointer items-center outline-none">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    className="stroke-black transition-all duration-500 group-hover:stroke-indigo-600"
-                    d="M9.69081 22H13.537M11.6139 2V3.53846M18.4123 4.8163L17.3244 5.90416M4.8155 4.81701L5.90336 5.90486M2 11.6154H3.53846M19.6893 11.6154H21.2278M7.53442 15.6948C5.2814 13.4418 5.2814 9.78895 7.53442 7.53592C9.78744 5.2829 13.4403 5.2829 15.6933 7.53592C17.9464 9.78895 17.9464 13.4418 15.6933 15.6948C15.1999 16.1883 14.6393 16.5737 14.041 16.851C13.745 16.9881 13.537 17.2743 13.537 17.6005L13.537 18.9231C13.537 19.3479 13.1926 19.6923 12.7677 19.6923H10.46C10.0352 19.6923 9.69081 19.3479 9.69081 18.9231V17.6005C9.6908 17.2743 9.48274 16.9881 9.18677 16.851C8.58845 16.5737 8.02786 16.1883 7.53442 15.6948Z"
-                    stroke="black"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-                <span className="pl-2 pr-3 text-lg font-normal leading-8 text-black transition-all duration-500 group-hover:text-indigo-600">
-                  Today’s deal
-                </span>
-                <span className="font-manrope flex h-6 w-6 items-center justify-center rounded-full border border-gray-900 text-base font-medium text-gray-900 transition-all duration-500 group-hover:border-indigo-600 group-hover:text-indigo-600">
-                  1
-                </span>
-              </li>
             </ul>
             <div className="relative w-full max-w-sm">
               <svg
@@ -95,13 +313,11 @@ const BankRates = () => {
               </svg>
               <select
                 id="Offer"
-                className="relative block h-12 w-full appearance-none rounded-full border border-gray-300 bg-white px-4 py-2.5 pl-11 text-base font-normal leading-7 text-gray-900 transition-all duration-500 focus-within:bg-gray-50 hover:border-gray-400 hover:bg-gray-50 focus:outline-none"
+                className="relative block h-12 w-full appearance-none rounded-md border-2 border-gray-800 bg-pink-200 px-4 py-2.5 pl-11 text-base font-normal leading-7 text-gray-900 transition-all duration-500 focus-within:bg-myPurple hover:border-gray-400 hover:bg-myPink focus:outline-none"
               >
-                <option selected>Sort by time(high to low)</option>
-                <option value="option 1">option 1</option>
-                <option value="option 2">option 2</option>
-                <option value="option 3">option 3</option>
-                <option value="option 4">option 4</option>
+                <option selected>High to Low</option>
+                <option value="option 1">Low To High</option>
+                <option value="option 2">Product Name (A - Z)</option>
               </select>
             </div>
           </div>
@@ -117,15 +333,16 @@ const BankRates = () => {
           </svg>
           <div className="grid grid-cols-12">
             <div className="col-span-12 w-full max-md:mx-auto max-md:max-w-md md:col-span-3">
-              <div className="box w-full rounded-xl border border-gray-300 bg-white p-6 md:max-w-sm">
-                <h6 className="mb-5 text-base font-medium leading-7 text-black">
-                  Your Workspace
+              <div className="box w-full rounded-xl border border-gray-300 bg-[#FBD9EE] p-6 md:max-w-sm">
+                <h6 className="mb-5 flex items-center gap-2 text-base font-medium leading-7 text-black">
+                  <RiListSettingsLine />
+                  Filters
                 </h6>
                 <div className="mb-5 flex items-center gap-1">
                   <div className="relative w-full">
                     <select
                       id="FROM"
-                      className="relative block h-12 w-full appearance-none rounded-full border border-gray-300 bg-white px-4 py-2.5 text-xs font-medium text-gray-900 focus:outline-none"
+                      className="relative block h-12 w-full appearance-none rounded-lg bg-[#F7D9FB] px-4 py-2.5 text-xs font-medium text-gray-900 focus:outline-none"
                     >
                       <option selected>Min</option>
                       <option value="option 1">option 1</option>
@@ -140,7 +357,7 @@ const BankRates = () => {
                   <div className="relative w-full">
                     <select
                       id="FROM"
-                      className="relative block h-12 w-full appearance-none rounded-full border border-gray-300 bg-white px-4 py-2.5 text-xs font-medium text-gray-900 focus:outline-none"
+                      className="relative block h-12 w-full appearance-none rounded-lg bg-[#F7D9FB] px-4 py-2.5 text-xs font-medium text-gray-900 focus:outline-none"
                     >
                       <option selected>Max</option>
                       <option value="option 1">option 1</option>
@@ -160,7 +377,7 @@ const BankRates = () => {
                 <div className="relative mb-8 w-full">
                   <select
                     id="FROM"
-                    className="relative block h-12 w-full appearance-none rounded-full border border-gray-300 bg-white px-4 py-2.5 text-xs font-medium text-gray-900 focus:outline-none"
+                    className="relative block h-12 w-full appearance-none rounded-lg border bg-[#F7D9FB] px-4 py-2.5 text-xs font-medium text-gray-900 focus:outline-none"
                   >
                     <option selected>Write code</option>
                     <option value="option 1">option 1</option>
@@ -170,7 +387,7 @@ const BankRates = () => {
                   </select>
                 </div>
 
-                <div className="box mt-7 w-full rounded-xl border border-gray-300 bg-white p-6 md:max-w-sm">
+                <div className="box mt-7 w-full rounded-xl border border-gray-300 bg-pink-100 p-6 md:max-w-sm">
                   <div className="mb-7 flex w-full items-center justify-between border-b border-gray-200 pb-3">
                     <p className="text-base font-medium leading-7 text-black ">
                       Filter Plans
@@ -283,7 +500,7 @@ const BankRates = () => {
                     </select>
                   </div>
                   <p className="mb-3 text-sm font-medium leading-6 text-black">
-                    Discount
+                    Deposit Frequency
                   </p>
                   <div className="box flex flex-col gap-2">
                     <div className="flex items-center">
@@ -297,7 +514,7 @@ const BankRates = () => {
                         htmlFor="checkbox-default-1"
                         className="cursor-pointer text-xs font-normal leading-4 text-gray-600"
                       >
-                        20% or more
+                        No Frequency
                       </label>
                     </div>
                     <div className="flex items-center">
@@ -311,7 +528,7 @@ const BankRates = () => {
                         htmlFor="checkbox-default-2"
                         className="cursor-pointer text-xs font-normal leading-4 text-gray-600"
                       >
-                        30% or more
+                        Daily
                       </label>
                     </div>
                     <div className="flex items-center">
@@ -325,7 +542,7 @@ const BankRates = () => {
                         htmlFor="checkbox-default-3"
                         className="cursor-pointer text-xs font-normal leading-4 text-gray-600"
                       >
-                        50% or more
+                        Monthly
                       </label>
                     </div>
                   </div>
@@ -353,152 +570,26 @@ const BankRates = () => {
             <div className="col-span-12 md:col-span-9">
               <section className="body-font text-gray-600">
                 <div className="container mx-auto px-5 py-4">
-                  <div className="-m-4 flex flex-wrap">
-                    <div className="w-full p-4 md:w-1/2 lg:w-1/4">
-                      <a className="relative block h-48 overflow-hidden rounded">
-                        <img
-                          alt="ecommerce"
-                          className="block h-full w-full object-cover object-center"
-                          src="https://dummyimage.com/420x260"
+                  {bankInterest.length > 1 ? (
+                    <div className="-m-4 flex flex-wrap">
+                      {sortedBankInterestHighToLow.map((bank, index) => (
+                        <BankCard
+                          image={bank.image}
+                          name={bank.savingsAccounts}
+                          price={bank.base}
+                          interestRate={bank.maxTotal}
+                          maxBalance={bank.maxBalance}
+                          key={index}
                         />
-                      </a>
-                      <div className="mt-4">
-                        <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500">
-                          CATEGORY
-                        </h3>
-                        <h2 className="title-font text-lg font-medium text-gray-900">
-                          The Catalyzer
-                        </h2>
-                        <p className="mt-1">$16.00</p>
-                      </div>
+                      ))}
                     </div>
-                    <div className="w-full p-4 md:w-1/2 lg:w-1/4">
-                      <a className="relative block h-48 overflow-hidden rounded">
-                        <img
-                          alt="ecommerce"
-                          className="block h-full w-full object-cover object-center"
-                          src="https://dummyimage.com/421x261"
-                        />
-                      </a>
-                      <div className="mt-4">
-                        <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500">
-                          CATEGORY
-                        </h3>
-                        <h2 className="title-font text-lg font-medium text-gray-900">
-                          Shooting Stars
-                        </h2>
-                        <p className="mt-1">$21.15</p>
-                      </div>
+                  ) : (
+                    <div className="flex flex-col items-center justify-center">
+                      <img src={errorImage} className="w-44" alt="" />
+                      <h1 className="text-3xl">No Results Found</h1>
+                      <p>{error}</p>
                     </div>
-                    <div className="w-full p-4 md:w-1/2 lg:w-1/4">
-                      <a className="relative block h-48 overflow-hidden rounded">
-                        <img
-                          alt="ecommerce"
-                          className="block h-full w-full object-cover object-center"
-                          src="https://dummyimage.com/422x262"
-                        />
-                      </a>
-                      <div className="mt-4">
-                        <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500">
-                          CATEGORY
-                        </h3>
-                        <h2 className="title-font text-lg font-medium text-gray-900">
-                          Neptune
-                        </h2>
-                        <p className="mt-1">$12.00</p>
-                      </div>
-                    </div>
-                    <div className="w-full p-4 md:w-1/2 lg:w-1/4">
-                      <a className="relative block h-48 overflow-hidden rounded">
-                        <img
-                          alt="ecommerce"
-                          className="block h-full w-full object-cover object-center"
-                          src="https://dummyimage.com/423x263"
-                        />
-                      </a>
-                      <div className="mt-4">
-                        <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500">
-                          CATEGORY
-                        </h3>
-                        <h2 className="title-font text-lg font-medium text-gray-900">
-                          The 400 Blows
-                        </h2>
-                        <p className="mt-1">$18.40</p>
-                      </div>
-                    </div>
-                    <div className="w-full p-4 md:w-1/2 lg:w-1/4">
-                      <a className="relative block h-48 overflow-hidden rounded">
-                        <img
-                          alt="ecommerce"
-                          className="block h-full w-full object-cover object-center"
-                          src="https://dummyimage.com/424x264"
-                        />
-                      </a>
-                      <div className="mt-4">
-                        <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500">
-                          CATEGORY
-                        </h3>
-                        <h2 className="title-font text-lg font-medium text-gray-900">
-                          The Catalyzer
-                        </h2>
-                        <p className="mt-1">$16.00</p>
-                      </div>
-                    </div>
-                    <div className="w-full p-4 md:w-1/2 lg:w-1/4">
-                      <a className="relative block h-48 overflow-hidden rounded">
-                        <img
-                          alt="ecommerce"
-                          className="block h-full w-full object-cover object-center"
-                          src="https://dummyimage.com/425x265"
-                        />
-                      </a>
-                      <div className="mt-4">
-                        <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500">
-                          CATEGORY
-                        </h3>
-                        <h2 className="title-font text-lg font-medium text-gray-900">
-                          Shooting Stars
-                        </h2>
-                        <p className="mt-1">$21.15</p>
-                      </div>
-                    </div>
-                    <div className="w-full p-4 md:w-1/2 lg:w-1/4">
-                      <a className="relative block h-48 overflow-hidden rounded">
-                        <img
-                          alt="ecommerce"
-                          className="block h-full w-full object-cover object-center"
-                          src="https://dummyimage.com/427x267"
-                        />
-                      </a>
-                      <div className="mt-4">
-                        <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500">
-                          CATEGORY
-                        </h3>
-                        <h2 className="title-font text-lg font-medium text-gray-900">
-                          Neptune
-                        </h2>
-                        <p className="mt-1">$12.00</p>
-                      </div>
-                    </div>
-                    <div className="w-full p-4 md:w-1/2 lg:w-1/4">
-                      <a className="relative block h-48 overflow-hidden rounded">
-                        <img
-                          alt="ecommerce"
-                          className="block h-full w-full object-cover object-center"
-                          src="https://dummyimage.com/428x268"
-                        />
-                      </a>
-                      <div className="mt-4">
-                        <h3 className="title-font mb-1 text-xs tracking-widest text-gray-500">
-                          CATEGORY
-                        </h3>
-                        <h2 className="title-font text-lg font-medium text-gray-900">
-                          The 400 Blows
-                        </h2>
-                        <p className="mt-1">$18.40</p>
-                      </div>
-                    </div>
-                  </div>
+                  )}
                 </div>
               </section>
             </div>
