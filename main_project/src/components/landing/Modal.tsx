@@ -57,6 +57,7 @@ const Modal: React.FC<CountryCardModal> = ({
               <div className="mt-4 sm:-mx-2 sm:mt-6 sm:flex sm:items-center sm:justify-between">
                 <Link
                   to={`/country/${name}#pageTop`}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="mt-3 w-full transform rounded-md bg-blue-600 px-4 py-2.5 text-center text-sm font-medium capitalize tracking-wide text-white transition-colors duration-300 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2 sm:mt-0"
                 >
                   Learn More
