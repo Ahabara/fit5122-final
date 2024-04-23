@@ -4,7 +4,6 @@ import NavBar from "./components/NavBar";
 import ExploreCultures from "./components/landing/ExploreCultures.tsx";
 import Footer from "./components/Footer.tsx";
 import { GamePage } from "./components/landing/GamePage.tsx";
-import Chatbot from "./components/chatbot/Chatbot.tsx";
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
         <Hero />
         <ExploreCultures />
         <GamePage />
-        <Chatbot />
         <Footer styling={"bg-purple-900 text-white"} />
       </div>
     </>
