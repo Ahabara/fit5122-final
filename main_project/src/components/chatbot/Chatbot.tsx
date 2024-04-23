@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ChatBotBubble from "./ChatBotBubble.tsx";
+import { RiRobot2Line } from "react-icons/ri";
 
 interface MessageProps {
   message: string;
@@ -90,8 +91,7 @@ const Chatbot = () => {
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState(false);
   async function fetchResponse(message: string) {
-    // const url = "https://fourtitude.xyz/festival/chatBot";
-    const url = "https://google.com";
+    const url = "https://fourtitude.xyz/festival/chatBot";
     const body = {
       query: message,
     };
@@ -145,9 +145,12 @@ const Chatbot = () => {
             <div className="w-full">
               <div className="flex flex-col space-y-1.5 pb-6">
                 <div className="flex justify-between align-middle">
-                  <h2 className="text-lg font-semibold tracking-tight">
-                    Chatbot
-                  </h2>
+                  <div className="flex items-center gap-2">
+                    <RiRobot2Line className="h-6 w-6" />
+                    <h2 className="text-lg font-semibold tracking-tight">
+                      <span className="text-myDarkPurple">Festive</span>Bot
+                    </h2>
+                  </div>
                   <button
                     onClick={() => setView(false)}
                     className="flex rounded-sm border-4 border-gray-100 bg-gray-100 align-middle hover:border-gray-400 hover:bg-gray-400"
@@ -236,7 +239,7 @@ const Chatbot = () => {
                       fetchResponse(message).catch((e) => console.log(e));
                       setMessage("");
                     }}
-                    className="inline-flex h-10 items-center justify-center rounded-md bg-black px-4 py-2 text-sm font-medium text-[#f9fafb] hover:bg-[#111827E6] disabled:pointer-events-none disabled:opacity-50"
+                    className="inline-flex h-10 items-center justify-center rounded-md border border-black bg-myDarkPurple px-4 py-2 text-sm font-medium text-myBlack hover:bg-[#111827E6] disabled:pointer-events-none disabled:opacity-50"
                   >
                     Send
                   </button>
