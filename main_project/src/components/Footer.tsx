@@ -2,6 +2,7 @@ import Logo from "../assets/diversity.png";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import AboriginalFlag from "../assets/Australian_Aboriginal_Flag.svg";
+import fourreal from "../assets/FourReal.svg";
 
 interface FooterProps {
   styling?: string;
@@ -26,25 +27,10 @@ const Footer: React.FC<FooterProps> = ({ styling }) => {
           <span className="ml-3 text-xl">Wominjeka</span>
         </a>
         <div className="mt-4  text-sm sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
-          <p>© 2024 Team FourReal —</p>
-          <div className="ml-1 text-xs" rel="noopener noreferrer">
-            <div className="flex justify-between gap-4">
-              <p>
-                <strong>Front End:</strong> Abdel Habara
-              </p>
-              <p>
-                <strong>Back End:</strong> Mingzhi
-              </p>
-            </div>
-            <div className="flex justify-between">
-              <p>
-                <strong>Data Wrangler:</strong> Erman Gao
-              </p>
-              <p>
-                <strong>BA:</strong> Aneri Patel
-              </p>
-            </div>
+          <div className="ml-1 flex">
+            <img src={fourreal} alt="" className="w-12" />
           </div>
+          <p>© 2024 Team FourReal —</p>
         </div>
         <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
           <a className="text-gray-500">
