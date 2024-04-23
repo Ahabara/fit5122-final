@@ -8,6 +8,7 @@ import Explore from "./components/explore/Explore.tsx";
 import PageNotFound from "./PageNotFound.tsx";
 import Super from "./components/Finance/Super/Super.tsx";
 import BankPage from "./components/Finance/BankPage.tsx";
+import FestivalsPage from "./components/festival/FestivalsPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -36,19 +37,12 @@ const router = createBrowserRouter([
     element: <BankPage />,
     errorElement: <App />,
   },
+  {
+    path: "/festivals",
+    element: <FestivalsPage />,
+    errorElement: <App />,
+  },
 ]);
-
-// TODO bug: fix scrolling on routing
-
-// const ScrollToTop = () => {
-//     const { pathname } = useLocation();
-//
-//     useEffect(() => {
-//         window.scrollTo(0, 0);
-//     }, [pathname]);
-//
-//     return null;
-// };
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
