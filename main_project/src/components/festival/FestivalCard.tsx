@@ -104,23 +104,21 @@ export const FestivalCard: React.FC<FestivalCardProps> = ({
       </div>
       <div>
         <div className="mb-2">
-          <a
-            href="/"
+          <div
             className="text-deep-purple-accent-400 hover:text-deep-purple-800 text-xs font-semibold uppercase tracking-wide transition-colors duration-200"
             aria-label="Category"
             title="Delevopment"
           >
             {type}
-          </a>
+          </div>
         </div>
         <div className="mb-2">
-          <a
-            href="/"
+          <div
             aria-label="Article"
             className="hover:text-deep-purple-accent-400 inline-block text-2xl font-bold leading-5 text-black transition-colors duration-200"
           >
             {name}
-          </a>
+          </div>
         </div>
         <p className="mb-5 text-gray-700">{description}</p>
         <form
