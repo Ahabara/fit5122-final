@@ -1,5 +1,6 @@
 import piggy from "../assets/piggybank.png";
 import retirement from "../assets/retirement.png";
+import invest from "../assets/invest.svg";
 
 const SuperExplained = () => {
   return (
@@ -57,7 +58,7 @@ const SuperExplained = () => {
                   </div>
                   <div className="mt-4 flex flex-col items-center justify-center text-xl font-semibold leading-tight text-gray-900 sm:mt-6 md:mt-10 dark:text-white">
                     <img
-                      src={piggy}
+                      src={invest}
                       alt=""
                       className="mb-4 h-72 w-72 object-cover "
                     />

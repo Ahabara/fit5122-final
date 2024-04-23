@@ -1,6 +1,5 @@
 import Layout from "../../landing/Layout.tsx";
 import { SuperHero } from "./SuperHero.tsx";
-import { Festivals } from "../../festival/Festivals.tsx";
 import SuperExplained from "./SuperExplained.tsx";
 
 const Super = () => {
@@ -8,7 +7,6 @@ const Super = () => {
     <Layout>
       <SuperHero />
       <SuperExplained />
-      <Festivals />
     </Layout>
   );
 };
