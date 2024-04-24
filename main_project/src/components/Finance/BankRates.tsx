@@ -66,14 +66,21 @@ const BankCard: React.FC<BankCardProps> = ({
       return;
     }
     setInflation(calculateInflation(parseFloat(savings)));
-    const annualInterestRate = parseFloat(interestRate) * 100; // Convert maxTotal to annual interest rate
-    const annualInterest = (parseFloat(savings) * annualInterestRate) / 100;
-    const totalInterest = annualInterest * 10; // Assuming 10 years
+    const principal = parseFloat(savings);
+    const years = 10;
+    const annualInterestRate = parseFloat(interestRate); // Convert maxTotal to annual interest rate
+    console.log(annualInterestRate);
+    const amount = principal * Math.pow(1 + annualInterestRate, 10);
+    // const annualInterest = (parseFloat(savings) * annualInterestRate) / 100;
+    const totalInterest = amount - principal; // Assuming 10 years
     setInterestEarned(totalInterest);
-    const interestPerYear = Array.from({ length: 10 }, (_, index) => {
-      return parseFloat((annualInterest * (index + 1)).toFixed(2));
+    const interestPerYear = Array.from({ length: years }, (_, index) => {
+      const year = index + 1;
+      const amountAtYear = principal * Math.pow(1 + annualInterestRate, year);
+      console.log(amountAtYear);
+      return parseFloat(amountAtYear.toFixed(2)); // Fixed to 2 decimal places
     });
-
+    console.log(interestPerYear);
     setInterestsPerYear(interestPerYear);
   };
 
@@ -99,7 +106,6 @@ const BankCard: React.FC<BankCardProps> = ({
     index: index.toString(),
     Inflation: inflation[index],
   }));
-  console.log(arrayOfObjects);
   return (
     <>
       <div className="w-full p-4 md:w-1/2 lg:w-1/4">
@@ -125,7 +131,7 @@ const BankCard: React.FC<BankCardProps> = ({
             </h2>
           </div>
           <dialog id={`${name}`} className="modal w-full">
-            <div className="modal-box">
+            <div className="modal-box max-w-fit px-16">
               <div className="flex items-center gap-2 py-3">
                 <FaCoins size={"2.25rem"} />
                 <p className="text-3xl">Interest</p>
@@ -160,7 +166,7 @@ const BankCard: React.FC<BankCardProps> = ({
               {interestEarned !== 0 && (
                 <p className="mt-4">
                   Potential interest earned over 10 years:{" "}
-                  <strong>{interestEarned}</strong>
+                  <strong>${interestEarned.toFixed(2)}</strong>
                 </p>
               )}
               {interestsPerYear.length > 0 && (
@@ -170,8 +176,10 @@ const BankCard: React.FC<BankCardProps> = ({
                     You could have{" "}
                     <strong>
                       $
-                      {parseFloat(savings) +
-                        interestsPerYear[interestsPerYear.length - 1]}
+                      {(
+                        parseFloat(savings) +
+                        interestsPerYear[interestsPerYear.length - 1]
+                      ).toFixed(2)}
                     </strong>{" "}
                     in 10 years!
                   </p>
@@ -196,7 +204,6 @@ const BankCard: React.FC<BankCardProps> = ({
                       stroke="#82ca9d"
                     />
                   </LineChart>
-
                   <table className="w-full border-collapse">
                     <thead className="text-left">
                       <tr>
@@ -268,7 +275,7 @@ const BankRates = () => {
   }, []);
   return (
     <>
-      <section className="relative rounded-2xl p-16 ">
+      <section className="relative rounded-2xl p-16 " id="bankrates">
         <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
           <div className="flex w-full flex-col justify-between max-lg:gap-4 lg:flex-row lg:items-center">
             <ul className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-12">
