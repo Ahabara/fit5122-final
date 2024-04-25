@@ -3,6 +3,7 @@ import Chatbot from "../chatbot/Chatbot.tsx";
 import { FestivalCard } from "./FestivalCard.tsx";
 import errorImage from "../Finance/assets/error message.png";
 import { Link } from "react-router-dom";
+import { MdOutlineFestival } from "react-icons/md";
 
 export const Festivals = () => {
   const [showFilters, setShowfilters] = useState(true);
@@ -100,9 +101,10 @@ export const Festivals = () => {
       <div className="2xl:container 2xl:mx-auto" id="festivalSection">
         <div className=" px-4 py-9 md:px-6 md:py-3 lg:px-28">
           <div className=" mb-4 flex items-center justify-between">
-            <h2 className=" text-3xl font-semibold leading-7 text-gray-800 lg:text-4xl lg:leading-9">
-              Festivals
-            </h2>
+            <div className="flex items-center gap-2 text-3xl font-semibold leading-7 text-gray-800 lg:text-4xl lg:leading-9">
+              <MdOutlineFestival className=" text-myDarkPurple" />
+              <h2 className=" ">Festivals</h2>
+            </div>
 
             {/*  filters Button (md and plus Screen) */}
             <button
