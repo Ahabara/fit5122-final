@@ -246,15 +246,6 @@ const BankCard: React.FC<BankCardProps> = ({
 const BankRates = () => {
   const [bankInterest, setBankInterest] = useState<BankInterest[]>([]);
   const [error, setError] = useState("");
-  // const [highToLowView, setHighToLowView] = useState(true);
-
-  const sortedBankInterestHighToLow = [...bankInterest].sort((a, b) =>
-    b.maxTotal.localeCompare(a.maxTotal),
-  );
-  //
-  // const sortedBankInterestLowToHigh = [...bankInterest].sort((a, b) =>
-  //   a.maxTotal.localeCompare(b.maxTotal),
-  // );
 
   useEffect(() => {
     const fetchBankInterest = async () => {
@@ -320,11 +311,37 @@ const BankRates = () => {
               </svg>
               <select
                 id="Offer"
+                onChange={(e) => {
+                  if (e.target.value == "low") {
+                    setBankInterest((prevState) => {
+                      return [...prevState].sort((a, b) =>
+                        a.maxTotal.localeCompare(b.maxTotal),
+                      );
+                    });
+                  } else if (e.target.value == "high") {
+                    setBankInterest((prevState) => {
+                      return [...prevState].sort((a, b) =>
+                        b.maxTotal.localeCompare(a.maxTotal),
+                      );
+                    });
+                  } else if (e.target.value == "alpha") {
+                    setBankInterest((prevState) => {
+                      return [...prevState].sort((a, b) =>
+                        a.savingsAccounts.toLowerCase() <
+                        b.savingsAccounts.toLowerCase()
+                          ? -1
+                          : 1,
+                      );
+                    });
+                  }
+                }}
                 className="relative block h-12 w-full appearance-none rounded-md border-2 border-gray-800 bg-pink-200 px-4 py-2.5 pl-11 text-base font-normal leading-7 text-gray-900 transition-all duration-500 focus-within:bg-myPurple hover:border-gray-400 hover:bg-myPink focus:outline-none"
               >
-                <option selected>High to Low</option>
-                <option value="option 1">Low To High</option>
-                <option value="option 2">Product Name (A - Z)</option>
+                <option selected value={"high"}>
+                  High to Low
+                </option>
+                <option value="low">Low To High</option>
+                <option value="alpha">Product Name (A - Z)</option>
               </select>
             </div>
           </div>
@@ -339,7 +356,7 @@ const BankRates = () => {
             <path d="M0 1H1216" stroke="gray" />
           </svg>
           <div className="grid grid-cols-12">
-            <div className="col-span-12 w-full max-md:mx-auto max-md:max-w-md md:col-span-3">
+            <div className="col-span-12 hidden w-full max-md:mx-auto max-md:max-w-md md:col-span-3">
               <div className="box w-full rounded-xl border border-gray-300 bg-[#FBD9EE] p-6 md:max-w-sm">
                 <h6 className="mb-5 flex items-center gap-2 text-base font-medium leading-7 text-black">
                   <RiListSettingsLine />
@@ -574,12 +591,13 @@ const BankRates = () => {
                 </button>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-9">
+            <div className="col-span-12 md:col-span-12">
+              {/*todo change back to col-span-9 when introducing filters*/}
               <section className="body-font text-gray-600">
                 <div className="container mx-auto px-5 py-4">
                   {bankInterest.length > 1 ? (
                     <div className="-m-4 flex flex-wrap">
-                      {sortedBankInterestHighToLow.map((bank, index) => (
+                      {bankInterest.map((bank, index) => (
                         <BankCard
                           image={bank.image}
                           name={bank.savingsAccounts}

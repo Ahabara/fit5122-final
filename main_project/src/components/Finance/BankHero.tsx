@@ -1,4 +1,5 @@
 import bankPhoto from "./assets/8069143.png";
+import { AiOutlineBank } from "react-icons/ai";
 
 const BankHero = () => {
   return (
@@ -42,6 +43,13 @@ const BankHero = () => {
                       clipRule="evenodd"
                     />
                   </svg>
+                </a>
+                <a
+                  href={"#bankrates"}
+                  className="flex items-center justify-center gap-x-1 rounded-full bg-gray-600 px-4 py-2 font-medium text-white duration-150 hover:bg-gray-700 active:bg-gray-900 md:inline-flex"
+                >
+                  Compare Banks
+                  <AiOutlineBank className="h-4 w-4" />
                 </a>
               </div>
             </div>
