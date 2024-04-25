@@ -8,7 +8,6 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import bg from "../assets/background copy.mp4";
 import { IoMdClose } from "react-icons/io";
 import { BsBank } from "react-icons/bs";
-import { PiPiggyBank } from "react-icons/pi";
 import { FaSortDown } from "react-icons/fa";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 
@@ -303,18 +302,8 @@ const NavBar = () => {
                         className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                       >
                         <span className="flex flex-row items-center gap-2 ">
-                          <PiPiggyBank />
-                          <p>Superannuation</p>
-                        </span>
-                      </Link>
-                      <Link
-                        to="/"
-                        className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
-                      >
-                        <span className="flex flex-row items-center gap-2 ">
                           <FaMoneyBillTrendUp />
-
-                          <p>Interest</p>
+                          <p>Superannuation</p>
                         </span>
                       </Link>
                     </div>

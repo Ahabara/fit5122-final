@@ -9,7 +9,7 @@ const SuperExplained = () => {
         <div className="mt-2 overflow-hidden py-12 pb-6 sm:py-16 md:mt-0 lg:pb-24">
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="relative mt-12 lg:mt-20">
-              <div className="absolute inset-x-0 top-2 hidden md:block md:px-20 lg:px-28 xl:px-44">
+              <div className="absolute inset-x-0 top-2 hidden md:block md:px-20">
                 <svg
                   className="w-full"
                   xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@ const SuperExplained = () => {
                     <img
                       src={piggy}
                       alt=""
-                      className="mb-4 h-72 w-72 object-cover"
+                      className="mb-4 h-48 w-48 object-cover"
                     />
                     <h3 className="text-3xl">Contribute</h3>
                   </div>
@@ -60,7 +60,7 @@ const SuperExplained = () => {
                     <img
                       src={invest}
                       alt=""
-                      className="mb-4 h-72 w-72 object-cover "
+                      className="mb-4 h-48 w-48 object-cover "
                     />
                     <h3 className="text-3xl">Invest</h3>
                   </div>
@@ -82,7 +82,7 @@ const SuperExplained = () => {
                     <img
                       src={retirement}
                       alt=""
-                      className="mb-4 h-72 w-72 object-cover"
+                      className="mb-4 h-48 w-48 object-cover"
                     />
                     <h3 className="text-3xl">Retire</h3>
                   </div>

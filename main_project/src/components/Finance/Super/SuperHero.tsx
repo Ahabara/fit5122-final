@@ -2,7 +2,10 @@ import superPerson from "../assets/SuperBusinessMan.svg";
 
 export const SuperHero = () => {
   return (
-    <div className="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
+    <div
+      className="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20"
+      id="superTop"
+    >
       <div className="row-gap-8 grid gap-5 lg:grid-cols-2">
         <div className="flex flex-col justify-center">
           <div className="mb-6 max-w-xl">
@@ -31,22 +34,24 @@ export const SuperHero = () => {
             <div className="border-deep-purple-accent-400 border-l-4 bg-white shadow-sm">
               <div className="h-full rounded-r border border-l-0 p-5">
                 <h6 className="mb-2 font-semibold leading-5">
-                  I'll be sure to note that in my log
+                  Still Young And Not Thinking About Retirement?
                 </h6>
                 <p className="text-sm text-gray-900">
-                  Lookout flogging bilge rat main sheet bilge water nipper fluke
-                  to go on account heave down.
+                  Even if retirement feels like a distant prospect, there are
+                  several reasons why superannuation should still be on your
+                  radar!
                 </p>
               </div>
             </div>
             <div className="border-deep-purple-accent-400 border-l-4 bg-white shadow-sm">
               <div className="h-full rounded-r border border-l-0 p-5">
                 <h6 className="mb-2 font-semibold leading-5">
-                  A business big enough that it could be listed
+                  Don't know where to start?
                 </h6>
                 <p className="text-sm text-gray-900">
-                  Those options are already baked in with this model shoot me an
-                  email clear.
+                  Life is unpredictable, and circumstances can change
+                  unexpectedly. Let us help you navigate life's twists and
+                  turns.
                 </p>
               </div>
             </div>
