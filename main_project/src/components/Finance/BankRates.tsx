@@ -166,25 +166,31 @@ const BankCard: React.FC<BankCardProps> = ({
               {interestEarned !== 0 && (
                 <p className="mt-4">
                   Potential interest earned over 10 years:{" "}
-                  <strong>${interestEarned.toFixed(2)}</strong>
+                  <strong>
+                    {interestEarned.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    })}
+                  </strong>
                 </p>
               )}
               {interestsPerYear.length > 0 && (
-                <div className="mt-4">
+                <div className="mb-4">
                   <p>
                     {" "}
                     You could have{" "}
                     <strong>
-                      $
-                      {(
-                        parseFloat(savings) +
-                        interestsPerYear[interestsPerYear.length - 1]
-                      ).toFixed(2)}
+                      {interestsPerYear[
+                        interestsPerYear.length - 1
+                      ].toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                      })}
                     </strong>{" "}
                     in 10 years!
                   </p>
-                  <h3 className="mb-2 text-lg font-semibold">
-                    Interest Earned Per Year
+                  <h3 className="mt-2 text-lg font-semibold">
+                    Potential Earnings
                   </h3>
                   <LineChart
                     width={500}
@@ -195,7 +201,14 @@ const BankCard: React.FC<BankCardProps> = ({
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="index" />
                     <YAxis />
-                    <Tooltip />
+                    <Tooltip
+                      formatter={(value) =>
+                        value.toLocaleString("en-US", {
+                          style: "currency",
+                          currency: "USD",
+                        })
+                      }
+                    />
                     <Legend />
                     <Line type="monotone" dataKey="Interest" stroke="#8884d8" />
                     <Line
@@ -208,14 +221,19 @@ const BankCard: React.FC<BankCardProps> = ({
                     <thead className="text-left">
                       <tr>
                         <th className="border p-2">Year</th>
-                        <th className="border p-2">Interest Earned</th>
+                        <th className="border p-2">Total Saved</th>
                       </tr>
                     </thead>
                     <tbody>
                       {interestsPerYear.map((interest, index) => (
                         <tr key={index}>
                           <td className="border p-2">{index + 1}</td>
-                          <td className="border p-2">${interest}</td>
+                          <td className="border p-2">
+                            {interest.toLocaleString("en-US", {
+                              style: "currency",
+                              currency: "USD",
+                            })}
+                          </td>
                         </tr>
                       ))}
                     </tbody>

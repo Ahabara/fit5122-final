@@ -52,6 +52,7 @@ export const FestivalCard: React.FC<FestivalCardProps> = ({
   const [emailBlur, setEmailBlur] = useState("");
   const [error, setError] = useState(true);
   const [emailSent, setEmailSent] = useState(false);
+  // const [days, setDays] = useState(2)
   const validateEmail = (email: string): boolean => {
     // Regular expression for email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
