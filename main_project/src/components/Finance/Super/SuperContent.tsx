@@ -231,60 +231,75 @@ const SuperContent = () => {
                     <strong>$1.2 Billion</strong> is contributed annually in
                     Australia!
                   </p>
-                  <AreaChart
-                    width={730}
-                    height={250}
-                    data={employerContribution}
-                    // margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-                  >
-                    <defs>
-                      <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                        <stop
-                          offset="5%"
-                          stopColor="#8884d8"
-                          stopOpacity={0.8}
-                        />
-                        <stop
-                          offset="95%"
-                          stopColor="#8884d8"
-                          stopOpacity={0}
-                        />
-                      </linearGradient>
-                      <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                        <stop
-                          offset="5%"
-                          stopColor="#82ca9d"
-                          stopOpacity={0.8}
-                        />
-                        <stop
-                          offset="95%"
-                          stopColor="#82ca9d"
-                          stopOpacity={0}
-                        />
-                      </linearGradient>
-                    </defs>
-                    <XAxis dataKey="year" />
-                    <YAxis />
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <Legend
-                      verticalAlign="top"
-                      height={36}
-                      formatter={() => `$ Contributions in Millions`}
-                    />
+                  <div className="h-full w-full">
+                    <AreaChart
+                      width={730}
+                      height={250}
+                      data={employerContribution}
+                      // margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                    >
+                      <defs>
+                        <linearGradient
+                          id="colorUv"
+                          x1="0"
+                          y1="0"
+                          x2="0"
+                          y2="1"
+                        >
+                          <stop
+                            offset="5%"
+                            stopColor="#8884d8"
+                            stopOpacity={0.8}
+                          />
+                          <stop
+                            offset="95%"
+                            stopColor="#8884d8"
+                            stopOpacity={0}
+                          />
+                        </linearGradient>
+                        <linearGradient
+                          id="colorPv"
+                          x1="0"
+                          y1="0"
+                          x2="0"
+                          y2="1"
+                        >
+                          <stop
+                            offset="5%"
+                            stopColor="#82ca9d"
+                            stopOpacity={0.8}
+                          />
+                          <stop
+                            offset="95%"
+                            stopColor="#82ca9d"
+                            stopOpacity={0}
+                          />
+                        </linearGradient>
+                      </defs>
+                      <XAxis dataKey="year" />
+                      <YAxis />
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <Legend
+                        verticalAlign="top"
+                        height={36}
+                        formatter={() => `Employer Contributions in Millions`}
+                      />
 
-                    <Tooltip
-                      formatter={(value) =>
-                        value && "$" + value.toLocaleString()
-                      }
-                    />
-                    <Area
-                      type="monotone"
-                      dataKey="value"
-                      stroke="#8884d8"
-                      fillOpacity={1}
-                      fill="url(#colorUv)"
-                    />
-                  </AreaChart>
+                      <Tooltip
+                        formatter={(value) =>
+                          value && "$" + value.toLocaleString()
+                        }
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="value"
+                        stroke="#8884d8"
+                        fillOpacity={1}
+                        fill="url(#colorUv)"
+                      />
+                    </AreaChart>
+                  </div>
+
                   <p className="text-lg text-gray-800">
                     You can also choose to contribute directly in to your super
                     which has some fantastic tax benefits and gets you ready to
@@ -329,7 +344,7 @@ const SuperContent = () => {
                     <Legend
                       verticalAlign="top"
                       height={36}
-                      formatter={() => `$ in Millions`}
+                      formatter={() => `Total Contributions in Millions`}
                     />
                     {/*  {contribution[0].type}*/}
 
