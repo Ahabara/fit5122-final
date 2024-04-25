@@ -34,7 +34,7 @@ const SuperContent = () => {
       try {
         const response = await fetch("https://fourtitude.xyz/super/year");
         if (!response.ok) {
-          throw new Error("Failed to fetch data");
+          console.log("Failed to fetch data");
         }
         const data = await response.json();
         setSuperData(data.data);
@@ -269,9 +269,7 @@ const SuperContent = () => {
                     <Legend
                       verticalAlign="top"
                       height={36}
-                      formatter={() =>
-                        `${employerContribution[0].type} Contributions in Millions`
-                      }
+                      formatter={() => `$ Contributions in Millions`}
                     />
 
                     <Tooltip
@@ -331,8 +329,9 @@ const SuperContent = () => {
                     <Legend
                       verticalAlign="top"
                       height={36}
-                      formatter={() => `${contribution[0].type} in Millions`}
+                      formatter={() => `$ in Millions`}
                     />
+                    {/*  {contribution[0].type}*/}
 
                     <Tooltip
                       formatter={(value) =>
