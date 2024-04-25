@@ -99,6 +99,7 @@ const Chatbot = () => {
     try {
       const response = await fetch(url, {
         method: "POST",
+        // credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -112,9 +113,7 @@ const Chatbot = () => {
           "Whoops something went wrong :(",
         ]);
 
-        console.log(response);
-
-        throw new Error("Network response was not ok");
+        console.error("Network response was not ok", response);
       }
 
       const responseData = await response.json();
