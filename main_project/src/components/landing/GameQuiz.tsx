@@ -19,9 +19,9 @@ const GameQuiz: React.FC<QuizCardProps> = ({
 }) => {
   return (
     <div className="m-4 max-w-sm rounded-lg border-2 border-myDarkPurple">
-      <div className="flex  h-full flex-col bg-myPurple p-4 dark:bg-gray-800">
+      <div className="flex  h-full flex-col bg-myPurple p-4 ">
         <div className="mb-3 flex ">
-          <h2 className="text-lg font-medium text-white dark:text-white">
+          <h2 className="text-lg font-medium text-white ">
             {i + 1}. {question}
             <img src={isRight ? yes : no} alt="yesorno" className="h-5" />
           </h2>
@@ -30,9 +30,7 @@ const GameQuiz: React.FC<QuizCardProps> = ({
           <p className="text-gray-700">
             <span className="font-bold">Correct Answer:</span> {answer}
           </p>
-          <p className="text-base leading-relaxed text-white dark:text-gray-300">
-            {moreInfo}
-          </p>
+          <p className="text-base leading-relaxed text-white ">{moreInfo}</p>
         </div>
       </div>
     </div>

@@ -29,12 +29,12 @@ const SuperExplained = () => {
               </div>
               <div className="relative grid grid-cols-1 gap-x-12 gap-y-8 text-center sm:gap-y-10 md:grid-cols-3 md:gap-y-12">
                 <div>
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-                    <span className="text-xl font-semibold text-gray-700 dark:text-gray-200">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow ">
+                    <span className="text-xl font-semibold text-gray-700 ">
                       1
                     </span>
                   </div>
-                  <div className="mt-4 flex flex-col items-center justify-center text-xl font-semibold leading-tight text-gray-900 sm:mt-6 md:mt-10 dark:text-white">
+                  <div className="mt-4 flex flex-col items-center justify-center text-xl font-semibold leading-tight text-gray-900 sm:mt-6 md:mt-10 ">
                     <img
                       src={piggy}
                       alt=""
@@ -42,7 +42,7 @@ const SuperExplained = () => {
                     />
                     <h3 className="text-3xl">Contribute</h3>
                   </div>
-                  <p className="mt-3 text-justify text-base text-gray-600 sm:mt-4 dark:text-gray-400">
+                  <p className="mt-3 text-justify text-base text-gray-600 sm:mt-4 ">
                     Regularly contribute to your superannuation fund, either
                     through employer contributions (Superannuation Guarantee) or
                     voluntary contributions from your own income. Aim to
@@ -51,12 +51,12 @@ const SuperExplained = () => {
                   </p>
                 </div>
                 <div>
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-                    <span className="text-xl font-semibold text-gray-700 dark:text-gray-200">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow ">
+                    <span className="text-xl font-semibold text-gray-700 ">
                       2
                     </span>
                   </div>
-                  <div className="mt-4 flex flex-col items-center justify-center text-xl font-semibold leading-tight text-gray-900 sm:mt-6 md:mt-10 dark:text-white">
+                  <div className="mt-4 flex flex-col items-center justify-center text-xl font-semibold leading-tight text-gray-900 sm:mt-6 md:mt-10 ">
                     <img
                       src={invest}
                       alt=""
@@ -64,7 +64,7 @@ const SuperExplained = () => {
                     />
                     <h3 className="text-3xl">Invest</h3>
                   </div>
-                  <p className="mt-3 text-justify text-base text-gray-600 sm:mt-4 dark:text-gray-400">
+                  <p className="mt-3 text-justify text-base text-gray-600 sm:mt-4 ">
                     Choose suitable investment options offered by your
                     superannuation fund based on your risk tolerance, investment
                     goals, and time horizon until retirement. Monitor and review
@@ -73,12 +73,12 @@ const SuperExplained = () => {
                   </p>
                 </div>
                 <div>
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800">
-                    <span className="text-xl font-semibold text-gray-700 dark:text-gray-200">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-gray-200 bg-white shadow ">
+                    <span className="text-xl font-semibold text-gray-700 ">
                       3
                     </span>
                   </div>
-                  <div className="mt-4 flex flex-col items-center justify-center text-xl font-semibold leading-tight text-gray-900 sm:mt-6 md:mt-10 dark:text-white">
+                  <div className="mt-4 flex flex-col items-center justify-center text-xl font-semibold leading-tight text-gray-900 sm:mt-6 md:mt-10 ">
                     <img
                       src={retirement}
                       alt=""
@@ -86,7 +86,7 @@ const SuperExplained = () => {
                     />
                     <h3 className="text-3xl">Retire</h3>
                   </div>
-                  <p className="mt-3 text-justify  text-base text-gray-600 sm:mt-4 dark:text-gray-400">
+                  <p className="mt-3 text-justify  text-base text-gray-600 sm:mt-4 ">
                     Prepare for retirement by considering options such as
                     transitioning to retirement strategies or purchasing an
                     annuity to provide a regular income stream in retirement.

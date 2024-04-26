@@ -34,7 +34,7 @@ const Modal: React.FC<CountryCardModal> = ({
             >
               &#8203;
             </span>
-            <div className="relative inline-block transform overflow-hidden rounded-xl bg-white p-4 text-left align-middle shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 dark:bg-gray-900">
+            <div className="relative inline-block transform overflow-hidden rounded-xl bg-white p-4 text-left align-middle shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
               <div className="mx-auto flex items-center justify-center">
                 <img
                   className="h-96 w-96 rounded-lg object-cover "
@@ -44,15 +44,13 @@ const Modal: React.FC<CountryCardModal> = ({
               </div>
               <div className="mt-5 text-center">
                 <h3
-                  className="text-left text-lg font-medium text-gray-800 dark:text-white"
+                  className="text-left text-lg font-medium text-gray-800 "
                   id="modal-title"
                 >
                   {name}
                 </h3>
 
-                <p className="mt-2 text-left text-gray-500 dark:text-gray-400">
-                  {brief}
-                </p>
+                <p className="mt-2 text-left text-gray-500 ">{brief}</p>
               </div>
               <div className="mt-4 sm:-mx-2 sm:mt-6 sm:flex sm:items-center sm:justify-between">
                 <Link

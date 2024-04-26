@@ -78,9 +78,9 @@ const SuperContent = () => {
                   Why is Superannuation Important?
                 </h3>
                 <div className="pl-4">
-                  <ol className="relative border-s border-gray-200 text-neutral-800 dark:border-gray-700 dark:text-gray-400">
+                  <ol className="relative border-s border-gray-200 text-neutral-800 ">
                     <li className="mb-10 ms-6">
-                      <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-4 ring-white dark:bg-green-900 dark:ring-gray-900">
+                      <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-4 ring-white ">
                         <LuRockingChair
                           className="stroke-8 text-gray-500"
                           style={{
@@ -98,7 +98,7 @@ const SuperContent = () => {
                       </p>
                     </li>
                     <li className="mb-10 ms-6">
-                      <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-4 ring-white dark:bg-gray-700 dark:ring-gray-900">
+                      <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-4 ring-white ">
                         <MdWork className="h-full w-4 text-gray-500"></MdWork>
                       </span>
                       <h3 className="font-bold leading-tight">
@@ -113,8 +113,8 @@ const SuperContent = () => {
                       </p>
                     </li>
                     <li className="mb-10 ms-6">
-                      <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-4 ring-white dark:bg-gray-700 dark:ring-gray-900">
-                        <FaFileInvoiceDollar className="h-3.5 w-3.5 text-gray-500 dark:text-gray-400"></FaFileInvoiceDollar>
+                      <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-4 ring-white ">
+                        <FaFileInvoiceDollar className="h-3.5 w-3.5 text-gray-500 "></FaFileInvoiceDollar>
                       </span>
                       <h3 className="font-bold leading-tight">Tax Benefits</h3>
                       <p className="text-md">
@@ -124,7 +124,7 @@ const SuperContent = () => {
                       </p>
                     </li>
                     <li className="ms-6">
-                      <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-4 ring-white dark:bg-gray-700 dark:ring-gray-900">
+                      <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-4 ring-white ">
                         <FaChartLine className="h-3.5 w-3.5 text-gray-500 "></FaChartLine>
                       </span>
                       <h3 className="font-bold leading-tight">

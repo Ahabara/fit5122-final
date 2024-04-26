@@ -127,7 +127,7 @@ export const FestivalCard: React.FC<FestivalCardProps> = ({
             e.preventDefault();
           }}
         >
-          <div className="m-1.5 flex flex-col overflow-hidden   focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 focus-within:ring-opacity-40 lg:flex-row dark:border-gray-600 dark:focus-within:border-blue-300">
+          <div className="m-1.5 flex flex-col overflow-hidden   focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 focus-within:ring-opacity-40 lg:flex-row ">
             <button
               className="transform rounded-sm bg-gray-700 px-4 py-3 text-sm font-medium uppercase tracking-wider text-gray-100 transition-colors duration-300 hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"
               onClick={() =>
@@ -155,7 +155,7 @@ export const FestivalCard: React.FC<FestivalCardProps> = ({
                   <div className="mb-5">
                     <label
                       htmlFor="email"
-                      className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                      className="mb-2 block text-sm font-medium text-gray-900 "
                     >
                       Your email
                     </label>
@@ -163,7 +163,7 @@ export const FestivalCard: React.FC<FestivalCardProps> = ({
                       value={email}
                       type="email"
                       id="email"
-                      className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+                      className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
                       placeholder="example@monash.edu.au"
                       onChange={(e) => setEmail(e.target.value)}
                       onBlur={() => {

@@ -65,7 +65,7 @@ const Dropdown = () => {
                 />
               </svg>
               <div className="flex items-center pl-4">
-                <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                   <input
                     type="checkbox"
                     className="checkbox absolute h-full w-full cursor-pointer opacity-0"
@@ -101,7 +101,7 @@ const Dropdown = () => {
             <div className="pl-8 pt-5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center pl-4">
-                  <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                  <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                     <input
                       type="checkbox"
                       className="checkbox absolute h-full w-full cursor-pointer opacity-0"
@@ -134,7 +134,7 @@ const Dropdown = () => {
               </div>
               <div className="flex items-center justify-between pt-4">
                 <div className="flex items-center pl-4">
-                  <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                  <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                     <input
                       type="checkbox"
                       className="checkbox absolute h-full w-full cursor-pointer opacity-0"
@@ -167,7 +167,7 @@ const Dropdown = () => {
               </div>
               <div className="flex items-center justify-between pt-4">
                 <div className="flex items-center pl-4">
-                  <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                  <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                     <input
                       type="checkbox"
                       className="checkbox absolute h-full w-full cursor-pointer opacity-0"
@@ -220,7 +220,7 @@ const Dropdown = () => {
                   />
                 </svg>
                 <div className="flex items-center pl-4">
-                  <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                  <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                     <input
                       type="checkbox"
                       className="checkbox absolute h-full w-full cursor-pointer opacity-0"
@@ -256,7 +256,7 @@ const Dropdown = () => {
               <div className="pl-8 pt-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center pl-4">
-                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                       <input
                         type="checkbox"
                         className="checkbox absolute h-full w-full cursor-pointer opacity-0"
@@ -289,7 +289,7 @@ const Dropdown = () => {
                 </div>
                 <div className="flex items-center justify-between pt-4">
                   <div className="flex items-center pl-4">
-                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                       <input
                         type="checkbox"
                         className="checkbox absolute h-full w-full cursor-pointer opacity-0"
@@ -322,7 +322,7 @@ const Dropdown = () => {
                 </div>
                 <div className="flex items-center justify-between pt-4">
                   <div className="flex items-center pl-4">
-                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                       <input
                         type="checkbox"
                         className="checkbox absolute h-full w-full cursor-pointer opacity-0"
@@ -376,7 +376,7 @@ const Dropdown = () => {
                   />
                 </svg>
                 <div className="flex items-center pl-4">
-                  <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                  <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                     <input
                       type="checkbox"
                       className="checkbox absolute h-full w-full cursor-pointer opacity-0"
@@ -412,7 +412,7 @@ const Dropdown = () => {
               <div className="pl-8 pt-5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center pl-4">
-                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                       <input
                         type="checkbox"
                         className="checkbox absolute h-full w-full cursor-pointer opacity-0"
@@ -445,7 +445,7 @@ const Dropdown = () => {
                 </div>
                 <div className="flex items-center justify-between pt-4">
                   <div className="flex items-center pl-4">
-                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                       <input
                         type="checkbox"
                         className="checkbox absolute h-full w-full cursor-pointer opacity-0"
@@ -478,7 +478,7 @@ const Dropdown = () => {
                 </div>
                 <div className="flex items-center justify-between pt-4">
                   <div className="flex items-center pl-4">
-                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 dark:border-gray-700 dark:bg-gray-800">
+                    <div className="relative flex h-3 w-3 flex-shrink-0 items-center justify-center rounded-sm border border-gray-200 bg-gray-100 ">
                       <input
                         type="checkbox"
                         className="checkbox absolute h-full w-full cursor-pointer opacity-0"
