@@ -9,6 +9,7 @@ import PageNotFound from "./PageNotFound.tsx";
 import Super from "./components/Finance/Super/Super.tsx";
 import BankPage from "./components/Finance/BankPage.tsx";
 import FestivalsPage from "./components/festival/FestivalsPage.tsx";
+import BankRatesPage from "./components/Finance/BankRatesPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,11 @@ const router = createBrowserRouter([
   {
     path: "/finance/rates",
     element: <BankPage />,
+    errorElement: <App />,
+  },
+  {
+    path: "/finance/banks",
+    element: <BankRatesPage />,
     errorElement: <App />,
   },
   {
