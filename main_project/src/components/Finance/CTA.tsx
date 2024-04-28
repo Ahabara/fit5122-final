@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Cta = () => {
   return (
     <>
@@ -20,9 +22,10 @@ const Cta = () => {
           </div>
           {/* Buttons */}
           <div className="text-center">
-            <a
+            <Link
+              to={"/finance/banks"}
+              onClick={() => window.scrollTo(0, 0)}
               className="inline-flex items-center justify-center gap-x-3 rounded-md border border-transparent bg-gradient-to-tl from-blue-600 to-violet-600 px-6 py-3 text-center text-sm font-medium text-white shadow-lg shadow-transparent hover:shadow-blue-700/50 focus:outline-none focus:ring-1 focus:ring-gray-600"
-              href={"#bankrates"}
             >
               Get started
               <svg
@@ -39,7 +42,7 @@ const Cta = () => {
               >
                 <path d="m9 18 6-6-6-6" />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
