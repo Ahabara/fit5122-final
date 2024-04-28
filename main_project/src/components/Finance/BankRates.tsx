@@ -131,7 +131,7 @@ const BankCard: React.FC<BankCardProps> = ({
             </h2>
           </div>
           <dialog id={`${name}`} className="modal w-full">
-            <div className="modal-box max-w-fit px-16">
+            <div className="modal-box max-w-fit bg-white px-16">
               <div className="flex items-center gap-2 py-3">
                 <FaCoins size={"2.25rem"} />
                 <p className="text-3xl">Interest</p>
