@@ -1,4 +1,5 @@
 import React from "react";
+import { RiRobot2Line } from "react-icons/ri";
 
 interface ChatBotBubbleProps {
   sendData: (data: boolean) => void;
@@ -13,23 +14,7 @@ const ChatBotBubble: React.FC<ChatBotBubbleProps> = ({ sendData }) => {
       aria-expanded="false"
       data-state="closed"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="30"
-        height="40"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="block border-gray-800 align-middle text-myBlack"
-      >
-        <path
-          d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"
-          className="border-gray-800"
-        ></path>
-      </svg>
+      <RiRobot2Line className="block h-8 w-8 border-gray-800 align-middle text-myBlack"></RiRobot2Line>
     </button>
   );
 };

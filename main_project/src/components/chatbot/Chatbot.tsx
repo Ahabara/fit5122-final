@@ -40,7 +40,9 @@ const ChatMessage: React.FC<MessageProps> = ({ message, typeWrite }) => {
         </div>
       </span>
       <p className="leading-relaxed">
-        <span className="block font-bold text-gray-700">You </span>
+        <span className="block font-bold text-gray-700">
+          {typeWrite ? "AI" : "You"}{" "}
+        </span>
         <p className={style}>{message}</p>
       </p>
     </div>
