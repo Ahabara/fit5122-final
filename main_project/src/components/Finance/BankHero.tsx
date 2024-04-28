@@ -1,5 +1,6 @@
 import bankPhoto from "./assets/8069143.png";
 import { AiOutlineBank } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const BankHero = () => {
   return (
@@ -20,10 +21,9 @@ const BankHero = () => {
               </h1>
               <p>
                 Are you new to Australia and curious about how banking works in
-                this beautiful country? Or perhaps you're planning a visit and
-                want to understand the banking landscape before you arrive.
-                Whatever your reason, we're here to provide you with a
-                comprehensive overview of banking in Australia.
+                this beautiful country? Are you unsure of what you need to get
+                yourself settled in? Whatever your reason, we're here to provide
+                you with a comprehensive overview of banking in Australia.
               </p>
               <div className="flex items-center gap-x-3 sm:text-sm">
                 <a
@@ -44,13 +44,14 @@ const BankHero = () => {
                     />
                   </svg>
                 </a>
-                <a
-                  href={"#bankrates"}
+                <Link
+                  to={"/finance/banks"}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="flex items-center justify-center gap-x-1 rounded-full bg-gray-600 px-4 py-2 font-medium text-white duration-150 hover:bg-gray-700 active:bg-gray-900 md:inline-flex"
                 >
                   Compare Banks
                   <AiOutlineBank className="h-4 w-4" />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="hidden flex-1 md:block">
