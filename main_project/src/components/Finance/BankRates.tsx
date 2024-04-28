@@ -264,7 +264,7 @@ const BankCard: React.FC<BankCardProps> = ({
 const BankRates = () => {
   const [bankInterest, setBankInterest] = useState<BankInterest[]>([]);
   const [error, setError] = useState("");
-
+  console.log(bankInterest);
   useEffect(() => {
     const fetchBankInterest = async () => {
       try {
@@ -613,9 +613,9 @@ const BankRates = () => {
               {/*todo change back to col-span-9 when introducing filters*/}
               <section className="body-font text-gray-600">
                 <div className="container mx-auto px-5 py-4">
-                  {bankInterest.length > 1 ? (
+                  {bankInterest.length > 1 && bankInterest ? (
                     <div className="-m-4 flex flex-wrap">
-                      {bankInterest.map((bank, index) => (
+                      {bankInterest.slice(0, 8).map((bank, index) => (
                         <BankCard
                           image={bank.image}
                           name={bank.savingsAccounts}
