@@ -5,6 +5,8 @@ export default {
     extend: {
       spacing: {
         128: "36rem",
+        a4h: "1123.2px",
+        a4w: "793.92px",
       },
       colors: {
         myOrange: "#fab82c",
@@ -53,8 +55,10 @@ export default {
       },
     },
   },
-  plugins: [require("daisyui"), require("@tailwindcss/forms")],
+  plugins: [require("daisyui")],
   daisyui: {
     themes: [],
   },
 };
+
+// require("@tailwindcss/forms")
