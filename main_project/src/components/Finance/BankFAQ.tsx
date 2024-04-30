@@ -4,31 +4,12 @@ interface Props {
   question?: string;
   answer?: string;
 }
+
 const BankFaqCard: React.FC<Props> = ({ question, answer }) => {
   return (
-    <div className="py-8 first:pt-0 last:pb-0">
-      <div className="flex gap-x-5">
-        <svg
-          className="mt-1 size-6 flex-shrink-0 text-myPink"
-          xmlns="http://www.w3.org/2000/svg"
-          width={24}
-          height={24}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx={12} cy={12} r={10} />
-          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-          <path d="M12 17h.01" />
-        </svg>
-        <div>
-          <h3 className="font-semibold text-gray-100 md:text-lg">{question}</h3>
-          <p className="mt-1 text-neutral-400">{answer}</p>
-        </div>
-      </div>
+    <div>
+      <h3 className="text-lg font-semibold text-gray-200">{question}</h3>
+      <p className="mt-2 text-gray-400">{answer}</p>
     </div>
   );
 };
@@ -88,19 +69,27 @@ const BankFaq = () => {
     },
   ];
   return (
-    <div className="bg-neutral-900 text-gray-100" id="faq">
-      <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        <div className=" mb-10 max-w-2xl lg:mb-14">
-          <h2 className="pb-4 text-4xl font-extrabold text-white sm:text-5xl md:leading-tight">
-            You might be wondering...
-          </h2>
+    <div className="bg-neutral-900">
+      <>
+        <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+          <div className="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+            <h2 className="text-2xl font-bold text-gray-200 md:text-3xl md:leading-tight">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          <div className="mx-auto max-w-5xl">
+            <div className="grid gap-6 sm:grid-cols-2 md:gap-12">
+              {faq.map((item, i) => (
+                <BankFaqCard
+                  question={item.question}
+                  answer={item.answer}
+                  key={i}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-        <div className=" max-w-2xl divide-y divide-gray-200">
-          {faq.map((item) => (
-            <BankFaqCard answer={item.answer} question={item.question} />
-          ))}
-        </div>
-      </div>
+      </>
     </div>
   );
 };
