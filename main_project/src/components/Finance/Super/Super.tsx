@@ -2,10 +2,12 @@ import Layout from "../../landing/Layout.tsx";
 import { SuperHero } from "./SuperHero.tsx";
 import SuperContent from "./SuperContent.tsx";
 import { Link } from "react-router-dom";
+import Warning from "../Warning.tsx";
 
 const Super = () => {
   return (
     <Layout>
+      <Warning />
       <SuperHero />
       <SuperContent />
       <div className="container mx-auto py-8 pl-4">

@@ -5,10 +5,12 @@ import BankFAQ from "./BankFAQ.tsx";
 import BankCommonTerms from "./BankCommonTerms.tsx";
 import CTA from "./CTA.tsx";
 import { Link } from "react-router-dom";
+import Warning from "./Warning.tsx";
 
 const BankPage = () => {
   return (
     <Layout styling={"bg-neutral-800 text-white"}>
+      <Warning />
       <BankHero />
       <UnderstandBanking />
       <BankCommonTerms />
