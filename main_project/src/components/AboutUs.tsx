@@ -178,7 +178,7 @@ const AboutUs = () => {
             <div className="flex flex-wrap px-5 py-8">
               <div className="-m-4 flex flex-wrap">
                 <div className="p-4 md:w-full lg:w-1/2">
-                  <div className="flex flex-col rounded-lg border-2 border-gray-800 border-opacity-50 p-8 sm:flex-row">
+                  <div className="flex flex-col rounded-lg  border-opacity-50 p-8 sm:flex-row">
                     <div className="mb-4 inline-flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-500 sm:mb-0 sm:mr-8">
                       <svg
                         fill="none"
@@ -215,7 +215,7 @@ const AboutUs = () => {
                   </div>
                 </div>
                 <div className="p-4 md:w-full lg:w-1/2">
-                  <div className="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row">
+                  <div className="flex flex-col rounded-lg  border-opacity-50 p-8 sm:flex-row">
                     <div className="mb-4 inline-flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-500 sm:mb-0 sm:mr-8">
                       <svg
                         fill="none"
