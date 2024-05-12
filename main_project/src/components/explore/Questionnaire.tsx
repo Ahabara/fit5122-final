@@ -88,7 +88,7 @@ const Questionnaire: React.FC<{ questions: Question[] }> = ({ questions }) => {
         <h1 className="mb-4 inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-4xl font-extrabold leading-none tracking-tight text-transparent md:text-5xl lg:text-6xl">
           Questionnaire
         </h1>
-        <div className="flex w-screen flex-wrap gap-6 ">
+        <div className="flex flex-wrap gap-6 md:w-screen ">
           {questions.map((question, questionIndex) => (
             <div key={questionIndex} className="mb-6 w-96">
               <h2 className="mb-2  h-14 text-xl font-semibold">
