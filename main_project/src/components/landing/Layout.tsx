@@ -6,13 +6,14 @@ import JourneyMap from "../../JourneyMap.tsx";
 interface LayoutProps {
   children?: React.ReactNode;
   styling?: string;
+  navStyles?: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, styling }) => {
+const Layout: React.FC<LayoutProps> = ({ children, styling, navStyles }) => {
   return (
     <>
       <JourneyMap />
-      <NavBar />
+      <NavBar styling={navStyles} />
       <div className="bg-gradient-to-r from-violet-200 to-pink-200">
         {children}
       </div>
