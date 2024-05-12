@@ -41,6 +41,7 @@ export const Festivals = () => {
             "united kingdom",
             "vietnam",
             "new zealand",
+            "australia",
           ],
           year: 2024,
         };
@@ -503,6 +504,26 @@ export const Festivals = () => {
                       htmlFor="United Kingdom"
                     >
                       United Kingdom
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div className=" flex items-center justify-start md:items-center md:justify-center ">
+                <input
+                  className="mr-2 h-4 w-4"
+                  type="checkbox"
+                  id="Australia"
+                  name="Australia"
+                  value="Australia"
+                  onChange={handleChange}
+                />
+                <div className=" inline-block">
+                  <div className=" flex items-center justify-center space-x-6">
+                    <label
+                      className=" mr-2 text-sm font-normal leading-3 text-gray-600"
+                      htmlFor="Australia"
+                    >
+                      Australia
                     </label>
                   </div>
                 </div>
