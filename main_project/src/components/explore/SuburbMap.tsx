@@ -138,7 +138,7 @@ const SuburbMap: React.FC<SuburbMapProps> = ({ locationData }) => {
             </p>
 
             <div className="-mb-10 flex flex-col flex-wrap text-center  lg:py-6 lg:text-left">
-              {locationData.tripAdvisor.data.map((i) => (
+              {locationData.tripAdvisor.data.slice(0, 4).map((i) => (
                 <MapItem
                   title={toTitleCase(i.name)}
                   description={toTitleCase(

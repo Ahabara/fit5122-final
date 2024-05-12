@@ -88,28 +88,30 @@ const Questionnaire: React.FC<{ questions: Question[] }> = ({ questions }) => {
         <h1 className="mb-4 inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-4xl font-extrabold leading-none tracking-tight text-transparent md:text-5xl lg:text-6xl">
           Questionnaire
         </h1>
-        {questions.map((question, questionIndex) => (
-          <div key={questionIndex} className="mb-6">
-            <h2 className="mb-2 text-xl font-semibold">
-              {question.questionContent}
-            </h2>
-            <ul className="border-2 border-myDarkPurple">
-              {splitOptions(question.options).map((option, optionIndex) => (
-                <li
-                  key={optionIndex}
-                  className={`cursor-pointer  px-4 py-2 ${
-                    answers[questionIndex] === option
-                      ? "bg-myPurple text-white"
-                      : "bg-gray-200"
-                  }`}
-                  onClick={() => handleOptionSelect(questionIndex, option)}
-                >
-                  {option}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <div className="flex w-screen flex-wrap gap-6 ">
+          {questions.map((question, questionIndex) => (
+            <div key={questionIndex} className="mb-6 w-96">
+              <h2 className="mb-2  h-14 text-xl font-semibold">
+                {question.questionContent}
+              </h2>
+              <ul className=" rounded-sm border-2 border-myDarkPurple">
+                {splitOptions(question.options).map((option, optionIndex) => (
+                  <li
+                    key={optionIndex}
+                    className={`cursor-pointer  px-4 py-2 ${
+                      answers[questionIndex] === option
+                        ? "bg-myPurple text-white"
+                        : "bg-gray-200"
+                    }`}
+                    onClick={() => handleOptionSelect(questionIndex, option)}
+                  >
+                    {option}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
         <div
           onClick={handleSubmit}
           className="group relative inline-block px-4 py-2 font-medium"

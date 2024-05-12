@@ -4,11 +4,12 @@ import React, { useState } from "react";
 
 interface Props {
   title: string;
-  features: { title: string; description: string }[];
+  features: { title: string; description: string; link?: string }[];
   img: string;
 }
+// todo link?
 const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
-  <div className="relative p-6 md:p-16">
+  <div className="container relative mx-auto p-6 md:p-6">
     <div className="relative z-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-16">
       <div className="mb-10 lg:order-2 lg:col-span-6 lg:col-start-8 lg:mb-0">
         <h2 className="text-2xl font-bold  text-neutral-200 sm:text-3xl">
@@ -138,7 +139,7 @@ const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
               aria-labelledby="tabs-with-card-item-1"
             >
               <img
-                className="rounded-xl shadow-xl shadow-gray-200 "
+                className="aspect-[4/5] rounded-xl object-cover shadow-xl "
                 src={props.img}
                 alt="Image Description"
               />
@@ -150,7 +151,7 @@ const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
               aria-labelledby="tabs-with-card-item-2"
             >
               <img
-                className="rounded-xl shadow-xl shadow-gray-200 "
+                className="aspect-square rounded-xl shadow-xl shadow-gray-200 "
                 src="https://images.unsplash.com/photo-1665686306574-1ace09918530?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&h=1220&q=80"
                 alt="Image Description"
               />
@@ -170,7 +171,7 @@ const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
           </div>
           <div className="absolute end-0 top-0 hidden translate-x-20 md:block lg:translate-x-20">
             <svg
-              className="h-auto w-16 text-orange-500"
+              className="h-auto w-16 text-myDarkPurple"
               width={121}
               height={135}
               viewBox="0 0 121 135"
@@ -214,47 +215,47 @@ const WorkHardPlayHard = () => {
   // }
 
   const festivalData: Props = {
-    title: "Explore ALl The Fun Australia Has To Offer",
+    title: "Unlock the Vibrant Tapestry of Victoria's Culture!",
     features: [
       {
-        title: "Example 1",
+        title: "Explore The Different Cultures in Victoria",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+          "Embark on a journey through Victoria's vibrant multicultural landscape, uncovering the essence of the top six cultural communities that shape the state's identity.",
       },
       {
-        title: "Example 2",
+        title: "Suburb Safari Interactive Exploration",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+          "Navigate Victoria's diverse suburbs and unearth hidden treasures with our interactive quiz, tailored to guide you through multicultural neighborhoods and enrich your city adventures.",
       },
       {
-        title: "Example 3",
+        title: "Festival Fiesta: Cultural Celebrations Unveiled",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+          "Delve into the heart of cultural festivities with our comprehensive guide to the top five migrant countries' celebrations in Australia, ensuring you never miss a beat of the vibrant festival scene.",
       },
     ],
-    img: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSGfpQ3m-QWiXgCBJJbrcUFdNdWAhj7rcUqjeNUC6eKcXZDAtWm",
+    img: "https://images.unsplash.com/photo-1665686306574-1ace09918530?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&h=1220&q=80",
   };
 
   const financeData: Props = {
     title: "Explore Finance: Managing Your Wealth Wisely",
     features: [
       {
-        title: "Investment Strategies",
+        title: "Banking Basics",
         description:
-          "Learn about various investment strategies, from stocks and bonds to real estate and cryptocurrencies, and how to build a diversified portfolio.",
+          "Navigate Australia's banking landscape with confidence. Learn about the top banks, compare interest rates, and discover which institutions best suit your financial needs.",
       },
       {
-        title: "Budgeting Tips",
+        title: "Supercharge Your Superannuation and Investments",
         description:
-          "Discover effective budgeting techniques to manage your expenses, save money, and achieve your financial goals.",
+          "Maximize your financial potential with insights into superannuation and investment strategies. Access an investment dashboard and gain fundamental knowledge to secure your financial future.",
       },
       {
-        title: "Financial Planning",
+        title: "Unlocking the Australian Job Market",
         description:
-          "Understand the importance of financial planning, including retirement planning, estate planning, and risk management, to secure your financial future.",
+          "Uncover the secrets of the Australian job market. From understanding work culture to securing employment, equip yourself with the tools and steps needed to thrive in your career Down Under.",
       },
     ],
-    img: "https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*",
+    img: "https://images.unsplash.com/photo-1665686306574-1ace09918530?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&h=1220&q=80",
   };
 
   const [selected, setSelected] = useState(festivalData);
@@ -262,8 +263,8 @@ const WorkHardPlayHard = () => {
     <>
       <section className="min-h-screen w-full bg-neutral-900 py-24">
         <div className="container relative mx-auto gap-0">
-          <div className="">
-            <div className="lg:max-w-xl lg:pr-5">
+          <div className="mx-8 sm:mx-0">
+            <div className="lg:max-w-2xl lg:pr-5">
               <h2 className="mb-6 max-w-lg text-5xl font-bold leading-snug tracking-tight text-neutral-200 sm:text-6xl sm:leading-snug">
                 Whether You're Here For
                 <span className="my-1 ml-1 inline-block border-b-8 border-black bg-myDarkPurple px-4 font-bold text-white">
@@ -274,29 +275,29 @@ const WorkHardPlayHard = () => {
                   Pleasure
                 </span>
               </h2>
-              <p className="text-base text-gray-200">
-                Settling in to a new country doesn't mean you have to settle on
-                you bank interest rates. We've compiled the best interest rates
-                in Australia. All you have to do is choose on. Need help
-                picturing how much you'll earn? Press on the bank and let us do
-                the rest!
+              <p className="text-base text-xl text-gray-200">
+                Begin Your Australian Journey: Dive into Culture or Climb
+                Financial Heights! Choose where to start: explore Victoria's
+                culture or enhance your financial knowledge. Where will your
+                adventure begin? Wominjeka is here to help, ensuring every step
+                Down Under is easy!
               </p>
             </div>
-            <div className="text-white">
-              {selected.toString()}
-              <div className="flex justify-center pt-4">
-                <div className="inline-flex rounded-full border-2 border-gray-200 bg-gray-200 text-sm leading-none text-gray-500">
+            <div className="  text-white">
+              <div className="flex justify-center  pt-4">
+                <div className="inline-flex rounded-full border-2 border-gray-200 bg-gray-200  text-sm leading-none text-gray-500">
                   <button
                     className="inline-flex items-center rounded-l-full px-4 py-2 transition-colors duration-300 ease-in hover:text-blue-400 focus:rounded-full focus:bg-white focus:text-blue-400 focus:outline-none"
                     id="grid"
                     onClick={() => setSelected(festivalData)}
+                    autoFocus={true}
                   >
                     <FaMasksTheater
                       width={24}
                       height={24}
                       className="mr-2 h-4 w-4 fill-current"
                     ></FaMasksTheater>
-                    <span>Pleasure</span>
+                    <span>Cultural Insights</span>
                   </button>
                   <button
                     className="inline-flex items-center rounded-r-full px-4 py-2 transition-colors duration-300 ease-in hover:text-blue-400 focus:rounded-full focus:bg-white focus:text-blue-400   focus:outline-none "
@@ -307,11 +308,11 @@ const WorkHardPlayHard = () => {
                       height={24}
                       className="mr-2 h-4 w-4 fill-current"
                     ></FaBriefcase>
-                    <span>Business</span>
+                    <span>Navigate Finances</span>
                   </button>
                 </div>
               </div>
-              <div className="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-4">
+              <div className="w-/12  h-1/2 px-4 py-10 sm:px-6 lg:px-8 lg:py-4">
                 <BusinessOrPleasure {...selected} />
               </div>
             </div>

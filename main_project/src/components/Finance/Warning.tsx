@@ -6,7 +6,7 @@ const Warning = () => {
   return (
     <>
       {open && (
-        <div className="-m-4 bg-gradient-to-r from-red-500 via-purple-400 to-blue-500">
+        <div className="-mt-4 bg-gradient-to-r from-red-500 via-purple-400 to-blue-500">
           <div className="mx-auto max-w-[85rem] px-4 py-4 sm:px-6 lg:px-8">
             <div className="flex justify-end">
               <IoCloseOutline

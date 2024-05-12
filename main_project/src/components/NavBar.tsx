@@ -39,8 +39,8 @@ const SearchList: React.FC<searchProps> = ({ search }) => {
       <ul className="flex flex-col gap-1">
         {filteredOptions.map((i) => (
           <Link
+            onClick={() => window.scrollTo(0, 0)}
             to={i.link}
-            onClick={() => console.log("nej")}
             className="z-40 cursor-pointer text-gray-700 hover:bg-gray-300 active:bg-blue-100"
           >
             {i.name}
@@ -50,16 +50,24 @@ const SearchList: React.FC<searchProps> = ({ search }) => {
     </>
   );
 };
-const NavBar = () => {
+
+interface NavProps {
+  styling?: string;
+}
+const NavBar: React.FC<NavProps> = ({ styling }) => {
   const [search, setSearch] = useState("");
   const searchInput = React.useRef(null);
   const [onSearch, setOnSearch] = useState(false);
   const [mobileView, setMobileView] = useState(false);
   const [viewDropDown, setViewDropDown] = useState(false);
 
+  const styles = styling
+    ? (styling += " lg:px-12 lg:py-8")
+    : "bg-gradient-to-r from-violet-200 to-pink-200 lg:px-12 lg:py-8";
+
   return (
     <>
-      <nav className="bg-gradient-to-r from-violet-200 to-pink-200 lg:px-12 lg:py-8">
+      <nav className={styles}>
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between border border-black bg-[#F1D6FE] pl-2">
           <a
             href="/"
@@ -140,6 +148,7 @@ const NavBar = () => {
             <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse ">
               <li>
                 <Link
+                  onClick={() => window.scrollTo(0, 0)}
                   to="/"
                   className={`block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 ${
                     location.pathname === "/" ? "text-indigo-600" : ""
@@ -150,19 +159,21 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
-                <a
-                  href="/#Countries"
+                <Link
+                  onClick={() => window.scrollTo(0, 0)}
+                  to="/cultures"
                   className={`block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700  ${
-                    location.pathname.includes("/country")
+                    location.pathname.includes("/cultures")
                       ? "text-indigo-600"
                       : ""
                   }`}
                 >
                   Explore Countries
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
+                  onClick={() => window.scrollTo(0, 0)}
                   to="/explore/"
                   className={`block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700  ${
                     location.pathname.includes("explore")
@@ -175,6 +186,7 @@ const NavBar = () => {
               </li>
               <li>
                 <Link
+                  onClick={() => window.scrollTo(0, 0)}
                   to="/festivals/"
                   className={`block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700  ${
                     location.pathname.includes("festival")
@@ -204,6 +216,7 @@ const NavBar = () => {
                   {viewDropDown && (
                     <div className="absolute z-40 mt-2 w-48 rounded-lg border border-black  bg-gradient-to-b from-[#F1D6FE] to-pink-200 shadow-lg">
                       <Link
+                        onClick={() => window.scrollTo(0, 0)}
                         to="/finance/rates"
                         className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                       >
@@ -213,6 +226,7 @@ const NavBar = () => {
                         </span>
                       </Link>
                       <Link
+                        onClick={() => window.scrollTo(0, 0)}
                         to="/finance/super"
                         className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
                       >
