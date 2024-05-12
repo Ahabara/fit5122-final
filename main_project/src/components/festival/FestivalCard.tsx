@@ -139,7 +139,7 @@ export const FestivalCard: React.FC<FestivalCardProps> = ({
               Remind me
             </button>
             <dialog id={name + type} className="modal ">
-              <div className="modal-box rounded-sm border-2 border-myDarkPurple bg-gray-5foo0">
+              <div className="modal-box rounded-sm border-2 border-myDarkPurple bg-gray-50">
                 <div className="flex items-center p-8">
                   <div className="pr-4">
                     <p className="text-4xl font-bold">{formattedDay}</p>
