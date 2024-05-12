@@ -26,27 +26,6 @@ const Footer: React.FC<FooterProps> = ({ styling }) => {
           />
           <span className="ml-3 text-xl">Wominjeka</span>
         </a>
-        <div className="-mb-10 mt-10 flex flex-grow flex-wrap text-center md:mt-0 md:pl-20 md:text-left">
-          <div className="w-full px-4 md:w-1/2 lg:w-1/4">
-            <h2 className="title-font mb-3 text-sm font-medium tracking-widest text-gray-900">
-              Finance
-            </h2>
-            <nav className="mb-10 list-none">
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Dashboard</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Super</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Banking</a>
-              </li>
-              <li>
-                <a className="text-gray-600 hover:text-gray-800">Jobs</a>
-              </li>
-            </nav>
-          </div>
-        </div>
 
         <div className="mt-4  text-sm sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
           <div className="ml-1 flex">
