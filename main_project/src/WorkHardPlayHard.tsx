@@ -1,13 +1,14 @@
 import { FaBriefcase } from "react-icons/fa";
 import { FaMasksTheater } from "react-icons/fa6";
 import React, { useState } from "react";
+import melbland from "./melbland.jpg";
+import { Link } from "react-router-dom";
 
 interface Props {
   title: string;
-  features: { title: string; description: string; link?: string }[];
+  features: { title: string; description: string; link: string }[];
   img: string;
 }
-// todo link?
 const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
   <div className="container relative mx-auto p-6 md:p-6">
     <div className="relative z-10 lg:grid lg:grid-cols-12 lg:items-center lg:gap-16">
@@ -20,17 +21,14 @@ const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
           aria-label="Tabs"
           role="tablist"
         >
-          <button
-            type="button"
-            className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent hs-tab-active:bg-neutral-700 active rounded-xl p-4 text-start hover:bg-gray-200 hover:bg-neutral-700 md:p-5"
-            id="tabs-with-card-item-1"
-            data-hs-tab="#tabs-with-card-1"
-            aria-controls="tabs-with-card-1"
-            role="tab"
+          <Link
+            to={props.features[0].link}
+            onClick={() => window.scrollTo(0, 0)}
+            className=" active rounded-xl p-4 text-start hover:bg-purple-800  md:p-5"
           >
             <span className="flex">
               <svg
-                className="hs-tab-active:text-blue-600 hs-tab-active:text-blue-500 mt-2 size-6 flex-shrink-0  text-neutral-200 md:size-7"
+                className=" mt-2 size-6 flex-shrink-0  text-neutral-200 md:size-7"
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
@@ -48,26 +46,23 @@ const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
                 <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" />
               </svg>
               <span className="ms-6 grow">
-                <span className="hs-tab-active:text-blue-600 hs-tab-active:text-blue-500 block text-lg font-semibold  text-neutral-200">
+                <span className=" block text-lg font-semibold  text-neutral-200">
                   {props.features[0].title}
                 </span>
-                <span className="hs-tab-active:text-gray-200 mt-1 block  text-neutral-200">
+                <span className=" mt-1 block  text-neutral-200">
                   {props.features[0].description}
                 </span>
               </span>
             </span>
-          </button>
-          <button
-            type="button"
-            className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent hs-tab-active:bg-neutral-700 rounded-xl p-4 text-start hover:bg-gray-200 hover:bg-neutral-700 md:p-5"
-            id="tabs-with-card-item-2"
-            data-hs-tab="#tabs-with-card-2"
-            aria-controls="tabs-with-card-2"
-            role="tab"
+          </Link>
+          <Link
+            to={props.features[1].link}
+            onClick={() => window.scrollTo(0, 0)}
+            className=" rounded-xl p-4 text-start  hover:bg-purple-800 md:p-5"
           >
             <span className="flex">
               <svg
-                className="hs-tab-active:text-blue-600 hs-tab-active:text-blue-500 mt-2 size-6 flex-shrink-0  text-neutral-200 md:size-7"
+                className=" mt-2 size-6 flex-shrink-0  text-neutral-200 md:size-7"
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
@@ -82,26 +77,23 @@ const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
                 <path d="M3.34 19a10 10 0 1 1 17.32 0" />
               </svg>
               <span className="ms-6 grow">
-                <span className="hs-tab-active:text-blue-600 hs-tab-active:text-blue-500 block text-lg font-semibold  text-neutral-200">
+                <span className=" block text-lg font-semibold  text-neutral-200">
                   {props.features[1].title}
                 </span>
-                <span className="hs-tab-active:text-gray-200 mt-1 block  text-neutral-200">
+                <span className=" mt-1 block  text-neutral-200">
                   {props.features[1].description}
                 </span>
               </span>
             </span>
-          </button>
-          <button
-            type="button"
-            className="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent hs-tab-active:bg-neutral-700 rounded-xl p-4 text-start hover:bg-gray-200 hover:bg-neutral-700 md:p-5"
-            id="tabs-with-card-item-3"
-            data-hs-tab="#tabs-with-card-3"
-            aria-controls="tabs-with-card-3"
-            role="tab"
+          </Link>
+          <Link
+            to={props.features[2].link}
+            onClick={() => window.scrollTo(0, 0)}
+            className=" rounded-xl p-4 text-start hover:bg-purple-800 md:p-5"
           >
             <span className="flex">
               <svg
-                className="hs-tab-active:text-blue-600 hs-tab-active:text-blue-500 mt-2 size-6 flex-shrink-0  text-neutral-200 md:size-7"
+                className=" mt-2 size-6 flex-shrink-0  text-neutral-200 md:size-7"
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
@@ -119,15 +111,15 @@ const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
                 <path d="M17 19h4" />
               </svg>
               <span className="ms-6 grow">
-                <span className="hs-tab-active:text-blue-600 hs-tab-active:text-blue-500 block text-lg font-semibold  text-neutral-200">
+                <span className=" block text-lg font-semibold  text-neutral-200">
                   {props.features[2].title}
                 </span>
-                <span className="hs-tab-active:text-gray-200 mt-1 block  text-neutral-200">
+                <span className=" mt-1 block  text-neutral-200">
                   {props.features[2].description}
                 </span>
               </span>
             </span>
-          </button>
+          </Link>
         </nav>
       </div>
       <div className="lg:col-span-6">
@@ -208,32 +200,29 @@ const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
 );
 
 const WorkHardPlayHard = () => {
-  // interface Props {
-  //   title: string;
-  //   features: { title: string; description: string }[];
-  //   img: string;
-  // }
-
   const festivalData: Props = {
     title: "Unlock the Vibrant Tapestry of Victoria's Culture!",
     features: [
       {
         title: "Explore The Different Cultures in Victoria",
+        link: "/cultures",
         description:
           "Embark on a journey through Victoria's vibrant multicultural landscape, uncovering the essence of the top six cultural communities that shape the state's identity.",
       },
       {
         title: "Suburb Safari Interactive Exploration",
+        link: "/explore",
         description:
           "Navigate Victoria's diverse suburbs and unearth hidden treasures with our interactive quiz, tailored to guide you through multicultural neighborhoods and enrich your city adventures.",
       },
       {
         title: "Festival Fiesta: Cultural Celebrations Unveiled",
+        link: "/festivals",
         description:
           "Delve into the heart of cultural festivities with our comprehensive guide to the top five migrant countries' celebrations in Australia, ensuring you never miss a beat of the vibrant festival scene.",
       },
     ],
-    img: "https://images.unsplash.com/photo-1665686306574-1ace09918530?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&h=1220&q=80",
+    img: melbland,
   };
 
   const financeData: Props = {
@@ -241,16 +230,19 @@ const WorkHardPlayHard = () => {
     features: [
       {
         title: "Banking Basics",
+        link: "/finance/rates",
         description:
           "Navigate Australia's banking landscape with confidence. Learn about the top banks, compare interest rates, and discover which institutions best suit your financial needs.",
       },
       {
-        title: "Supercharge Your Superannuation and Investments",
+        title: "Supercharge Your Super and Investments",
+        link: "/finance/super",
         description:
           "Maximize your financial potential with insights into superannuation and investment strategies. Access an investment dashboard and gain fundamental knowledge to secure your financial future.",
       },
       {
         title: "Unlocking the Australian Job Market",
+        link: "/jobs",
         description:
           "Uncover the secrets of the Australian job market. From understanding work culture to securing employment, equip yourself with the tools and steps needed to thrive in your career Down Under.",
       },
@@ -265,7 +257,10 @@ const WorkHardPlayHard = () => {
         <div className="container relative mx-auto gap-0">
           <div className="mx-8 sm:mx-0">
             <div className="lg:max-w-2xl lg:pr-5">
-              <h2 className="mb-6 max-w-lg text-5xl font-bold leading-snug tracking-tight text-neutral-200 sm:text-6xl sm:leading-snug">
+              <h2
+                id="landing"
+                className="mb-6 max-w-lg text-5xl font-bold leading-snug tracking-tight text-neutral-200 sm:text-6xl sm:leading-snug"
+              >
                 Whether You're Here For
                 <span className="my-1 ml-1 inline-block border-b-8 border-black bg-myDarkPurple px-4 font-bold text-white">
                   Business
@@ -275,7 +270,7 @@ const WorkHardPlayHard = () => {
                   Pleasure
                 </span>
               </h2>
-              <p className="text-base text-xl text-gray-200">
+              <p className=" text-xl text-gray-200">
                 Begin Your Australian Journey: Dive into Culture or Climb
                 Financial Heights! Choose where to start: explore Victoria's
                 culture or enhance your financial knowledge. Where will your
