@@ -13,28 +13,70 @@ const JourneyMap = () => {
         ? " bg-myDarkPurple text-white"
         : "hover:bg-myDarkPurple hover:text-white";
 
-    return `rounded-lg p-2 ${styles}`;
+    return `rounded-lg p-2 z-40 relative group ${styles}`;
   };
   return (
-    <div className="fixed right-0 top-1/2 z-40 mr-4 -translate-y-1/2 transform rounded-lg border border-black bg-white bg-opacity-15 p-1 opacity-80 shadow-md">
+    <div className="fixed right-0 top-1/2 z-40 mr-4 -translate-y-1/2 transform rounded-lg border border-black bg-white bg-opacity-15 p-1 opacity-40 shadow-md hover:opacity-80">
       {/* Your content goes here */}
-      <div className="flex flex-col gap-1 text-myDarkPurple">
-        <Link to={"/"} className={selected("/")}>
+      <div className=" flex flex-col gap-1 text-myDarkPurple">
+        <Link
+          onClick={() => window.scrollTo(0, 0)}
+          to={"/"}
+          className={selected("/")}
+        >
+          <div className="invisible absolute right-0 top-0 mr-12  rounded-lg bg-myDarkPurple group-hover:visible">
+            <p className="p-2">Home</p>
+          </div>
           <MdHome size={25} />
         </Link>
-        <Link to={"/"} className={selected("de")}>
+        <Link
+          onClick={() => window.scrollTo(0, 0)}
+          to={"/cultures"}
+          className={selected("/cultures")}
+        >
           <FaEarthAfrica size={25} className="" />
+          <div className="invisible absolute right-0 top-0 mr-12  rounded-lg bg-myDarkPurple group-hover:visible">
+            <p className="p-2">Explore</p>
+          </div>
         </Link>
-        <Link to={"/explore/"} className={selected("/explore/")}>
+        <Link
+          onClick={() => window.scrollTo(0, 0)}
+          to={"/explore/"}
+          className={selected("/explore/")}
+        >
+          <div className="invisible absolute right-0 top-0 mr-12  rounded-lg bg-myDarkPurple group-hover:visible">
+            <p className="p-2">Explore</p>
+          </div>
           <FaStreetView size={25} className="" />
         </Link>
-        <Link to={"/festivals/"} className={selected("/festivals/")}>
+        <Link
+          onClick={() => window.scrollTo(0, 0)}
+          to={"/festivals/"}
+          className={selected("/festivals/")}
+        >
+          <div className="invisible absolute right-0 top-0 mr-12  rounded-lg bg-myDarkPurple group-hover:visible">
+            <p className="p-2">Festivals</p>
+          </div>
           <BiSolidParty size={25} className="" />
         </Link>
-        <Link to={"/finance/rates"} className={selected("/finance/rates")}>
+        <Link
+          onClick={() => window.scrollTo(0, 0)}
+          to={"/finance/rates"}
+          className={selected("/finance/rates")}
+        >
+          <div className="invisible absolute right-0 top-0 mr-12  rounded-lg bg-myDarkPurple group-hover:visible">
+            <p className="p-2">Banking</p>
+          </div>
           <BiSolidBank size={25} className="" />
         </Link>
-        <Link to={"/finance/super"} className={selected("/finance/super")}>
+        <Link
+          onClick={() => window.scrollTo(0, 0)}
+          to={"/finance/super"}
+          className={selected("/finance/super")}
+        >
+          <div className="invisible absolute right-0 top-0 mr-12  rounded-lg bg-myDarkPurple group-hover:visible">
+            <p className="p-2">Superannuation</p>
+          </div>
           <FaPiggyBank size={25} className="" />
         </Link>
         {/*    BiSolidBank*/}
