@@ -37,13 +37,12 @@ const Hero = () => {
             <br />
           </p>
           <p className="sm:text-l/relaxed mt-2 max-w-lg">
-            Welcome to Wominjeka, your gateway to cultural immersion and
-            community integration in Victoria! Explore the cultures of the
-            region, from traditions to cuisine, and embark on a suburb
-            exploration quiz to uncover hidden gems in diverse neighbourhoods.
-            Wominjeka is your companion in navigating the journey of settling
-            into a new country with confidence and connection. Start your
-            adventure today!
+            Discover Wominjeka – your companion for young recent migrants
+            settling in Victoria. Navigate Victoria's rich culture while
+            mastering Australian financial landscapes. From cultural insights to
+            financial savvy, Wominjeka ensures seamless integration and
+            settlement. Let us guide you toward flourishing in your newfound
+            home.
           </p>
           <div className="mt-8 flex flex-wrap gap-4 text-center">
             <a
@@ -52,17 +51,17 @@ const Hero = () => {
             >
               <span className="absolute inset-0 h-full w-full -translate-x-2 -translate-y-2 transform bg-myPurple transition duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0"></span>
               <span className="absolute inset-0 h-full w-full border-4 border-black"></span>
-              <span className="relative">Learn More</span>
+              <span className="relative">Get Started</span>
             </a>
             <Link
-              to="/explore"
+              to="/about"
               className="group relative inline-block px-4 py-2 font-medium"
               onClick={() => window.scrollTo(0, 0)}
             >
               <span className="absolute inset-0 h-full w-full translate-x-1 translate-y-1 transform bg-myPurple transition duration-200 ease-out group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
               <span className="absolute inset-0 h-full w-full border-2 border-black bg-white group-hover:bg-myPurple"></span>
-              <span className="relative text-black group-hover:text-black">
-                Get Started
+              <span className="relative font-bold text-black group-hover:text-black">
+                About Us
               </span>
             </Link>
           </div>
