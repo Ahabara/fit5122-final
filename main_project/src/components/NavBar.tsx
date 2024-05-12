@@ -7,59 +7,18 @@ import React, { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import bg from "../assets/background copy.mp4";
 import { IoMdClose } from "react-icons/io";
-import { BsBank } from "react-icons/bs";
-import { FaSortDown } from "react-icons/fa";
-import { FaMoneyBillTrendUp } from "react-icons/fa6";
-
-interface searchProps {
-  search: string;
-}
-
-const SearchList: React.FC<searchProps> = ({ search }) => {
-  const dropdown = [
-    { id: 1, name: "Home", link: "/" },
-    { id: 2, name: "Learn Culture", link: "/#Countries" },
-    { id: 3, name: "Play Game", link: "/#game" },
-    { id: 4, name: "England", link: "/country/England" },
-    { id: 5, name: "China", link: "/country/China" },
-    { id: 6, name: "India", link: "/country/India" },
-    { id: 7, name: "Vietnam", link: "/country/Vietnam" },
-    { id: 8, name: "New Zealand", link: "/country/New Zealand" },
-    { id: 9, name: "Italy", link: "/country/Italy" },
-    { id: 10, name: "Explore a Suburb", link: "/explore/" },
-  ];
-  const filteredOptions = dropdown.filter((option) =>
-    option.name.toLowerCase().includes(search.toLowerCase()),
-  );
-
-  console.log(filteredOptions);
-
-  return (
-    <>
-      <ul className="flex flex-col gap-1">
-        {filteredOptions.map((i) => (
-          <Link
-            onClick={() => window.scrollTo(0, 0)}
-            to={i.link}
-            className="z-40 cursor-pointer text-gray-700 hover:bg-gray-300 active:bg-blue-100"
-          >
-            {i.name}
-          </Link>
-        ))}
-      </ul>
-    </>
-  );
-};
+import { BsBank, BsSuitcaseLgFill } from "react-icons/bs";
+import { FaChartLine, FaSortDown, FaStreetView } from "react-icons/fa";
+import { FaEarthAfrica, FaMoneyBillTrendUp } from "react-icons/fa6";
+import { BiSolidParty } from "react-icons/bi";
 
 interface NavProps {
   styling?: string;
 }
 const NavBar: React.FC<NavProps> = ({ styling }) => {
-  const [search, setSearch] = useState("");
-  const searchInput = React.useRef(null);
-  const [onSearch, setOnSearch] = useState(false);
   const [mobileView, setMobileView] = useState(false);
-  const [viewDropDown, setViewDropDown] = useState(false);
+  const [viewFinanceDropDown, setViewFinanceDropDown] = useState(false);
+  const [viewFestivalDropDown, setViewFestivalDropDown] = useState(false);
 
   const styles = styling
     ? (styling += " lg:px-12 lg:py-8")
@@ -81,40 +40,9 @@ const NavBar: React.FC<NavProps> = ({ styling }) => {
           <div className="invisible flex border-black p-4 md:visible md:order-2 lg:border-l lg:bg-[#b686fe]">
             <div className="mx-auto max-w-md sm:visible">
               <form action="" className="relative mx-auto w-max hover:visible">
-                <input
-                  ref={searchInput}
-                  // onBlur={() => setOnSearch(true)}
-                  onFocus={() => setOnSearch(true)}
-                  autoComplete={"off"}
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  type="search"
-                  className="peer relative z-10 h-12 w-12 cursor-pointer rounded-sm bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-lime-300 focus:pl-16 focus:pr-4 "
-                />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-slate-100 px-3.5 peer-focus:border-lime-300 peer-focus:stroke-slate-100"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
+                <input className="peer relative z-10 h-12 w-12 cursor-pointer rounded-sm bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-lime-300 focus:pl-16 focus:pr-4 " />
               </form>
             </div>
-            {search && onSearch && (
-              <div
-                id="dropdown-menu w-64 "
-                className=" absolute mt-12 divide-y divide-gray-100 bg-slate-50 bg-opacity-80 lg:w-64"
-              >
-                <SearchList search={search} />
-              </div>
-            )}
           </div>
           <div
             className="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto"
@@ -158,50 +86,82 @@ const NavBar: React.FC<NavProps> = ({ styling }) => {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link
-                  onClick={() => window.scrollTo(0, 0)}
-                  to="/cultures"
-                  className={`block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700  ${
-                    location.pathname.includes("/cultures")
-                      ? "text-indigo-600"
-                      : ""
-                  }`}
-                >
-                  Explore Countries
-                </Link>
-              </li>
-              <li>
-                <Link
-                  onClick={() => window.scrollTo(0, 0)}
-                  to="/explore/"
-                  className={`block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700  ${
-                    location.pathname.includes("explore")
-                      ? "text-indigo-600"
-                      : "text-black"
-                  }`}
-                >
-                  Explore A Suburb
-                </Link>
-              </li>
-              <li>
-                <Link
-                  onClick={() => window.scrollTo(0, 0)}
-                  to="/festivals/"
-                  className={`block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700  ${
-                    location.pathname.includes("festival")
-                      ? "text-indigo-700"
-                      : ""
-                  }`}
-                  aria-current="page"
-                >
-                  Festivals
-                </Link>
-              </li>
+
               <div className="flex space-x-4 ">
                 <div className="relative">
                   <button
-                    onClick={() => setViewDropDown((prevState) => !prevState)}
+                    onClick={() => {
+                      setViewFestivalDropDown((prevState) => !prevState);
+                      setViewFinanceDropDown(false);
+                    }}
+                  >
+                    <span
+                      className={`flex flex-row gap-1 hover:text-indigo-600 ${
+                        location.pathname.includes("culture") ||
+                        location.pathname.includes("explore") ||
+                        location.pathname.includes("festival")
+                          ? "text-indigo-700"
+                          : ""
+                      }`}
+                    >
+                      Cultural Literacy <FaSortDown />
+                    </span>
+                  </button>
+                  {viewFestivalDropDown && (
+                    <div className="absolute z-40 mt-2 w-48 rounded-lg border border-black  bg-gradient-to-b from-[#F1D6FE] to-pink-200 shadow-lg">
+                      <Link
+                        onClick={() => window.scrollTo(0, 0)}
+                        to="/cultures"
+                        className={`block px-4 py-2 text-gray-800 hover:bg-gray-200  ${
+                          location.pathname.includes("/cultures")
+                            ? "text-indigo-600"
+                            : ""
+                        }`}
+                      >
+                        <span className="flex flex-row items-center gap-2 ">
+                          <FaEarthAfrica />
+                          <p>Explore Countries</p>
+                        </span>
+                      </Link>
+                      <Link
+                        onClick={() => window.scrollTo(0, 0)}
+                        to="/explore/"
+                        className={`block px-4 py-2 text-gray-800 hover:bg-gray-200  ${
+                          location.pathname.includes("explore")
+                            ? "text-indigo-600"
+                            : ""
+                        }`}
+                      >
+                        <span className="flex flex-row items-center gap-2 ">
+                          <FaStreetView />
+                          <p>Explore A Suburb</p>
+                        </span>
+                      </Link>
+                      <Link
+                        onClick={() => window.scrollTo(0, 0)}
+                        to="/festivals/"
+                        className={`block px-4 py-2 text-gray-800 hover:bg-gray-200  ${
+                          location.pathname.includes("/festival")
+                            ? "text-indigo-600"
+                            : ""
+                        }`}
+                      >
+                        <span className="flex flex-row items-center gap-2 ">
+                          <BiSolidParty />
+                          <p>Festivals</p>
+                        </span>
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="flex space-x-4 ">
+                <div className="relative">
+                  <button
+                    onClick={() => {
+                      setViewFinanceDropDown((prevState) => !prevState);
+                      setViewFestivalDropDown(false);
+                    }}
                   >
                     <span
                       className={`flex flex-row gap-1 hover:text-indigo-600 ${
@@ -213,7 +173,7 @@ const NavBar: React.FC<NavProps> = ({ styling }) => {
                       Financial Literacy <FaSortDown />
                     </span>
                   </button>
-                  {viewDropDown && (
+                  {viewFinanceDropDown && (
                     <div className="absolute z-40 mt-2 w-48 rounded-lg border border-black  bg-gradient-to-b from-[#F1D6FE] to-pink-200 shadow-lg">
                       <Link
                         onClick={() => window.scrollTo(0, 0)}
@@ -235,10 +195,43 @@ const NavBar: React.FC<NavProps> = ({ styling }) => {
                           <p>Superannuation</p>
                         </span>
                       </Link>
+                      <Link
+                        onClick={() => window.scrollTo(0, 0)}
+                        to="/dashboard"
+                        className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                      >
+                        <span className="flex flex-row items-center gap-2 ">
+                          <FaChartLine />
+                          <p>Investments</p>
+                        </span>
+                      </Link>
+                      <Link
+                        onClick={() => window.scrollTo(0, 0)}
+                        to="/jobs"
+                        className="block px-4 py-2 text-gray-800 hover:bg-gray-200"
+                      >
+                        <span className="flex flex-row items-center gap-2 ">
+                          <BsSuitcaseLgFill />
+                          <p>Work</p>
+                        </span>
+                      </Link>
                     </div>
                   )}
                 </div>
               </div>
+              <li>
+                <Link
+                  onClick={() => window.scrollTo(0, 0)}
+                  to="/about"
+                  className={`block rounded px-3 py-2 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-blue-700  ${
+                    location.pathname.includes("/about")
+                      ? "text-indigo-600"
+                      : ""
+                  }`}
+                >
+                  About Us
+                </Link>
+              </li>
             </ul>
           </div>
           <div
