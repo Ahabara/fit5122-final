@@ -1,8 +1,9 @@
 import { MdHome } from "react-icons/md";
-import { FaEarthAfrica } from "react-icons/fa6";
+import { FaEarthAfrica, FaMoneyBillTrendUp } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
-import { FaPiggyBank, FaStreetView } from "react-icons/fa";
+import { FaChartLine, FaStreetView } from "react-icons/fa";
 import { BiSolidBank, BiSolidParty } from "react-icons/bi";
+import { BsSuitcaseLgFill } from "react-icons/bs";
 
 const JourneyMap = () => {
   const { pathname } = useLocation();
@@ -36,7 +37,7 @@ const JourneyMap = () => {
         >
           <FaEarthAfrica size={25} className="" />
           <div className="invisible absolute right-0 top-0 mr-12  rounded-lg bg-myDarkPurple group-hover:visible">
-            <p className="p-2">Explore</p>
+            <p className="p-2">Countries</p>
           </div>
         </Link>
         <Link
@@ -45,7 +46,7 @@ const JourneyMap = () => {
           className={selected("/explore/")}
         >
           <div className="invisible absolute right-0 top-0 mr-12  rounded-lg bg-myDarkPurple group-hover:visible">
-            <p className="p-2">Explore</p>
+            <p className="p-2">Suburbs</p>
           </div>
           <FaStreetView size={25} className="" />
         </Link>
@@ -77,9 +78,28 @@ const JourneyMap = () => {
           <div className="invisible absolute right-0 top-0 mr-12  rounded-lg bg-myDarkPurple group-hover:visible">
             <p className="p-2">Superannuation</p>
           </div>
-          <FaPiggyBank size={25} className="" />
+          <FaMoneyBillTrendUp size={25} className="" />
         </Link>
-        {/*    BiSolidBank*/}
+        <Link
+          onClick={() => window.scrollTo(0, 0)}
+          to={"/dashboard"}
+          className={selected("/dashboard")}
+        >
+          <div className="invisible absolute right-0 top-0 mr-12  rounded-lg bg-myDarkPurple group-hover:visible">
+            <p className="p-2">Investments</p>
+          </div>
+          <FaChartLine size={25} className="" />
+        </Link>
+        <Link
+          onClick={() => window.scrollTo(0, 0)}
+          to={"/jobs"}
+          className={selected("/jobs")}
+        >
+          <div className="invisible absolute right-0 top-0 mr-12  rounded-lg bg-myDarkPurple group-hover:visible">
+            <p className="p-2">Work</p>
+          </div>
+          <BsSuitcaseLgFill size={25} className="" />
+        </Link>
       </div>
     </div>
   );
