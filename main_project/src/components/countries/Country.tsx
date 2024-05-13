@@ -91,8 +91,6 @@ const Country = () => {
     return <Loading />;
   }
 
-  console.log("data ", data);
-
   return (
     <Layout>
       <section className="body-font text-gray-600" id="pageTop">
@@ -115,7 +113,7 @@ const Country = () => {
           <SourcesList sources={data.referenceInfos} />
           <div className="my-4 py-8 pl-4">
             <Link
-              to="/"
+              to="/cultures"
               className="group relative px-6 py-3 font-bold text-black"
               onClick={() => window.scrollTo(0, 0)}
             >
