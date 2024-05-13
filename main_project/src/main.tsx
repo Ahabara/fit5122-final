@@ -109,7 +109,7 @@ const router = createBrowserRouter([
                 <div className="mt-4 flex items-center justify-center gap-x-6 lg:justify-start">
                   <div className="mt-8 flex flex-wrap gap-4 text-center">
                     <Link
-                      to={"link"}
+                      to={"/explore"}
                       onClick={() => window.scrollTo(0, 0)}
                       className="group relative px-6 py-3 font-bold text-black"
                     >
