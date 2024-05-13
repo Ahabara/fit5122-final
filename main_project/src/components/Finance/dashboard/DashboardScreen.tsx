@@ -90,6 +90,11 @@ const DashboardScreen = () => {
     }
   };
 
+  const formatTooltipLabel = (value: number) => {
+    const date = new Date(value * 1000);
+    return date.toLocaleDateString();
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -146,13 +151,30 @@ const DashboardScreen = () => {
     if (!x || !y || !payload || !payload.value) return null;
 
     const date = new Date(payload.value * 1000); // Convert timestamp to milliseconds
-    const formattedTime = `${date.getDate().toString().padStart(2, "0")}/${(date.getMonth() + 1).toString().padStart(2, "0")}`;
+    const formattedTime = `${(date.getMonth() + 1).toString().padStart(2, "0")}/${(date.getFullYear() % 100).toString().padStart(2, "0")}`;
     return (
       <text x={x} y={y} dy={16} textAnchor="middle" fill="#666">
         {formattedTime}
       </text>
     );
   };
+  const USDollar = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+  // @ts-ignore
+  const CustomTooltip = ({ active, payload, label }: unknown) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{`${formatTooltipLabel(label)} : ${USDollar.format(payload[0].value)}`}</p>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
   return (
     <section id="performance">
       <header className=" ">
@@ -166,7 +188,9 @@ const DashboardScreen = () => {
             </span>
             <div className="flex items-center justify-center py-4 text-center">
               <span className="mr-4 text-3xl">
-                ${todaysASX.regularMarketPrice}
+                {USDollar.format(
+                  parseFloat(todaysASX.regularMarketPrice),
+                ).slice(0, -3)}
               </span>
               {todaysASX.regularMarketPrice.includes("-") ? (
                 <span className="inline-flex h-6 items-center rounded bg-red-500 px-2 text-xs text-white">
@@ -253,9 +277,14 @@ const DashboardScreen = () => {
                     </linearGradient>
                   </defs>
                   <XAxis dataKey="timestamp" tick={<CustomXAxisTick />} />
-                  <YAxis domain={["dataMin", "dataMax"]} />{" "}
+                  <YAxis
+                    domain={["dataMin", "dataMax"]}
+                    tickFormatter={(tick: number) =>
+                      USDollar.format(tick).slice(0, -3)
+                    }
+                  />{" "}
                   {/* Adjust interval as needed */}
-                  <Tooltip />
+                  <Tooltip content={<CustomTooltip />} />
                   <Area
                     type="monotone"
                     dataKey="stockPrice"
@@ -291,7 +320,7 @@ const DashboardScreen = () => {
               <ResponsiveContainer width="50%" height={250}>
                 <AreaChart
                   data={marketData}
-                  margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                  margin={{ top: 10, right: 25, left: 30, bottom: 0 }}
                 >
                   <defs>
                     <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
@@ -300,9 +329,16 @@ const DashboardScreen = () => {
                     </linearGradient>
                   </defs>
                   <XAxis dataKey="timestamp" tick={<CustomXAxisTick />} />
-                  <YAxis domain={["dataMin", "dataMax"]} />{" "}
+                  <YAxis
+                    domain={["dataMin", "dataMax"]}
+                    type="number"
+                    tickFormatter={(tick: number) =>
+                      USDollar.format(tick).slice(0, -3)
+                    }
+                    allowDecimals={false}
+                  />
                   {/* Adjust interval as needed */}
-                  <Tooltip />
+                  <Tooltip content={<CustomTooltip />} />
                   <Area
                     type="monotone"
                     dataKey="marketPrice"
@@ -409,7 +445,7 @@ const DashboardScreen = () => {
                             </div>
                           </td>
                           <td className="text-right text-gray-700">
-                            ${share.priceNow}
+                            {USDollar.format(parseFloat(share.priceNow))}
                           </td>
                           <td className=" px-4 text-right text-green-600">
                             <div className="flex gap-2">
