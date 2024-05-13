@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import Chatbot from "../chatbot/Chatbot.tsx";
 import { FestivalCard } from "./FestivalCard.tsx";
 import errorImage from "../Finance/assets/error message.png";
-import { Link } from "react-router-dom";
 import { MdOutlineFestival } from "react-icons/md";
 
 export const Festivals = () => {
   const [showFilters, setShowfilters] = useState(true);
-  const [countryFilter, setCountryFilter] = useState<string[]>([]);
+  const [countryFilter, setCountryFilter] = useState<string[]>(["Australia"]);
   const [error, setError] = useState(false);
-  const [data, setData] = useState<Holiday[]>();
+  const [data, setData] = useState<Holiday[]>([]);
   const [dateFilter, setDateFilter] = useState("This year");
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
     e.target.checked
       ? setCountryFilter((prevState) => [...prevState, e.target.value])
       : setCountryFilter(countryFilter.filter((i) => i != e.target.value));
@@ -516,6 +516,7 @@ export const Festivals = () => {
                   name="Australia"
                   value="Australia"
                   onChange={handleChange}
+                  defaultChecked={true}
                 />
                 <div className=" inline-block">
                   <div className=" flex items-center justify-center space-x-6">
@@ -671,16 +672,6 @@ export const Festivals = () => {
             <p>Try expanding your search</p>
           </div>
         )}
-        <div className="my-4 py-8 pl-4">
-          <Link
-            to="/"
-            className="group relative px-6 py-3 font-bold text-black"
-          >
-            <span className="absolute inset-0 h-full w-full -translate-x-2 -translate-y-2 transform bg-myPurple transition duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0"></span>
-            <span className="absolute inset-0 h-full w-full border-4 border-black"></span>
-            <span className="relative">Go Back</span>
-          </Link>
-        </div>
         <Chatbot />
       </div>
     </>
