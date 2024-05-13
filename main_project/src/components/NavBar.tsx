@@ -39,9 +39,9 @@ const NavBar: React.FC<NavProps> = ({ styling }) => {
           </a>
           <div className="invisible flex border-black p-4 md:visible md:order-2 lg:border-l lg:bg-[#b686fe]">
             <div className="mx-auto max-w-md sm:visible">
-              <form action="" className="relative mx-auto w-max hover:visible">
-                <input className="peer relative z-10 h-12 w-12 cursor-pointer rounded-sm bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-lime-300 focus:pl-16 focus:pr-4 " />
-              </form>
+              <div className="relative mx-auto w-max hover:visible">
+                <div className="peer relative z-10 h-12 w-12 rounded-sm bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-lime-300 focus:pl-16 focus:pr-4 " />
+              </div>
             </div>
           </div>
           <div
