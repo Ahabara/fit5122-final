@@ -219,7 +219,7 @@ const WorkHardPlayHard = () => {
         title: "Festival Fiesta: Cultural Celebrations Unveiled",
         link: "/festivals",
         description:
-          "Delve into the heart of cultural festivities with our comprehensive guide to the top five migrant countries' celebrations in Australia, ensuring you never miss a beat of the vibrant festival scene.",
+          "Delve into the heart of cultural festivities with our comprehensive guide to the top six migrant countries' celebrations in Australia, ensuring you never miss a beat of the vibrant festival scene.",
       },
     ],
     img: melbland,
