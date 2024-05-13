@@ -836,13 +836,7 @@ const JobsInfo = () => {
     <div className="relative p-4">
       <div className="max-w-5xl ">
         <div className="mt-3 flex flex-col justify-between rounded-b  leading-normal lg:rounded-b-none lg:rounded-r">
-          <div className="">
-            <a
-              href="#"
-              className="text-sm text-indigo-600 transition duration-500 ease-in-out hover:text-gray-700"
-            >
-              Election
-            </a>
+          <div className="" id="understand">
             <h1 className="text-4xl font-bold text-gray-900">
               Understanding Workforce Trends: Unveiling Victoria's Participation
               and Unemployment Rates
@@ -899,11 +893,11 @@ const JobsInfo = () => {
                   }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name">
+                  <XAxis dataKey="year">
                     <Label
                       className="text-black"
                       value="Figure 1: Participation and unemployment rates Victoria(2013-2023)"
-                      offset={0}
+                      offset={-3}
                       position="insideBottom"
                     />
                   </XAxis>
@@ -969,9 +963,7 @@ const JobsInfo = () => {
                     interval={0}
                     tickFormatter={tickFormatter}
                   />
-                  <Tooltip
-                    formatter={(value) => `${value.toString()} formatted value`}
-                  />
+                  <Tooltip formatter={(value) => `${value.toString()}`} />
                   <Legend />
                   <Bar dataKey="victoriaChange" fill="#8884d8" />
                 </BarChart>
@@ -1015,9 +1007,7 @@ const JobsInfo = () => {
                 tick={{ fontSize: 12 }}
                 tickFormatter={tickFormatter}
               />
-              <Tooltip
-                formatter={(value) => `${value.toString()} formatted value`}
-              />
+              <Tooltip formatter={(value) => `${value.toString()}`} />
               <Legend />
               <Bar dataKey="numberInDemand" fill="#8884d8" />
             </BarChart>
