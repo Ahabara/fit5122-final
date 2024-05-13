@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import logo from "./assets/diversity.png";
 
 const PageNotFound = () => {
   const location = useLocation();
@@ -13,11 +14,7 @@ const PageNotFound = () => {
                 to="/"
                 className="flex items-center space-x-3 rtl:space-x-reverse"
               >
-                <img
-                  src="/src/assets/diversity.png"
-                  className="h-16"
-                  alt="Wominjeka Logo"
-                />
+                <img src={logo} className="h-16" alt="Wominjeka Logo" />
                 <span className="self-center whitespace-nowrap font-mono text-2xl font-bold ">
                   Wominjeka
                 </span>
