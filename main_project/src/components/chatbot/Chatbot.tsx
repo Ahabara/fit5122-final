@@ -141,7 +141,7 @@ const Chatbot = () => {
             style={{
               boxShadow: "0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgb(0 0 0 / 0.05)",
             }}
-            className="fixed bottom-1 right-0 mx-4 flex items-center justify-center overflow-scroll rounded-lg border border-[#e5e7eb] bg-white p-6 md:w-96"
+            className="fixed bottom-1 right-0 z-40 mx-4 flex items-center justify-center overflow-scroll rounded-lg border border-[#e5e7eb] bg-white p-6 md:w-96"
           >
             <div className="w-full">
               <div className="flex flex-col space-y-1.5 pb-6">
