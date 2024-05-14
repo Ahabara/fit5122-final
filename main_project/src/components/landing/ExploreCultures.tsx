@@ -34,7 +34,7 @@ const ExploreCultures = () => {
   return (
     <section className="bg-myBlack py-8 pl-6 lg:px-12" id="Countries">
       <p className=" max-w-lg  text-6xl text-amber-50">
-        Explore Australia's Rich &
+        Explore Victoria's Rich &
         <span className="bg-myPurple px-2">Diverse</span> Communities
       </p>
       <section className="mx-auto mb-5 mt-10 grid w-fit grid-cols-1 justify-center justify-items-center gap-x-14 gap-y-20 md:grid-cols-2 lg:grid-cols-3">
