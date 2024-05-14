@@ -13,7 +13,7 @@ const Hero = () => {
             alt="diverse teamwork hero picture"
           />
           <h1 className="pt-8 text-5xl font-extrabold lg:pt-0">
-            Make Australia
+            Make Victoria
             <strong className="block font-extrabold text-myYellow ">
               {" "}
               <span className="border-4 border-violet-200 bg-myPurple">

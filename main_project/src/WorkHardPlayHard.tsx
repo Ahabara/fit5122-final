@@ -219,7 +219,7 @@ const WorkHardPlayHard = () => {
         title: "Festival Fiesta: Cultural Celebrations Unveiled",
         link: "/festivals",
         description:
-          "Delve into the heart of cultural festivities with our comprehensive guide to the top six migrant countries' celebrations in Australia, ensuring you never miss a beat of the vibrant festival scene.",
+          "Delve into the heart of cultural festivities with our comprehensive guide to the top six migrant countries' celebrations in Victoria, ensuring you never miss a beat of the vibrant festival scene.",
       },
     ],
     img: melbland,
@@ -271,7 +271,7 @@ const WorkHardPlayHard = () => {
                 </span>
               </h2>
               <p className=" text-xl text-gray-200">
-                Begin Your Australian Journey: Dive into Culture or Climb
+                Begin Your Journey In Victoria: Dive into Culture or Climb
                 Financial Heights! Choose where to start: explore Victoria's
                 culture or enhance your financial knowledge. Where will your
                 adventure begin? Wominjeka is here to help, ensuring every step
