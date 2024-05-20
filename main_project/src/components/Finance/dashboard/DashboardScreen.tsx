@@ -10,6 +10,7 @@ import {
 import { twJoin } from "tailwind-merge";
 import { FaArrowUp } from "react-icons/fa";
 import asxtickers from "./asxtickers.ts";
+import { FaCircleInfo } from "react-icons/fa6";
 
 interface StockData {
   name: string;
@@ -177,8 +178,17 @@ const DashboardScreen = () => {
 
   return (
     <section id="performance">
-      <header className=" ">
-        <h2 className="p-6">Performance</h2>
+      <header className="w-2/3 p-6">
+        <h2 className="font-bold text-myDarkPurple">Your Dashboard</h2>
+        <div className="flex items-start gap-2">
+          <FaCircleInfo className="size-44 text-myDarkPurple lg:size-12" />
+          <p>
+            Use our dashboard to guide you in understanding how investing works
+            in Australia. Use the search bar to find an ASX listed share that
+            you're interested in to see how it's performing. View the best
+            performing share of the day and year below.
+          </p>
+        </div>
       </header>
       <section className="m-4 rounded border border-solid bg-purple-200  shadow">
         <section className=" flex flex-row flex-wrap items-center justify-center text-center">
