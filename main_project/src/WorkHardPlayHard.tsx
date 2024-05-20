@@ -1,12 +1,23 @@
-import { FaBriefcase } from "react-icons/fa";
-import { FaMasksTheater } from "react-icons/fa6";
+import { FaBriefcase, FaStreetView } from "react-icons/fa";
+import {
+  FaEarthAfrica,
+  FaMasksTheater,
+  FaMoneyBillTrendUp,
+} from "react-icons/fa6";
 import React, { useState } from "react";
 import melbland from "./melbland.jpg";
 import { Link } from "react-router-dom";
+import { BiSolidBank, BiSolidParty } from "react-icons/bi";
+import { BsSuitcaseLgFill } from "react-icons/bs";
 
 interface Props {
   title: string;
-  features: { title: string; description: string; link: string }[];
+  features: {
+    title: string;
+    description: string;
+    link: string;
+    icon: React.ReactNode;
+  }[];
   img: string;
 }
 const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
@@ -24,27 +35,10 @@ const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
           <Link
             to={props.features[0].link}
             onClick={() => window.scrollTo(0, 0)}
-            className=" active rounded-xl p-4 text-start hover:bg-purple-800  md:p-5"
+            className=" active rounded-xl p-4 text-start hover:bg-purple-800 "
           >
             <span className="flex">
-              <svg
-                className=" mt-2 size-6 flex-shrink-0  text-neutral-200 md:size-7"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z" />
-                <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z" />
-                <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z" />
-                <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z" />
-                <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z" />
-              </svg>
+              <div className=" text-purple-500">{props.features[0].icon}</div>
               <span className="ms-6 grow">
                 <span className=" block text-lg font-semibold  text-neutral-200">
                   {props.features[0].title}
@@ -61,21 +55,7 @@ const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
             className=" rounded-xl p-4 text-start  hover:bg-purple-800 md:p-5"
           >
             <span className="flex">
-              <svg
-                className=" mt-2 size-6 flex-shrink-0  text-neutral-200 md:size-7"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m12 14 4-4" />
-                <path d="M3.34 19a10 10 0 1 1 17.32 0" />
-              </svg>
+              <div>{props.features[1].icon}</div>
               <span className="ms-6 grow">
                 <span className=" block text-lg font-semibold  text-neutral-200">
                   {props.features[1].title}
@@ -92,24 +72,7 @@ const BusinessOrPleasure: React.FC<Props> = (props: Props) => (
             className=" rounded-xl p-4 text-start hover:bg-purple-800 md:p-5"
           >
             <span className="flex">
-              <svg
-                className=" mt-2 size-6 flex-shrink-0  text-neutral-200 md:size-7"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-                <path d="M5 3v4" />
-                <path d="M19 17v4" />
-                <path d="M3 5h4" />
-                <path d="M17 19h4" />
-              </svg>
+              <div>{props.features[2].icon}</div>
               <span className="ms-6 grow">
                 <span className=" block text-lg font-semibold  text-neutral-200">
                   {props.features[2].title}
@@ -206,18 +169,39 @@ const WorkHardPlayHard = () => {
       {
         title: "Explore The Different Cultures in Victoria",
         link: "/cultures",
+        icon: (
+          <FaEarthAfrica
+            className=" mt-2 size-6 flex-shrink-0  text-purple-400 md:size-7"
+            width={24}
+            height={24}
+          />
+        ),
         description:
           "Embark on a journey through Victoria's vibrant multicultural landscape, uncovering the essence of the top six cultural communities that shape the state's identity.",
       },
       {
         title: "Suburb Safari Interactive Exploration",
         link: "/explore",
+        icon: (
+          <FaStreetView
+            className=" mt-2 size-6 flex-shrink-0  text-purple-400 md:size-7"
+            width={24}
+            height={24}
+          />
+        ),
         description:
           "Navigate Victoria's diverse suburbs and unearth hidden treasures with our interactive quiz, tailored to guide you through multicultural neighborhoods and enrich your city adventures.",
       },
       {
         title: "Festival Fiesta: Cultural Celebrations Unveiled",
         link: "/festivals",
+        icon: (
+          <BiSolidParty
+            className=" mt-2 size-6 flex-shrink-0  text-purple-400 md:size-7"
+            width={24}
+            height={24}
+          />
+        ),
         description:
           "Delve into the heart of cultural festivities with our comprehensive guide to the top six migrant countries' celebrations in Victoria, ensuring you never miss a beat of the vibrant festival scene.",
       },
@@ -231,18 +215,39 @@ const WorkHardPlayHard = () => {
       {
         title: "Banking Basics",
         link: "/finance/rates",
+        icon: (
+          <BiSolidBank
+            className=" mt-2 size-6 flex-shrink-0  text-purple-400 md:size-7"
+            width={24}
+            height={24}
+          />
+        ),
         description:
           "Navigate Australia's banking landscape with confidence. Learn about the top banks, compare interest rates, and discover which institutions best suit your financial needs.",
       },
       {
         title: "Supercharge Your Super and Investments",
         link: "/finance/super",
+        icon: (
+          <FaMoneyBillTrendUp
+            className=" mt-2 size-6 flex-shrink-0  text-purple-400 md:size-7"
+            width={24}
+            height={24}
+          />
+        ),
         description:
           "Maximize your financial potential with insights into superannuation and investment strategies. Access an investment dashboard and gain fundamental knowledge to secure your financial future.",
       },
       {
         title: "Unlocking the Australian Job Market",
         link: "/jobs",
+        icon: (
+          <BsSuitcaseLgFill
+            className=" mt-2 size-6 flex-shrink-0  text-purple-400 md:size-7"
+            width={24}
+            height={24}
+          />
+        ),
         description:
           "Uncover the secrets of the Australian job market. From understanding work culture to securing employment, equip yourself with the tools and steps needed to thrive in your career Down Under.",
       },
@@ -282,7 +287,7 @@ const WorkHardPlayHard = () => {
               <div className="flex justify-center  pt-4">
                 <div className="inline-flex rounded-full border-2 border-gray-200 bg-gray-200  text-sm leading-none text-gray-500">
                   <button
-                    className="inline-flex items-center rounded-l-full px-4 py-2 transition-colors duration-300 ease-in hover:text-blue-400 focus:rounded-full focus:bg-white focus:text-blue-400 focus:outline-none"
+                    className="inline-flex items-center rounded-l-full px-4 py-2 transition-colors duration-300 ease-in hover:text-blue-400 focus:rounded-full focus:bg-purple-400 focus:text-blue-100 focus:outline-none"
                     id="grid"
                     onClick={() => setSelected(festivalData)}
                     autoFocus={true}
@@ -295,7 +300,7 @@ const WorkHardPlayHard = () => {
                     <span>Cultural Insights</span>
                   </button>
                   <button
-                    className="inline-flex items-center rounded-r-full px-4 py-2 transition-colors duration-300 ease-in hover:text-blue-400 focus:rounded-full focus:bg-white focus:text-blue-400   focus:outline-none "
+                    className="inline-flex items-center rounded-r-full px-4 py-2 transition-colors duration-300 ease-in hover:text-blue-400 focus:rounded-full focus:bg-purple-400 focus:text-blue-100   focus:outline-none "
                     onClick={() => setSelected(financeData)}
                   >
                     <FaBriefcase
