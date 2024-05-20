@@ -4,13 +4,11 @@ import {
   CartesianGrid,
   Label,
   Legend,
-  Line,
-  LineChart,
-  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
+import figure2 from "../assets/Figure_2_transparent.png";
 
 const tickFormatter = (value: string) => {
   const limit = 20; // put your maximum character
@@ -879,52 +877,6 @@ const JobsInfo = () => {
               Victoria's employment landscape, empowering you to make informed
               decisions about your career journey.
             </p>
-            <div className="h-96 w-128">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart
-                  width={500}
-                  height={300}
-                  data={data.job1_participationRate}
-                  margin={{
-                    top: 5,
-                    right: 30,
-                    left: 0,
-                    bottom: 5,
-                  }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="year">
-                    <Label
-                      className="text-black"
-                      value="Figure 1: Participation and unemployment rates Victoria(2013-2023)"
-                      offset={-3}
-                      position="insideBottom"
-                    />
-                  </XAxis>
-                  <YAxis yAxisId="left" domain={["auto", "auto"]} />
-                  <YAxis
-                    yAxisId="right"
-                    orientation="right"
-                    domain={["auto", "auto"]}
-                  />
-                  <Tooltip />
-                  <Legend />
-                  <Line
-                    yAxisId="left"
-                    type="monotone"
-                    dataKey="participationRate"
-                    stroke="#8884d8"
-                    activeDot={{ r: 8 }}
-                  />
-                  <Line
-                    yAxisId="right"
-                    type="monotone"
-                    dataKey="unemploymentRate"
-                    stroke="#82ca9d"
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
             <h3 className="my-5 text-2xl font-bold">
               Industry Evolution: Exploring Employment Shifts Across Victoria
             </h3>
@@ -938,37 +890,7 @@ const JobsInfo = () => {
               skills and aspirations can thrive in Victoria's diverse job
               market.
             </p>
-            <div className="h-96 w-2/3">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  width={500}
-                  height={500}
-                  data={data.job7_changeByIndustry}
-                  layout={"vertical"}
-                  margin={{ top: 10, right: 30, left: 0, bottom: 20 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis type="number" dataKey="victoriaChange">
-                    <Label
-                      value="Figure 2: (change in employment by industry in Victoria (2013-2023))"
-                      offset={-3}
-                      position="insideBottom"
-                    />
-                  </XAxis>
-                  <YAxis
-                    dataKey="industry"
-                    type="category"
-                    textAnchor="end"
-                    width={200}
-                    interval={0}
-                    tickFormatter={tickFormatter}
-                  />
-                  <Tooltip formatter={(value) => `${value.toString()}`} />
-                  <Legend />
-                  <Bar dataKey="victoriaChange" fill="#8884d8" />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
+            <img src={figure2} alt="figure 2" className="w-10/12" />
             <h3 className="my-5 text-2xl font-bold">
               Forecasting Future Careers: Spotlight on Victoria's Top 20
               Occupations
